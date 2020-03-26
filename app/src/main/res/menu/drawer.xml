@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Home"
+        android:id="@+id/home1"/>
+
+    <item
+        android:title="Check In - Out"
+        android:id="@+id/checkinout"/>
+
+    <item
+        android:title="Booking Room"
+        android:id="@+id/bookingroom"/>
+
+    <item
+        android:title="System Manager"
+        android:id="@+id/systemmanager"/>
+
+</menu>
