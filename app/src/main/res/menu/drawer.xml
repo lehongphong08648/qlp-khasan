@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="Home"
-        android:id="@+id/home1"/>
+        android:id="@+id/home1"
+        android:icon="@drawable/icon_house"
+        android:title="Home" />
 
     <item
-        android:title="Check In - Out"
-        android:id="@+id/checkinout"/>
+        android:id="@+id/checkinout"
+        android:icon="@drawable/icon_bedroom"
+        android:title="Check In - Out" />
 
     <item
-        android:title="Booking Room"
-        android:id="@+id/bookingroom"/>
+        android:id="@+id/bookingroom"
+        android:icon="@drawable/ic_alarm"
+        android:title="Booking Room" />
 
     <item
-        android:title="System Manager"
-        android:id="@+id/systemmanager"/>
+        android:id="@+id/systemmanager"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="System Manager" />
 
 </menu>

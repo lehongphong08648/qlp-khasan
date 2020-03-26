@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/waitingRoom"
+        android:icon="@drawable/icon_key"
+        android:title="Waiting Room" />
+    <item
+        android:id="@+id/roomRented"
+        android:icon="@drawable/icon_bedroom"
+        android:title="Room Rented" />
+    <item
+        android:id="@+id/clean"
+        android:icon="@drawable/icon_staff"
+        android:title="Clean" />
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/icon_history"
+        android:title="History" />
+</menu>
