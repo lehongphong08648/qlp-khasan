@@ -1,4 +1,4 @@
-package com.example.projectandroid.ui;
+package com.example.projectandroid.ui.checkInOut;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.projectandroid.R;
 
-public class FragmentSystemManager extends Fragment {
+public class FragmentWaitingRoom extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_system_manager, container, false);
+        View view = inflater.inflate(R.layout.fragment_check_in_out,container,false);
 
 
         return view;
