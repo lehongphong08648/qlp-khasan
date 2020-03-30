@@ -17,6 +17,7 @@ import com.example.projectandroid.MainActivity;
 import com.example.projectandroid.R;
 import com.example.projectandroid.ui.bookingRoom.BookingRoomActivity;
 import com.example.projectandroid.ui.systemManager.SystemManagerActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class CheckInOutActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,6 +25,7 @@ public class CheckInOutActivity extends AppCompatActivity implements NavigationV
     ActionBarDrawerToggle drawerToggle;
     Toolbar toolbar;
     NavigationView navigationView;
+    BottomNavigationView bottomNavigationView;
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -36,6 +38,7 @@ public class CheckInOutActivity extends AppCompatActivity implements NavigationV
 
         drawerLayout = findViewById(R.id.drawerCheckinout);
         navigationView = findViewById(R.id.nagationView);
+        bottomNavigationView = findViewById(R.id.bottomView);
         navigationView.setNavigationItemSelectedListener(this);
 
         drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar, R.string.open,R.string.close);
@@ -47,6 +50,7 @@ public class CheckInOutActivity extends AppCompatActivity implements NavigationV
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container_fragment,new FragmentWaitingRoom());
         fragmentTransaction.commit();
+
     }
 
     @Override
@@ -67,5 +71,34 @@ public class CheckInOutActivity extends AppCompatActivity implements NavigationV
             startActivity(new Intent(CheckInOutActivity.this, SystemManagerActivity.class));
         }
         return true;
+    }
+
+    public void getSelectedBottomView(){
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.waitingRoom){
+                    fragmentManager =getSupportFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.container_fragment,new FragmentWaitingRoom());
+                    fragmentTransaction.commit();
+                }
+
+                if (item.getItemId() == R.id.roomRented){
+                    fragmentManager =getSupportFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.container_fragment,new FragmentRentectRoom());
+                    fragmentTransaction.commit();
+                }
+
+                if (item.getItemId() == R.id.cleanRoom){
+                    fragmentManager =getSupportFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.container_fragment,new FragmentCleanRoom());
+                    fragmentTransaction.commit();
+                }
+                return true;
+            }
+        });
     }
 }

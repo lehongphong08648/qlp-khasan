@@ -2,18 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/waitingRoom"
-        android:icon="@drawable/icon_key"
+        android:icon="@drawable/ic_vpn_key_black_24dp"
         android:title="Waiting Room" />
     <item
         android:id="@+id/roomRented"
-        android:icon="@drawable/icon_bedroom"
+        android:icon="@drawable/ic_airline_seat_individual_suite_black_24dp"
         android:title="Room Rented" />
     <item
-        android:id="@+id/clean"
+        android:id="@+id/cleanRoom"
         android:icon="@drawable/icon_staff"
         android:title="Clean" />
-    <item
-        android:id="@+id/history"
-        android:icon="@drawable/icon_history"
-        android:title="History" />
 </menu>

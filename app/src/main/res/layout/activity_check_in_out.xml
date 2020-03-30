@@ -31,4 +31,9 @@
         android:layout_gravity="start"
         />
 
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/bottom_view"
+        />
 </androidx.drawerlayout.widget.DrawerLayout>

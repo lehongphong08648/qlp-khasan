@@ -11,14 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.projectandroid.R;
 
-public class FragmentWaitingRoom extends Fragment {
+public class FragmentCleanRoom extends Fragment {
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_waiting_room,container,false);
-
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_clean_room,container,false);
         return view;
     }
 }
