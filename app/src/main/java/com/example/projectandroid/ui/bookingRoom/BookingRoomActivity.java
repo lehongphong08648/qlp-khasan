@@ -48,7 +48,7 @@ public class BookingRoomActivity extends AppCompatActivity implements Navigation
 
         fragmentManager =getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.container_fragment,new FragmentBookingRoom());
+        fragmentTransaction.replace(R.id.container_fragment,new FragmentBookingRoom());
         fragmentTransaction.commit();
 
     }

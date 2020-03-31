@@ -14,8 +14,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.projectandroid.ui.bookingRoom.BookingRoomActivity;
+import com.example.projectandroid.ui.bookingRoom.FragmentBookingRoom;
 import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
 import com.example.projectandroid.ui.FragmentHome;
+import com.example.projectandroid.ui.systemManager.FragmentSystemManager;
 import com.example.projectandroid.ui.systemManager.SystemManagerActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -48,7 +50,7 @@ FragmentTransaction fragmentTransaction;
 
         fragmentManager =getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.container_fragment,new FragmentHome());
+        fragmentTransaction.replace(R.id.container_fragment,new FragmentHome());
         fragmentTransaction.commit();
 
     }
@@ -57,7 +59,7 @@ FragmentTransaction fragmentTransaction;
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
     drawerLayout.closeDrawer(GravityCompat.START);
         if (item.getItemId() == R.id.home1){
-
+            startActivity(new Intent(MainActivity.this, MainActivity.class));
         }
 
         if (item.getItemId() == R.id.checkinout){

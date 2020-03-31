@@ -14,10 +14,11 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectandroid.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class FragmentPrice extends Fragment {
 
-    Button fragmentAddPrice;
+    FloatingActionButton fragmentAddPrice;
     RecyclerView lv_price;
 
     FragmentManager fragmentManager;
@@ -28,10 +29,7 @@ public class FragmentPrice extends Fragment {
         View view = inflater.inflate(R.layout.fragment_price,container,false);
 
         lv_price = view.findViewById(R.id.lv_price);
-        fragmentAddPrice = view.findViewById(R.id.btn_fragmentAddPrice);
-
-
-
+        fragmentAddPrice = view.findViewById(R.id.btn_frm_add_price);
 
         fragmentAddPrice.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home1"
-        android:icon="@drawable/icon_house"
+        android:icon="@drawable/ic_account_balance_black_24dp"
         android:title="Home" />
 
     <item
         android:id="@+id/checkinout"
-        android:icon="@drawable/icon_bedroom"
+        android:icon="@drawable/ic_airline_seat_individual_suite_black_24dp"
         android:title="Check In - Out" />
 
     <item

@@ -77,6 +77,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
+            android:background="@drawable/round_buttom"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="@color/colorWhile"
             android:text="Add" />
 
         <Button
@@ -85,6 +88,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_weight="1"
+            android:background="@drawable/round_buttom"
+            android:backgroundTint="@color/colorWhile"
+            android:textColor="@color/colorAccent"
             android:text="Cancel" />
 
     </LinearLayout>

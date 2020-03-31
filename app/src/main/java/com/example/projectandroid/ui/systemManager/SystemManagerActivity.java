@@ -48,7 +48,7 @@ public class SystemManagerActivity extends AppCompatActivity implements Navigati
 
         fragmentManager =getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.container_fragment,new FragmentSystemManager());
+        fragmentTransaction.replace(R.id.container_fragment,new FragmentSystemManager());
         fragmentTransaction.commit();
 
     }

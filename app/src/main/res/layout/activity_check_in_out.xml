@@ -13,13 +13,7 @@
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/drawer_toolbar"/>
-
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/content_main"/>
-
+        layout="@layout/drawer_toolbar_check_in_out"/>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
@@ -31,9 +25,4 @@
         android:layout_gravity="start"
         />
 
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/bottom_view"
-        />
 </androidx.drawerlayout.widget.DrawerLayout>

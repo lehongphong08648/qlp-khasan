@@ -34,7 +34,7 @@ public class FragmentSystemManager extends Fragment {
         room = view.findViewById(R.id.room);
         statistical = view.findViewById(R.id.statistical);
         history = view.findViewById(R.id.history);
-        staff = view.findViewById(R.id.staff);
+        staff = view.findViewById(R.id.user);
 
         price.setOnClickListener(new View.OnClickListener() {
             @Override

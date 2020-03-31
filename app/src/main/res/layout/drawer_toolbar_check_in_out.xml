@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+<androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:id="@+id/toolbar_check_in_out"
+    android:background="@color/colorAccent"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    />
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        android:id="@+id/tablayout"
+        >
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/waitingitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_vpn_key_black_24dp"
+            android:text="Waiting Rom"
+            android:backgroundTint="@color/colorAccent"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/rentectitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_airline_seat_individual_suite_black_24dp"
+            android:text="Rentect Room"
+            android:backgroundTint="@color/colorAccent"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/cleanitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_notifications_active_black_24dp"
+            android:text="Clean Room"
+            android:backgroundTint="@color/colorAccent"
+            />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>
