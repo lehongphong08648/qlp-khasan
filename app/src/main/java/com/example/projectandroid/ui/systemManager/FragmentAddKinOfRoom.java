@@ -50,7 +50,7 @@ public class FragmentAddKinOfRoom extends Fragment {
             }
         });
 
-        //hủy công việc thêm loại phòng trở về fragment laoi phòng
+        //hủy công việc thêm loại phòng trở về fragment loại phòng
         btn_cancel_kindOfRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
