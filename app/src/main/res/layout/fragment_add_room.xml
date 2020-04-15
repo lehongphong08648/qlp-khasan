@@ -16,37 +16,23 @@
         android:layout_marginBottom="16dp">
 
         <EditText
-            android:id="@+id/edt_nameRoom"
+            android:id="@+id/edt_maPhong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name Room"
+            android:hint="Mã Phòng"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kind Of Room"
+        android:text="Mã Thể Lọai Phòng"
         android:textColor="@color/colorAccent"
         android:layout_marginBottom="6dp"
         />
 
     <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/spKindOfRoom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Price"
-        android:textColor="@color/colorAccent"
-        android:layout_marginBottom="6dp"
-        />
-
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/spPrice"
+        android:id="@+id/spMaTlp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp" />
@@ -58,10 +44,37 @@
         android:layout_marginBottom="16dp">
 
         <EditText
-            android:id="@+id/edt_describe_room"
+            android:id="@+id/edt_tang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Describe Room"
+            android:hint="Tầng"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/edt_dvKhac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Dịch Vụ Khách"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/edt_moTaPhong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mô Tả"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
