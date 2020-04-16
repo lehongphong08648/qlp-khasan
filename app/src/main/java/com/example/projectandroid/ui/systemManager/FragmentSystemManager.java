@@ -28,20 +28,12 @@ public class FragmentSystemManager extends Fragment {
         View view = inflater.inflate(R.layout.fragment_system_manager,container,false);
 
 
-
-        price = view.findViewById(R.id.price);
         kindofroom = view.findViewById(R.id.kindofRoom);
         room = view.findViewById(R.id.room);
         statistical = view.findViewById(R.id.statistical);
         history = view.findViewById(R.id.history);
         staff = view.findViewById(R.id.user);
 
-        price.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragment(new FragmentPrice());
-            }
-        });
 
         kindofroom.setOnClickListener(new View.OnClickListener() {
             @Override

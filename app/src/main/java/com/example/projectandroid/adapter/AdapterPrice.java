@@ -14,21 +14,20 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectandroid.R;
-import com.example.projectandroid.model.Price;
 import com.example.projectandroid.ui.systemManager.FragmentPrice;
 
 import java.util.ArrayList;
 
 public class AdapterPrice extends RecyclerView.Adapter<AdapterPrice.ViewHolder> {
 
-    ArrayList<Price> priceArrayList;
-    Context context;
-    Price price;
+//    ArrayList<Price> priceArrayList;
+//    Context context;
+//    Price price;
 
-    public AdapterPrice(ArrayList<Price> priceArrayList, Context context) {
-        this.priceArrayList = priceArrayList;
-        this.context = context;
-    }
+//    public AdapterPrice(ArrayList<Price> priceArrayList, Context context) {
+//        this.priceArrayList = priceArrayList;
+//        this.context = context;
+//    }
 
     @NonNull
     @Override
@@ -40,12 +39,12 @@ public class AdapterPrice extends RecyclerView.Adapter<AdapterPrice.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        price =(Price) priceArrayList.get(position);
+//        price =(Price) priceArrayList.get(position);
         //phải thêm cả tên cách tính tiền nữa(để dẽ nhận bết hơn
 //            holder.tv_price_name.setText(price.getNamePrice);
-        holder.tv_price_firt_hour.setText(String.valueOf(price.getOneDay()));
-        holder.tv_price_later_hour.setText(String.valueOf(price.getTwoHourFirst()));
-        holder.tv_price_one_day.setText(String.valueOf(price.getOneDay()));
+//        holder.tv_price_firt_hour.setText(String.valueOf(price.getOneDay()));
+//        holder.tv_price_later_hour.setText(String.valueOf(price.getTwoHourFirst()));
+//        holder.tv_price_one_day.setText(String.valueOf(price.getOneDay()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +56,8 @@ public class AdapterPrice extends RecyclerView.Adapter<AdapterPrice.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return priceArrayList.size();
+//        return priceArrayList.size();
+        return 1;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -25,13 +25,36 @@
             android:padding="16dp"
             android:gravity="left"
             >
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_waitingRoom"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                app:menu="@menu/waiting_room"
-                app:subtitle="Name Room" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/tv_tenPhong_phongCho"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Tên Phòng"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/tvOptionDigit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#8942;"
+                    android:layout_weight="4"
+                    android:textAppearance="?android:textAppearanceLarge"
+
+                    />
+
+            </LinearLayout>
+
+           
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Waiting Room"
-                    android:textSize="12sp"
+                    android:textAppearance="?android:textAppearanceSmall"
                     />
 
             </LinearLayout>
@@ -71,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:text="Tidied up"
                     android:id="@+id/tv_status_waitingRoom"
-                    android:textSize="12sp"
+                    android:textAppearance="?android:textAppearanceSmall"
                     />
 
             </LinearLayout>
