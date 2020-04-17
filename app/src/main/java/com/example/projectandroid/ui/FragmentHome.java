@@ -1,5 +1,6 @@
 package com.example.projectandroid.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.projectandroid.R;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.listener.OnChartGestureListener;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+
+import java.util.ArrayList;
 
 public class FragmentHome extends Fragment {
 
     TextView tv_home_hireOfDay, tv_home_waitingRoom, tv_home_rectectRoom, tv_home_cleanRoom;
+    private LineChart mLineChart;
+    private static final String TAG = "home";
+
 
     @Nullable
     @Override
@@ -28,6 +41,30 @@ public class FragmentHome extends Fragment {
         tv_home_waitingRoom = view.findViewById(R.id.tv_home_waitingRoom);
         tv_home_rectectRoom = view.findViewById(R.id.tv_home_rentectRoom);
         tv_home_cleanRoom = view.findViewById(R.id.tv_home_cleanRoom);
+
+        mLineChart =(LineChart) view.findViewById(R.id.lineChart);
+//        mLineChart.setOnChartGestureListener((OnChartGestureListener) getContext());
+//        mLineChart.setOnChartValueSelectedListener((OnChartValueSelectedListener) getContext());
+        mLineChart.setDragEnabled(true);
+        mLineChart.setScaleEnabled(false);
+
+        ArrayList<Entry> yValue = new ArrayList<>();
+        yValue.add(new Entry(0,60f));
+        yValue.add(new Entry(1,20f));
+        yValue.add(new Entry(2,50f));
+        yValue.add(new Entry(3,90f));
+        yValue.add(new Entry(4,10f));
+        yValue.add(new Entry(5,40f));
+        yValue.add(new Entry(6,30f));
+        LineDataSet set1 = new LineDataSet(yValue,"Số lượng phòng thuê");
+        set1.setFillAlpha(110);
+        set1.setColor(Color.RED);
+
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(set1);
+
+        LineData data = new LineData(dataSets);
+        mLineChart.setData(data);
 
         return view;
     }

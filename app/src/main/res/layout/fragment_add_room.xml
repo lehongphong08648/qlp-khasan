@@ -79,15 +79,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/btn_add_Room"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhile"
-        android:text="Add"
+        android:layout_marginBottom="@dimen/margin_bottom_edt"
         android:background="@drawable/round_buttom"
         android:backgroundTint="@color/colorAccent"
-        android:id="@+id/btn_add_Room"
-        android:layout_marginBottom="@dimen/margin_bottom_edt"
-        />
+        android:text="Add"
+        android:textColor="@color/colorWhile" />
 
     <Button
         android:layout_width="match_parent"

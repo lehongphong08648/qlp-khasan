@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud"
-    android:paddingLeft="@dimen/padding"
-    android:paddingTop="70dp"
-    android:paddingRight="@dimen/padding"
-    android:paddingBottom="@dimen/padding">
+    android:padding="@dimen/padding"
+    android:layout_marginTop="?actionBarSize"
+    android:orientation="vertical"
+    >
 
     <GridLayout
         android:layout_width="match_parent"
@@ -227,4 +227,20 @@
 
     </GridLayout>
 
-</ScrollView>
+    <TextView
+        android:layout_marginTop="@dimen/margin_22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buổi đồ thông kê sô phòng thuê trong tuần"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="@color/colorAccent"
+        />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/lineChart"
+        android:layout_marginTop="@dimen/margin_bottom_edt"
+        />
+
+</LinearLayout>
