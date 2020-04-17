@@ -18,26 +18,26 @@ public class KorRepo {
     }
 
     public void insert(KindOfRoom kor) {
-        new InsertClientAsyncTask(korDAO).execute(kor);
+        new InsertKORAsyncTask(korDAO).execute(kor);
     }
 
     public void update(KindOfRoom kor) {
-        new UpdateClientAsyncTask(korDAO).execute(kor);
+        new UpdateKORAsyncTask(korDAO).execute(kor);
     }
 
     public void delete(KindOfRoom kor) {
-        new DeleteClientAsyncTask(korDAO).execute(kor);
+        new DeleteKORAsyncTask(korDAO).execute(kor);
     }
 
     public List<KindOfRoom> getAll() {
         return korDAO.getAllKindOfRoom();
     }
 
-    private static class InsertClientAsyncTask extends AsyncTask<KindOfRoom, Void, Void> {
+    private static class InsertKORAsyncTask extends AsyncTask<KindOfRoom, Void, Void> {
 
         KindOfRoomDAO korDAO;
 
-        InsertClientAsyncTask(KindOfRoomDAO korDAO) {
+        InsertKORAsyncTask(KindOfRoomDAO korDAO) {
             this.korDAO = korDAO;
         }
 
@@ -50,11 +50,11 @@ public class KorRepo {
         }
     }
 
-    private static class UpdateClientAsyncTask extends AsyncTask<KindOfRoom, Void, Void> {
+    private static class UpdateKORAsyncTask extends AsyncTask<KindOfRoom, Void, Void> {
 
         KindOfRoomDAO korDAO;
 
-        UpdateClientAsyncTask(KindOfRoomDAO korDAO) {
+        UpdateKORAsyncTask(KindOfRoomDAO korDAO) {
             this.korDAO = korDAO;
         }
 
@@ -67,11 +67,11 @@ public class KorRepo {
 
     }
 
-    private static class DeleteClientAsyncTask extends AsyncTask<KindOfRoom, Void, Void> {
+    private static class DeleteKORAsyncTask extends AsyncTask<KindOfRoom, Void, Void> {
 
         KindOfRoomDAO korDAO;
 
-        DeleteClientAsyncTask(KindOfRoomDAO korDAO) {
+        DeleteKORAsyncTask(KindOfRoomDAO korDAO) {
             this.korDAO = korDAO;
         }
 

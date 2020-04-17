@@ -14,15 +14,24 @@ public class KindOfRoom {
     @ColumnInfo(name = "nameKOR")
     private String name;
 
-    @ColumnInfo(name = "priceKOR")
-    private float price;
+    @ColumnInfo(name = "priceTwoHourFirst")
+    private float priceTwoHourFirst;
+
+    @ColumnInfo(name = "priceOneHour")
+    private float priceOneHour;
+
+    @ColumnInfo(name = "priceOneDay")
+    private float priceOneDay;
 
     @ColumnInfo(name = "des")
     private String describe;
 
-    public KindOfRoom(String name, float price, String describe) {
+    public KindOfRoom(String id, String name, float priceTwoHourFirst, float priceOneHour, float priceOneDay, String describe) {
+        this.id = id;
         this.name = name;
-        this.price = price;
+        this.priceTwoHourFirst = priceTwoHourFirst;
+        this.priceOneHour = priceOneHour;
+        this.priceOneDay = priceOneDay;
         this.describe = describe;
     }
 
@@ -34,8 +43,16 @@ public class KindOfRoom {
         return name;
     }
 
-    public float getPrice() {
-        return price;
+    public float getPriceTwoHourFirst() {
+        return priceTwoHourFirst;
+    }
+
+    public float getPriceOneHour() {
+        return priceOneHour;
+    }
+
+    public float getPriceOneDay() {
+        return priceOneDay;
     }
 
     public String getDescribe() {

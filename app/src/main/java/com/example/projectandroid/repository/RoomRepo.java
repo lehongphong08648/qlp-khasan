@@ -19,26 +19,26 @@ public class RoomRepo {
     }
 
     public void insert(Rooms room) {
-        new InsertUserAsyncTask(roomDAO).execute(room);
+        new InsertRoomAsyncTask(roomDAO).execute(room);
     }
 
     public void update(Rooms room) {
-        new UpdateUserAsyncTask(roomDAO).execute(room);
+        new UpdateRoomAsyncTask(roomDAO).execute(room);
     }
 
     public void delete(Rooms room) {
-        new DeleteUserAsyncTask(roomDAO).execute(room);
+        new DeleteRoomAsyncTask(roomDAO).execute(room);
     }
 
     public List<Rooms> getAll() {
         return roomDAO.getAllRoom();
     }
 
-    private static class InsertUserAsyncTask extends AsyncTask<Rooms, Void, Void> {
+    private static class InsertRoomAsyncTask extends AsyncTask<Rooms, Void, Void> {
 
         RoomDAO roomDAO;
 
-        InsertUserAsyncTask(RoomDAO roomDAO) {
+        InsertRoomAsyncTask(RoomDAO roomDAO) {
             this.roomDAO = roomDAO;
         }
 
@@ -52,11 +52,11 @@ public class RoomRepo {
 
     }
 
-    private static class UpdateUserAsyncTask extends AsyncTask<Rooms, Void, Void> {
+    private static class UpdateRoomAsyncTask extends AsyncTask<Rooms, Void, Void> {
 
         RoomDAO roomDAO;
 
-        UpdateUserAsyncTask(RoomDAO roomDAO) {
+        UpdateRoomAsyncTask(RoomDAO roomDAO) {
             this.roomDAO = roomDAO;
         }
 
@@ -69,11 +69,11 @@ public class RoomRepo {
 
     }
 
-    private static class DeleteUserAsyncTask extends AsyncTask<Rooms, Void, Void> {
+    private static class DeleteRoomAsyncTask extends AsyncTask<Rooms, Void, Void> {
 
         RoomDAO roomDAO;
 
-        DeleteUserAsyncTask(RoomDAO roomDAO) {
+        DeleteRoomAsyncTask(RoomDAO roomDAO) {
             this.roomDAO = roomDAO;
         }
 
