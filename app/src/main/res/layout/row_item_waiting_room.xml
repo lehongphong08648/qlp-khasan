@@ -22,7 +22,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
+            android:padding="@dimen/padding"
             android:gravity="left"
             >
             <LinearLayout
@@ -62,10 +62,10 @@
                 >
 
                 <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
+                    android:layout_width="@dimen/padding"
+                    android:layout_height="@dimen/padding"
                     android:src="@drawable/ic_directions_run_black_24dp"
-                    android:layout_marginRight="6dp"
+                    android:layout_marginRight="@dimen/margin_bottom_edt"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,10 +83,10 @@
                 >
 
                 <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
+                    android:layout_width="@dimen/padding"
+                    android:layout_height="@dimen/padding"
                     android:src="@drawable/ic_done_black_24dp"
-                    android:layout_marginRight="6dp"
+                    android:layout_marginRight="@dimen/margin_bottom_edt"
                     android:id="@+id/img_status_waitingRoom"
                     />
                 <TextView

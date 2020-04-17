@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.Login"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="@dimen/padding"
     android:gravity="center"
     >
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/height_logo"
         android:src="@drawable/logoandorid"
         android:layout_marginBottom="22dp"
         />
@@ -21,26 +21,26 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="@dimen/margin_bottom_edt">
 
         <EditText
             android:id="@+id/edt_tenND_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="@dimen/padding"
             android:hint="Tên Người Dùng" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="@dimen/margin_22dp"
         >
 
         <EditText
             android:id="@+id/edt_matKhau_login"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:hint="Mật Khẩu" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -54,7 +54,7 @@
             android:id="@+id/btn_dangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="@dimen/margin_button_left_right"
             android:layout_weight="1"
             android:background="@drawable/round_buttom"
             android:backgroundTint="@color/colorAccent"
@@ -65,7 +65,7 @@
             android:id="@+id/btn_dangKy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="@dimen/margin_button_left_right"
             android:layout_weight="1"
             android:background="@drawable/round_buttom"
             android:backgroundTint="@color/colorWhile"

@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
+    android:paddingLeft="@dimen/padding"
     android:paddingTop="70dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
+    android:paddingRight="@dimen/padding"
+    android:paddingBottom="@dimen/padding"
     tools:context=".ui.systemManager.FragmentAddRoom">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/padding">
 
         <EditText
             android:id="@+id/edt_maPhong"
@@ -28,20 +28,20 @@
         android:layout_height="wrap_content"
         android:text="Mã Thể Lọai Phòng"
         android:textColor="@color/colorAccent"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="@dimen/margin_bottom_edt"
         />
 
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/spMaTlp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/padding" />
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/padding">
 
         <EditText
             android:id="@+id/edt_tang"
@@ -54,7 +54,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/padding">
 
         <EditText
             android:id="@+id/edt_dvKhac"
@@ -68,7 +68,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/padding">
 
         <EditText
             android:id="@+id/edt_moTaPhong"
@@ -86,7 +86,7 @@
         android:background="@drawable/round_buttom"
         android:backgroundTint="@color/colorAccent"
         android:id="@+id/btn_add_Room"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="@dimen/margin_bottom_edt"
         />
 
     <Button

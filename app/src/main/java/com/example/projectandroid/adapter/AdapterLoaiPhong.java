@@ -34,6 +34,11 @@ List<KindOfRoom> kindOfRooms;
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             //chưa hiểu database lên em chưa ghép đc
         holder.tv_tenTheLoaiPhong.setText(kindOfRooms.get(position).getName());
+        holder.tv_maTheLoaiPhong.setText(kindOfRooms.get(position).getId());
+        holder.tv_gia2hDau.setText(String.valueOf(kindOfRooms.get(position).getPriceTwoHourFirst()));
+        holder.tv_gia1Ngay.setText(String.valueOf(kindOfRooms.get(position).getPriceOneDay()));
+        holder.tv_gia1hTiep.setText(String.valueOf(kindOfRooms.get(position).getPriceOneHour()));
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

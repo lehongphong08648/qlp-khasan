@@ -15,6 +15,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.KindOfRoom;
+import com.example.projectandroid.model.Rooms;
+import com.example.projectandroid.repository.KorRepo;
+import com.example.projectandroid.repository.RoomRepo;
 
 public class FragmentAddKinOfRoom extends Fragment {
 
@@ -43,10 +47,28 @@ public class FragmentAddKinOfRoom extends Fragment {
         btn_add_kindOfRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nameKindOfRoom = edt_maTlp.getText().toString();
-                String describeKindOfRoom = edt_tentlp.getText().toString();
+                String maTlp = edt_maTlp.getText().toString();
+                String tenTlp = edt_tentlp.getText().toString();
+                String gia2hDau = edt_gia2hDau.getText().toString();
+                String gia1Ngay = edt_gia1Nay.getText().toString();
+                String gia1gioTiep = edt_gia1gioTiep.getText().toString();
+                String moTa = edt_moTa.getText().toString();
 
-                Toast.makeText(getContext(),nameKindOfRoom + " | " + describeKindOfRoom,Toast.LENGTH_SHORT).show();
+                if (!tenTlp.isEmpty() & !gia2hDau.isEmpty() & !gia1Ngay.isEmpty() & !gia1gioTiep.isEmpty() & !moTa.isEmpty()){
+                    KorRepo korRepo = new KorRepo(getContext());
+                    korRepo.insert(new KindOfRoom(tenTlp,Float.parseFloat(gia2hDau),Float.parseFloat(gia1gioTiep),Float.parseFloat(gia1Ngay),moTa));
+                    Toast.makeText(getContext(),"Thêm thể loại phòng thành công",Toast.LENGTH_SHORT).show();
+
+                    edt_maTlp.setText("");
+                    edt_tentlp.setText("");
+                    edt_gia2hDau.setText("");
+                    edt_gia1Nay.setText("");
+                    edt_gia1gioTiep.setText("");
+                    edt_moTa.setText("");
+                }
+
+
+
             }
         });
 

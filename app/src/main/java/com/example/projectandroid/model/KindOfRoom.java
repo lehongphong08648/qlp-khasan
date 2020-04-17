@@ -26,8 +26,7 @@ public class KindOfRoom {
     @ColumnInfo(name = "des")
     private String describe;
 
-    public KindOfRoom(String id, String name, float priceTwoHourFirst, float priceOneHour, float priceOneDay, String describe) {
-        this.id = id;
+    public KindOfRoom( String name, float priceTwoHourFirst, float priceOneHour, float priceOneDay, String describe) {
         this.name = name;
         this.priceTwoHourFirst = priceTwoHourFirst;
         this.priceOneHour = priceOneHour;

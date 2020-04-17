@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
+    android:paddingLeft="@dimen/padding"
     android:paddingTop="70dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp">
+    android:paddingRight="@dimen/padding"
+    android:paddingBottom="@dimen/padding">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/padding">
 
         <EditText
             android:id="@+id/edt_maTlp"
@@ -24,7 +24,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/padding">
 
         <EditText
             android:id="@+id/edt_tenTlp"
@@ -44,8 +44,8 @@
            android:layout_width="match_parent"
            android:layout_weight="1"
            android:layout_height="wrap_content"
-           android:layout_marginBottom="16dp"
-           android:layout_marginRight="5dp"
+           android:layout_marginBottom="@dimen/padding"
+           android:layout_marginRight="@dimen/margin_button_left_right"
            >
 
            <EditText
@@ -62,8 +62,8 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_weight="1"
-           android:layout_marginRight="5dp"
-           android:layout_marginBottom="16dp">
+           android:layout_marginRight="@dimen/margin_button_left_right"
+           android:layout_marginBottom="@dimen/padding">
 
            <EditText
                android:id="@+id/edt_gia1Ngay"
@@ -79,7 +79,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_weight="1"
-           android:layout_marginBottom="16dp">
+           android:layout_marginBottom="@dimen/padding">
 
            <EditText
                android:id="@+id/edt_gia1hTiep"
@@ -96,12 +96,12 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/padding">
 
         <EditText
             android:id="@+id/edt_moTa"
             android:layout_width="match_parent"
-            android:layout_height="98dp"
+            android:layout_height="@dimen/height_moTa"
             android:hint="Mô Tả" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -114,7 +114,7 @@
             android:background="@drawable/round_buttom"
             android:backgroundTint="@color/colorAccent"
             android:textColor="@color/colorWhile"
-            android:layout_marginBottom="6dp"
+            android:layout_marginBottom="@dimen/margin_bottom_edt"
             />
 
         <Button

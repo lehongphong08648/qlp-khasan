@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 
 import com.example.projectandroid.MainActivity;
 import com.example.projectandroid.R;
+import com.example.projectandroid.database.AppDatabase;
 import com.example.projectandroid.ui.FragmentHome;
 import com.example.projectandroid.ui.bookingRoom.BookingRoomActivity;
 import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
@@ -30,12 +32,14 @@ public class SystemManagerActivity extends AppCompatActivity implements Navigati
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_system_manager);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         drawerLayout = findViewById(R.id.drawerSystemManeger);
         navigationView = findViewById(R.id.nagationView);

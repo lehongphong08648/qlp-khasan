@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/padding"
     >
 
     <LinearLayout
@@ -28,7 +28,7 @@
             android:id="@+id/tv_maTheLoaiPhong"
             android:textAppearance="?android:textAppearanceSmall"
             android:textColor="#000000"
-            android:layout_marginLeft="22dp"
+            android:layout_marginLeft="@dimen/margin_22dp"
             />
 
 
@@ -43,9 +43,9 @@
         >
 
         <ImageView
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_marginRight="6dp"
+            android:layout_width="@dimen/padding"
+            android:layout_height="@dimen/padding"
+            android:layout_marginRight="@dimen/margin_bottom_edt"
             android:src="@drawable/money" />
         <TextView
             android:layout_width="wrap_content"
@@ -63,10 +63,10 @@
             >
 
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="@dimen/padding"
+                android:layout_height="@dimen/padding"
                 android:src="@drawable/money"
-                android:layout_marginRight="6dp"
+                android:layout_marginRight="@dimen/margin_bottom_edt"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -85,10 +85,10 @@
             >
 
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="@dimen/padding"
+                android:layout_height="@dimen/padding"
                 android:src="@drawable/money"
-                android:layout_marginRight="6dp"
+                android:layout_marginRight="@dimen/margin_bottom_edt"
                 />
             <TextView
                 android:layout_width="wrap_content"

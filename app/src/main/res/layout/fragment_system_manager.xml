@@ -66,13 +66,13 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="@dimen/padding"
                     android:gravity="center"
                     >
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="@dimen/height_width_img_menu"
+                        android:layout_height="@dimen/height_width_img_menu"
                         android:src="@drawable/home"
                         />
                     <TextView
@@ -102,13 +102,13 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="@dimen/padding"
                     android:gravity="center"
                     >
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="@dimen/height_width_img_menu"
+                        android:layout_height="@dimen/height_width_img_menu"
                         android:src="@drawable/beb"
                         />
                     <TextView
@@ -140,13 +140,13 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="@dimen/padding"
                     android:gravity="center"
                     >
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="@dimen/height_width_img_menu"
+                        android:layout_height="@dimen/height_width_img_menu"
                         android:src="@drawable/history"
                         />
                     <TextView
@@ -176,13 +176,13 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="@dimen/padding"
                     android:gravity="center"
                     >
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="@dimen/height_width_img_menu"
+                        android:layout_height="@dimen/height_width_img_menu"
                         android:src="@drawable/statistical"
                         />
                     <TextView
@@ -212,13 +212,13 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="@dimen/padding"
                     android:gravity="center"
                     >
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="@dimen/height_width_img_menu"
+                        android:layout_height="@dimen/height_width_img_menu"
                         android:src="@drawable/user"
                         />
                     <TextView
