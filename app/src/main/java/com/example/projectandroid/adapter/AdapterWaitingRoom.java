@@ -11,9 +11,13 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.projectandroid.R;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-public class AdapterWaitingRoom extends BaseAdapter {
+import com.example.projectandroid.R;
+import com.example.projectandroid.ui.systemManager.FragmentKindOfRoom;
+
+public class AdapterWaitingRoom extends BaseAdapter{
 
     Context context;
     LayoutInflater layoutInflater;
@@ -74,6 +78,10 @@ public class AdapterWaitingRoom extends BaseAdapter {
                             case R.id.checkIn_waitingRoom:
                                 //chuyển trạng thái phòng từ phòng chờ nhận phòng
                                 Toast.makeText(context,"nhận phòng",Toast.LENGTH_SHORT).show();
+//                                 FragmentManager fragmentManager = getFragmentManager();
+//                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                                fragmentTransaction.replace(R.id.container_fragment,new FragmentKindOfRoom());
+//                                fragmentTransaction.commit();
                                 break;
                             case R.id.clean_waitingRoom:
                                 //dọn phòng khi trả phòng
