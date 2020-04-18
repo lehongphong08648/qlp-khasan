@@ -1,6 +1,10 @@
 package com.example.projectandroid.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,9 +19,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.ui.checkInOut.CheckInActivity;
+import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
 import com.example.projectandroid.ui.systemManager.FragmentKindOfRoom;
 
+
 public class AdapterWaitingRoom extends BaseAdapter{
+
 
     Context context;
     LayoutInflater layoutInflater;
@@ -78,10 +86,13 @@ public class AdapterWaitingRoom extends BaseAdapter{
                             case R.id.checkIn_waitingRoom:
                                 //chuyển trạng thái phòng từ phòng chờ nhận phòng
                                 Toast.makeText(context,"nhận phòng",Toast.LENGTH_SHORT).show();
-//                                 FragmentManager fragmentManager = getFragmentManager();
-//                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                                fragmentTransaction.replace(R.id.container_fragment,new FragmentKindOfRoom());
-//                                fragmentTransaction.commit();
+
+                        Intent intent = new Intent(context,CheckInActivity.class);
+                        /*intent.putExtra() để chuyển thông tin phòng
+                        *
+                        * */
+                        context.startActivity(intent);
+
                                 break;
                             case R.id.clean_waitingRoom:
                                 //dọn phòng khi trả phòng

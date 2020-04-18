@@ -20,6 +20,7 @@ import com.example.projectandroid.model.KindOfRoom;
 import com.example.projectandroid.repository.KorRepo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentKindOfRoom extends Fragment {
@@ -38,18 +39,20 @@ public class FragmentKindOfRoom extends Fragment {
 
         btn_frm_kindofroom = view.findViewById(R.id.btn_frm_kindOfRoom);
         lv_kindOfRoom = view.findViewById(R.id.lv_kindofroom);
-        korRepo = new KorRepo(getContext());
-        kindOfRooms = korRepo.getAll();
+
+        kindOfRooms = new ArrayList<>();
+//        korRepo = new KorRepo(getContext());
+//        kindOfRooms = korRepo.getAll();
 
 
-        if (kindOfRooms != null){
-            adapterLoaiPhong = new AdapterLoaiPhong(getContext(),kindOfRooms);
-        }
-
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        lv_kindOfRoom.setLayoutManager(mLayoutManager);
-        lv_kindOfRoom.setItemAnimator(new DefaultItemAnimator());
-        lv_kindOfRoom.setAdapter(adapterLoaiPhong);
+//        if (kindOfRooms != null){
+//            adapterLoaiPhong = new AdapterLoaiPhong(getContext(),kindOfRooms);
+//        }
+//
+//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+//        lv_kindOfRoom.setLayoutManager(mLayoutManager);
+//        lv_kindOfRoom.setItemAnimator(new DefaultItemAnimator());
+//        lv_kindOfRoom.setAdapter(adapterLoaiPhong);
 
         btn_frm_kindofroom.setOnClickListener(new View.OnClickListener() {
             @Override

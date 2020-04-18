@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projectandroid.MainActivity;
 import com.example.projectandroid.R;
 import com.example.projectandroid.ui.systemManager.FragmentPrice;
 
@@ -35,6 +36,7 @@ public class AdapterPrice extends RecyclerView.Adapter<AdapterPrice.ViewHolder> 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item_price,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
+
     }
 
     @Override
@@ -64,10 +66,10 @@ public class AdapterPrice extends RecyclerView.Adapter<AdapterPrice.ViewHolder> 
         TextView tv_price_name, tv_price_firt_hour, tv_price_later_hour,tv_price_one_day;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-        tv_price_name = itemView.findViewById(R.id.tv_priceName);
-            tv_price_firt_hour = itemView.findViewById(R.id.tv_price_firt_hour);
-            tv_price_later_hour = itemView.findViewById(R.id.tv_price_later_hour);
-            tv_price_later_hour = itemView.findViewById(R.id.tv_price_one_day);
+//        tv_price_name = itemView.findViewById(R.id.tv_priceName);
+//            tv_price_firt_hour = itemView.findViewById(R.id.tv_price_firt_hour);
+//            tv_price_later_hour = itemView.findViewById(R.id.tv_price_later_hour);
+//            tv_price_later_hour = itemView.findViewById(R.id.tv_price_one_day);
         }
     }
 }

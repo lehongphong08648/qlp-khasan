@@ -2,30 +2,33 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:weightSum="10"
     android:padding="@dimen/padding"
     >
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/padding"
-            android:layout_height="@dimen/padding"
-            android:src="@drawable/money"
-            android:layout_marginRight="@dimen/margin_bottom_edt"
-            />
         <TextView
+            android:id="@+id/tv_ngayDen_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price Name"
-            android:id="@+id/tv_priceName"
-            android:textSize="16sp"
-            android:textColor="#000000"
-            />
+            android:text="Ngày Đến"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_ngayDi_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding"
+            android:text="Ngày đi"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#000000" />
 
     </LinearLayout>
 
@@ -38,34 +41,36 @@
         <ImageView
             android:layout_width="@dimen/padding"
             android:layout_height="@dimen/padding"
-            android:src="@drawable/ic_alarm"
+            android:src="@drawable/ic_account_balance_black_24dp"
             android:layout_marginRight="@dimen/margin_bottom_edt"
+            android:layout_weight="1"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price Firt Hour"
-            android:id="@+id/tv_price_firt_hour"
+            android:text="Tên khách hàng"
+            android:id="@+id/tv_nameClientItem"
             />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="@dimen/margin_22dp"
+            android:layout_weight="3"
             >
 
             <ImageView
                 android:layout_width="@dimen/padding"
                 android:layout_height="@dimen/padding"
-                android:src="@drawable/ic_alarm"
+                android:src="@drawable/ic_airline_seat_individual_suite_black_24dp"
                 android:layout_marginRight="@dimen/margin_bottom_edt"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price Later Hour"
-                android:id="@+id/tv_price_later_hour"
+                android:text="Tên phòng"
+                android:id="@+id/tv_nameRoomItem"
                 />
         </LinearLayout>
 
@@ -73,20 +78,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="@dimen/margin_22dp"
+            android:layout_weight="3"
             >
 
             <ImageView
                 android:layout_width="@dimen/padding"
                 android:layout_height="@dimen/padding"
-                android:src="@drawable/ic_alarm"
+                android:src="@drawable/money"
                 android:layout_marginRight="@dimen/margin_bottom_edt"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price Later Hour"
-                android:id="@+id/tv_price_one_day"
+                android:text="Tiền đặt cọc"
+                android:id="@+id/tv_tienConItem"
                 />
         </LinearLayout>
 

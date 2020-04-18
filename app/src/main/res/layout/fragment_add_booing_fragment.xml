@@ -20,7 +20,6 @@
         android:text="Thông tin khách hàng"
         android:textColor="@color/colorAccent"
         android:textAppearance="?android:textAppearanceMedium"
-        android:layout_marginTop="?actionBarSize"
         />
 
 <LinearLayout
@@ -261,17 +260,26 @@
      android:layout_height="wrap_content"
      android:orientation="horizontal"
      android:layout_weight="1"
+     android:gravity="center"
      android:layout_marginRight="@dimen/margin_button_left_right"
      >
-     <TextView
-         android:gravity="center_horizontal"
-         android:layout_width="wrap_content"
+     <com.google.android.material.textfield.TextInputLayout
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:id="@+id/tv_ngayDen"
          android:layout_weight="4"
-         android:text="Ngày đến"
-         android:textColor="@color/colorAccent"
-         />
+         android:layout_marginLeft="@dimen/margin_button_left_right"
+         >
+         <EditText
+             android:gravity="center_horizontal"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/tv_ngayDen"
+             android:text="Ngày đến"
+             android:enabled="false"
+             android:textColor="@color/colorAccent"
+             />
+     </com.google.android.material.textfield.TextInputLayout>
+
 
      <ImageView
          android:layout_width="wrap_content"
@@ -288,17 +296,28 @@
             android:orientation="horizontal"
             android:layout_weight="1"
             android:layout_marginLeft="@dimen/margin_button_left_right"
+            android:gravity="center"
             >
 
-            <TextView
-                android:id="@+id/tv_ngayDi"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:text="Ngày đi"
-                android:textColor="@color/colorAccent"
-                />
+                android:layout_marginLeft="@dimen/margin_button_left_right"
+                >
+
+                <EditText
+                    android:id="@+id/tv_ngayDi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Ngày đi"
+                    android:enabled="false"
+                    android:textColor="@color/colorAccent"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -320,7 +339,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginRight="@dimen/margin_button_left_right"
@@ -337,7 +356,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginLeft="@dimen/margin_button_left_right"
