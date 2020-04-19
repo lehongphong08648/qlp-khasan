@@ -54,19 +54,19 @@ public class FragmentAddKinOfRoom extends Fragment {
                 String gia1gioTiep = edt_gia1gioTiep.getText().toString();
                 String moTa = edt_moTa.getText().toString();
 
-                if (!tenTlp.isEmpty() & !gia2hDau.isEmpty() & !gia1Ngay.isEmpty() & !gia1gioTiep.isEmpty() & !moTa.isEmpty()){
-                    KorRepo korRepo = new KorRepo(getContext());
-                    korRepo.insert(new KindOfRoom(tenTlp,Float.parseFloat(gia2hDau),Float.parseFloat(gia1gioTiep),Float.parseFloat(gia1Ngay),moTa));
-                    Toast.makeText(getContext(),"Thêm thể loại phòng thành công",Toast.LENGTH_SHORT).show();
-
-                    edt_maTlp.setText("");
-                    edt_tentlp.setText("");
-                    edt_gia2hDau.setText("");
-                    edt_gia1Nay.setText("");
-                    edt_gia1gioTiep.setText("");
-                    edt_moTa.setText("");
-                }
-
+//                if (!tenTlp.isEmpty() & !gia2hDau.isEmpty() & !gia1Ngay.isEmpty() & !gia1gioTiep.isEmpty() & !moTa.isEmpty()){
+//                    KorRepo korRepo = new KorRepo(getContext());
+//                    korRepo.insert(new KindOfRoom(tenTlp,Float.parseFloat(gia2hDau),Float.parseFloat(gia1gioTiep),Float.parseFloat(gia1Ngay),moTa));
+//                    Toast.makeText(getContext(),"Thêm thể loại phòng thành công",Toast.LENGTH_SHORT).show();
+//
+//                    edt_maTlp.setText("");
+//                    edt_tentlp.setText("");
+//                    edt_gia2hDau.setText("");
+//                    edt_gia1Nay.setText("");
+//                    edt_gia1gioTiep.setText("");
+//                    edt_moTa.setText("");
+//                }
+                Toast.makeText(getContext(),"Thêm thể loại phòng thành công",Toast.LENGTH_SHORT).show();
 
 
             }

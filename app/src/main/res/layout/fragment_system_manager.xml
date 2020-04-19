@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@drawable/backgroud">
+=======
+    android:background="@drawable/backgroud"
+    android:layout_marginTop="?actionBarSize"
+>
+>>>>>>> e86acfdfeb98d063a0c6fa86eb7cf6aa9430b5f8
 
     <LinearLayout
         android:layout_width="match_parent"
