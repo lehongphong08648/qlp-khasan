@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.SignIn"
+    android:padding="@dimen/padding"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp70"
+        android:src="@drawable/logoandorid"
+        android:layout_marginBottom="@dimen/dp50"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5">
+
+        <EditText
+            android:id="@+id/edt_maND_signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mã người dùng" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5">
+
+        <EditText
+            android:id="@+id/edt_matKhauND_signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mật Khẩu" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5">
+
+        <EditText
+            android:id="@+id/edt_hoTenND_signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Họ Tên" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5">
+
+        <EditText
+            android:id="@+id/edt_chucVuND_signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chức Vụ" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_dangKy_signIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp16"
+        android:background="@drawable/round_buttom"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Đăng kí"
+        android:textColor="@color/colorWhile" />
+
+    <Button
+        android:id="@+id/btn_huy_signIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorWhile"
+        android:text="Hủy"
+        android:background="@drawable/round_buttom"
+        android:textColor="@color/colorAccent" />
+
+</LinearLayout>
