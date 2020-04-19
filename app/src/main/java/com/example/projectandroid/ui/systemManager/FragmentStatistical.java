@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.projectandroid.R;
 
-public class FragmentStatistical extends Fragment {
-    @Nullable
+public class FragmentStatistical extends AppCompatActivity {
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_statistical,container,false);
-
-
-
-        return view;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_statistical);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
 }

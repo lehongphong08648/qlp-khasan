@@ -17,7 +17,7 @@
         >
 
         <TextView
-            android:id="@+id/tv_stt_user"
+            android:id="@+id/tv_stt_history"
             android:layout_width="@dimen/dp50"
             android:layout_height="@dimen/dp50"
             android:background="@drawable/ic_brightness_1_black_24dp"
@@ -43,19 +43,19 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_maND_user"
+                android:id="@+id/tv_ngayThue_history"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Mã người dùng"
+                android:text="Ngày thuê"
                 android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/tv_chucVu_user"
+                android:id="@+id/tv_ngayTra_history"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:text="chức vụ"
+                android:text="Ngày trả phòng"
                 android:textAppearance="?android:textAppearanceMedium" />
 
         </LinearLayout>
@@ -75,15 +75,15 @@
                 <ImageView
                     android:layout_width="@dimen/padding"
                     android:layout_height="@dimen/padding"
-                    android:src="@drawable/ic_settings_black_24dp"
+                    android:src="@drawable/ic_account_balance_black_24dp"
                     />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Họ tên"
-                    android:id="@+id/tv_hoTen_user"
+                    android:text="Tên phòng"
+                    android:id="@+id/tv_tenPhong_history"
                     android:textAppearance="?android:textAppearanceSmall"
                     />
 
@@ -95,16 +95,16 @@
                 android:layout_weight="1"
                 >
                 <ImageView
-                android:layout_width="@dimen/padding"
-                android:layout_height="@dimen/padding"
-                android:src="@drawable/money"
-                />
+                    android:layout_width="@dimen/padding"
+                    android:layout_height="@dimen/padding"
+                    android:src="@drawable/money"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mật khẩu"
-                    android:id="@+id/tv_matKhau_user"
+                    android:text="Tiền phòng"
+                    android:id="@+id/tv_tienPhong_history"
                     android:textAppearance="?android:textAppearanceSmall"
                     />
 

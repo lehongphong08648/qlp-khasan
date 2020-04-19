@@ -1,6 +1,8 @@
 package com.example.projectandroid.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
+import com.example.projectandroid.ui.checkInOut.CheckOutActivity;
 
 import java.util.List;
 
@@ -79,6 +83,13 @@ public class AdapterRentectRoom extends BaseAdapter {
                                 break;
 
                             case R.id.traPhong:
+                                Intent intent = new Intent(context, CheckOutActivity.class);
+                                Bundle bundle = new Bundle();
+
+                                //to be khong tinh yeu :.
+
+                                intent.putExtras(bundle);
+                                context.startActivity(intent);
                                 Toast.makeText(parent.getContext(),"Trả phòng",Toast.LENGTH_SHORT).show();
                                 break;
 

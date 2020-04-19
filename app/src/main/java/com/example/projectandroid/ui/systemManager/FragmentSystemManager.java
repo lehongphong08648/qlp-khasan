@@ -46,40 +46,33 @@ public class FragmentSystemManager extends Fragment {
         room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragment(new FragmentRoom());
+                startActivity(new Intent(getContext(),FragmentRoom.class));
             }
         });
 
         statistical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragment(new FragmentStatistical());
+                startActivity(new Intent(getContext(),FragmentStatistical.class));
             }
         });
 
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragment(new FragmentHistory());
+                startActivity(new Intent(getContext(),FragmentHistory.class));
             }
         });
 
         staff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragment(new FragmentStaff());
+                startActivity(new Intent(getContext(),FragmentStaff.class));
             }
         });
 
 
         return view;
-    }
-
-    public void getFragment(Fragment fragment){
-        fragmentManager = getFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment,fragment);
-        fragmentTransaction.commit();
     }
 
 }

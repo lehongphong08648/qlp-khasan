@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-android:padding="@dimen/padding"
-    tools:context=".ui.systemManager.Fragment_Add_User">
+    android:padding="@dimen/padding"
+    tools:context=".ui.systemManager.FixUserActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@ android:padding="@dimen/padding"
         android:layout_marginBottom="@dimen/dp5">
 
         <EditText
-            android:id="@+id/edt_maND"
+            android:id="@+id/edt_fix_maND"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mã người dùng" />
@@ -26,7 +26,7 @@ android:padding="@dimen/padding"
         android:layout_marginBottom="@dimen/dp5">
 
         <EditText
-            android:id="@+id/edt_matKhauND"
+            android:id="@+id/edt_fix_matKhauND"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mật Khẩu" />
@@ -38,7 +38,7 @@ android:padding="@dimen/padding"
         android:layout_marginBottom="@dimen/dp5">
 
         <EditText
-            android:id="@+id/edt_hoTenND"
+            android:id="@+id/edt_fix_hoTenND"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Họ Tên" />
@@ -50,7 +50,7 @@ android:padding="@dimen/padding"
         android:layout_marginBottom="@dimen/dp5">
 
         <EditText
-            android:id="@+id/edt_chucVuND"
+            android:id="@+id/edt_fix_chucVuND"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Chức Vụ" />
@@ -64,7 +64,7 @@ android:padding="@dimen/padding"
         android:padding="@dimen/dp16">
 
         <Button
-            android:id="@+id/btn_themNguoiDung"
+            android:id="@+id/btn_fixNguoiDung"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp16"
@@ -74,7 +74,7 @@ android:padding="@dimen/padding"
             android:textColor="@color/colorWhile" />
 
         <Button
-            android:id="@+id/btn_huyThemNguoiDung"
+            android:id="@+id/btn_huyFixNguoiDung"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorWhile"
@@ -83,6 +83,5 @@ android:padding="@dimen/padding"
             android:textColor="@color/colorAccent" />
 
     </LinearLayout>
-
 
 </LinearLayout>

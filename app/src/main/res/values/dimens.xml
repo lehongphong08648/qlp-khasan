@@ -23,5 +23,6 @@
 <dimen name="margin_button_left_right">8dp</dimen>
 <dimen name="height_moTa">100dp</dimen>
 <dimen name="height_width_img_menu">60dp</dimen>
+    <dimen name="dp60">57dp</dimen>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.projectandroid.ui.systemManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -22,7 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentRoom extends Fragment {
+public class FragmentRoom extends AppCompatActivity {
 
     FloatingActionButton btn_frm_addRoom;
     RecyclerView lv_room;
@@ -33,33 +35,31 @@ public class FragmentRoom extends Fragment {
     AdapterRoom adapterRoom;
     List<Rooms> rooms;
     RoomRepo roomRepo;
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_room,container,false);
 
-        lv_room = view.findViewById(R.id.lv_room);
-        btn_frm_addRoom = view.findViewById(R.id.btn_frm_add_room);
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_room);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        lv_room =findViewById(R.id.lv_room);
+        btn_frm_addRoom = findViewById(R.id.btn_frm_add_room);
 
         rooms = new ArrayList<>();
-        roomRepo = new RoomRepo(getContext());
+        roomRepo = new RoomRepo(FragmentRoom.this);
         rooms = roomRepo.getAll();
         adapterRoom = new AdapterRoom(rooms);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(FragmentRoom.this);
         lv_room.setAdapter(adapterRoom);
         lv_room.setLayoutManager(layoutManager);
 
         btn_frm_addRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentManager = getFragmentManager();
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.container_fragment,new FragmentAddRoom());
-                fragmentTransaction.commit();
+               startActivity(new Intent(FragmentRoom.this,FragmentAddRoom.class));
             }
         });
-
-        return view;
     }
+
+
 }
