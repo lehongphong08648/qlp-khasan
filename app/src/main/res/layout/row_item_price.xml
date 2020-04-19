@@ -1,106 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:weightSum="10"
-    android:padding="@dimen/padding"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_ngayDen_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ngày Đến"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="#000000" />
-
-        <TextView
-            android:id="@+id/tv_ngayDi_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/padding"
-            android:text="Ngày đi"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#000000" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="@dimen/margin_bottom_edt"
         >
 
-        <ImageView
-            android:layout_width="@dimen/padding"
-            android:layout_height="@dimen/padding"
-            android:src="@drawable/ic_account_balance_black_24dp"
-            android:layout_marginRight="@dimen/margin_bottom_edt"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tên khách hàng"
-            android:id="@+id/tv_nameClientItem"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_button_left_right"
+            >
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="@dimen/margin_22dp"
-            android:layout_weight="3"
             >
 
-            <ImageView
-                android:layout_width="@dimen/padding"
-                android:layout_height="@dimen/padding"
-                android:src="@drawable/ic_airline_seat_individual_suite_black_24dp"
-                android:layout_marginRight="@dimen/margin_bottom_edt"
-                />
             <TextView
+                android:id="@+id/tv_ngayDen_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên phòng"
-                android:id="@+id/tv_nameRoomItem"
-                />
+                android:text="Ngày Đến"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tv_ngayDi_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding"
+                android:text="Ngày đi"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#000000" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="@dimen/margin_22dp"
-            android:layout_weight="3"
+            android:weightSum="3"
             >
-
-            <ImageView
-                android:layout_width="@dimen/padding"
-                android:layout_height="@dimen/padding"
-                android:src="@drawable/money"
-                android:layout_marginRight="@dimen/margin_bottom_edt"
-                />
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tiền đặt cọc"
-                android:id="@+id/tv_tienConItem"
-                />
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/padding"
+                    android:layout_height="@dimen/padding"
+                    android:layout_marginRight="@dimen/margin_bottom_edt"
+                    android:src="@drawable/ic_account_balance_black_24dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tên khách hàng"
+                    android:id="@+id/tv_nameClientItem"
+                    />
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/margin_22dp"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/padding"
+                    android:layout_height="@dimen/padding"
+                    android:src="@drawable/ic_airline_seat_individual_suite_black_24dp"
+                    android:layout_marginRight="@dimen/margin_bottom_edt"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tên phòng"
+                    android:id="@+id/tv_nameRoomItem"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/margin_22dp"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/padding"
+                    android:layout_height="@dimen/padding"
+                    android:src="@drawable/money"
+                    android:layout_marginRight="@dimen/margin_bottom_edt"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tiền đặt cọc"
+                    android:id="@+id/tv_tienConItem"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
-
-
-
-
-
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
