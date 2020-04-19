@@ -11,15 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.checkInOut.CheckInActivity"
-            android:parentActivityName=".ui.checkInOut.CheckInOutActivity"
+
+        <activity android:name=".ui.systemManager.FragmentAddKinOfRoom"
+            android:parentActivityName=".ui.systemManager.FragmentKindOfRoom"
             ></activity>
-        <activity android:name=".ui.bookingRoom.FragmentAddBooing"
-            android:parentActivityName=".ui.bookingRoom.BookingRoomActivity">
+
+        <activity android:name=".ui.systemManager.FragmentKindOfRoom"
+            android:parentActivityName=".ui.systemManager.SystemManagerActivity"
+            >
         </activity>
-        <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+        <activity android:name=".ui.systemManager.FixKindOfRoomActivity"
+            android:parentActivityName=".ui.systemManager.FragmentKindOfRoom"
             ></activity>
+        <activity
+            android:name=".ui.checkInOut.CheckInActivity"
+            android:parentActivityName=".ui.checkInOut.CheckInOutActivity" />
+        <activity
+            android:name=".ui.bookingRoom.FragmentAddBooing"
+            android:parentActivityName=".ui.bookingRoom.BookingRoomActivity"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.Login" />
         <activity
             android:name=".ui.systemManager.SystemManagerActivity"

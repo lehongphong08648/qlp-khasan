@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<<<<<<< HEAD
+
     <dimen name="dp16">16dp</dimen>
     <dimen name="dp50">50dp</dimen>
     <dimen name="dp5">5dp</dimen>
@@ -15,7 +15,7 @@
     <dimen name="dp6">6dp</dimen>
     <dimen name="dp24">24dp</dimen>
     <dimen name="dp30">30dp</dimen>
-=======
+
 <dimen name="padding">16dp</dimen>
 <dimen name="margin_bottom_edt">5dp</dimen>
 <dimen name="height_logo">200dp</dimen>
@@ -23,6 +23,5 @@
 <dimen name="margin_button_left_right">8dp</dimen>
 <dimen name="height_moTa">100dp</dimen>
 <dimen name="height_width_img_menu">60dp</dimen>
->>>>>>> e86acfdfeb98d063a0c6fa86eb7cf6aa9430b5f8
 
 </resources>

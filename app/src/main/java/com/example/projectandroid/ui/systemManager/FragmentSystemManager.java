@@ -1,5 +1,6 @@
 package com.example.projectandroid.ui.systemManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,7 @@ public class FragmentSystemManager extends Fragment {
         kindofroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragment(new FragmentKindOfRoom());
+                startActivity(new Intent(getContext(),FragmentKindOfRoom.class));
             }
         });
 

@@ -6,12 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Login"
-<<<<<<< HEAD
     android:orientation="vertical"
     android:padding="@dimen/dp16"
     android:gravity="center"
-=======
-    android:padding="@dimen/padding"
     >
 
 <LinearLayout
@@ -19,7 +16,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
->>>>>>> e86acfdfeb98d063a0c6fa86eb7cf6aa9430b5f8
     >
 
     <ImageView

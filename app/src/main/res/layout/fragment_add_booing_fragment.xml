@@ -274,7 +274,7 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:id="@+id/tv_ngayDen"
-             android:text="Ngày đến"
+             android:hint="Ngày đến"
              android:enabled="false"
              android:textColor="@color/colorAccent"
              />
@@ -311,7 +311,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="Ngày đi"
+                    android:hint="Ngày đi"
                     android:enabled="false"
                     android:textColor="@color/colorAccent"
                     />

@@ -1,5 +1,6 @@
 package com.example.projectandroid.ui.systemManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -20,7 +22,7 @@ import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.repository.KorRepo;
 import com.example.projectandroid.repository.RoomRepo;
 
-public class FragmentAddKinOfRoom extends Fragment {
+public class FragmentAddKinOfRoom extends AppCompatActivity {
 
     EditText edt_maTlp, edt_tentlp, edt_gia2hDau,edt_gia1Nay,edt_gia1gioTiep,edt_moTa;
     Button btn_add_kindOfRoom, btn_cancel_kindOfRoom;
@@ -28,20 +30,24 @@ public class FragmentAddKinOfRoom extends Fragment {
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
-    @Nullable
+    KorRepo korRepo;
+    KindOfRoom kindOfRoom;
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_add_kind_of_room,container,false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_add_kind_of_room);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        edt_maTlp = view.findViewById(R.id.edt_maTlp);
-        edt_tentlp = view.findViewById(R.id.edt_tenTlp);
-        edt_gia2hDau = view.findViewById(R.id.edt_gia2hDau);
-        edt_gia1Nay = view.findViewById(R.id.edt_gia1Ngay);
-        edt_gia1gioTiep = view.findViewById(R.id.edt_gia1hTiep);
-        edt_moTa = view.findViewById(R.id.edt_moTa);
+        edt_maTlp = findViewById(R.id.edt_maTlp);
+        edt_tentlp = findViewById(R.id.edt_tenTlp);
+        edt_gia2hDau = findViewById(R.id.edt_gia2hDau);
+        edt_gia1Nay = findViewById(R.id.edt_gia1Ngay);
+        edt_gia1gioTiep = findViewById(R.id.edt_gia1hTiep);
+        edt_moTa = findViewById(R.id.edt_moTa);
 
-        btn_add_kindOfRoom = view.findViewById(R.id.btn_add_kindOfRoom);
-        btn_cancel_kindOfRoom = view.findViewById(R.id.btn_cancel_KindOfRom);
+        btn_add_kindOfRoom = findViewById(R.id.btn_add_kindOfRoom);
+        btn_cancel_kindOfRoom = findViewById(R.id.btn_cancel_KindOfRom);
 
         //thêm thể loại phòng vào database
         btn_add_kindOfRoom.setOnClickListener(new View.OnClickListener() {
@@ -54,19 +60,20 @@ public class FragmentAddKinOfRoom extends Fragment {
                 String gia1gioTiep = edt_gia1gioTiep.getText().toString();
                 String moTa = edt_moTa.getText().toString();
 
-//                if (!tenTlp.isEmpty() & !gia2hDau.isEmpty() & !gia1Ngay.isEmpty() & !gia1gioTiep.isEmpty() & !moTa.isEmpty()){
-//                    KorRepo korRepo = new KorRepo(getContext());
-//                    korRepo.insert(new KindOfRoom(tenTlp,Float.parseFloat(gia2hDau),Float.parseFloat(gia1gioTiep),Float.parseFloat(gia1Ngay),moTa));
-//                    Toast.makeText(getContext(),"Thêm thể loại phòng thành công",Toast.LENGTH_SHORT).show();
-//
-//                    edt_maTlp.setText("");
-//                    edt_tentlp.setText("");
-//                    edt_gia2hDau.setText("");
-//                    edt_gia1Nay.setText("");
-//                    edt_gia1gioTiep.setText("");
-//                    edt_moTa.setText("");
-//                }
-                Toast.makeText(getContext(),"Thêm thể loại phòng thành công",Toast.LENGTH_SHORT).show();
+                if (!tenTlp.isEmpty() & !gia2hDau.isEmpty() & !gia1Ngay.isEmpty() & !gia1gioTiep.isEmpty() & !moTa.isEmpty()){
+                    korRepo = new KorRepo(FragmentAddKinOfRoom.this);
+                    kindOfRoom = new KindOfRoom(tenTlp,Float.parseFloat(gia2hDau),Float.parseFloat(gia1gioTiep),Float.parseFloat(gia1Ngay),moTa);
+                    korRepo.insert(kindOfRoom);
+                    Toast.makeText(FragmentAddKinOfRoom.this,"Thêm thể loại phòng thành công",Toast.LENGTH_SHORT).show();
+
+                    edt_maTlp.setText("");
+                    edt_tentlp.setText("");
+                    edt_gia2hDau.setText("");
+                    edt_gia1Nay.setText("");
+                    edt_gia1gioTiep.setText("");
+                    edt_moTa.setText("");
+                }
+
 
 
             }
@@ -76,14 +83,9 @@ public class FragmentAddKinOfRoom extends Fragment {
         btn_cancel_kindOfRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentManager = getFragmentManager();
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.container_fragment,new FragmentKindOfRoom());
-                fragmentTransaction.commit();
+                startActivity(new Intent(FragmentAddKinOfRoom.this,FragmentKindOfRoom.class));
             }
         });
-
-        return view;
-
     }
+
 }

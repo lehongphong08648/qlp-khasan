@@ -5,17 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud"
-<<<<<<< HEAD
     android:paddingLeft="@dimen/dp16"
     android:paddingTop="@dimen/dp70"
     android:paddingRight="@dimen/dp16"
-    android:paddingBottom="@dimen/dp16">
-=======
+    android:paddingBottom="@dimen/dp16"
     android:padding="@dimen/padding"
     android:layout_marginTop="?actionBarSize"
     android:orientation="vertical"
     >
->>>>>>> e86acfdfeb98d063a0c6fa86eb7cf6aa9430b5f8
 
     <GridLayout
         android:layout_width="match_parent"

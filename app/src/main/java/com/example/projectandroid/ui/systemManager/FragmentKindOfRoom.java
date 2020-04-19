@@ -1,5 +1,6 @@
 package com.example.projectandroid.ui.systemManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -23,7 +25,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentKindOfRoom extends Fragment {
+public class FragmentKindOfRoom extends AppCompatActivity {
 
     FloatingActionButton btn_frm_kindofroom;
     FragmentTransaction fragmentTransaction;
@@ -32,38 +34,33 @@ public class FragmentKindOfRoom extends Fragment {
     AdapterLoaiPhong adapterLoaiPhong;
     List<KindOfRoom> kindOfRooms;
     KorRepo korRepo;
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_kind_of_room,container,false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_kind_of_room);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btn_frm_kindofroom = view.findViewById(R.id.btn_frm_kindOfRoom);
-        lv_kindOfRoom = view.findViewById(R.id.lv_kindofroom);
 
+        btn_frm_kindofroom = findViewById(R.id.btn_frm_kindOfRoom);
+        lv_kindOfRoom = findViewById(R.id.lv_kindofroom);
+        KindOfRoom kindOfRoom = new KindOfRoom("phong",123,456,789,"sieu sang");
         kindOfRooms = new ArrayList<>();
-//        korRepo = new KorRepo(getContext());
-//        kindOfRooms = korRepo.getAll();
+        korRepo = new KorRepo(this);
+        kindOfRooms = korRepo.getAll();
+        adapterLoaiPhong = new AdapterLoaiPhong(this,kindOfRooms);
 
-
-//        if (kindOfRooms != null){
-//            adapterLoaiPhong = new AdapterLoaiPhong(getContext(),kindOfRooms);
-//        }
-//
-//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-//        lv_kindOfRoom.setLayoutManager(mLayoutManager);
-//        lv_kindOfRoom.setItemAnimator(new DefaultItemAnimator());
-//        lv_kindOfRoom.setAdapter(adapterLoaiPhong);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        lv_kindOfRoom.setAdapter(adapterLoaiPhong);
+        lv_kindOfRoom.setLayoutManager(mLayoutManager);
 
         btn_frm_kindofroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentManager = getFragmentManager();
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.container_fragment,new FragmentAddKinOfRoom());
-                fragmentTransaction.commit();
+                startActivity(new Intent(FragmentKindOfRoom.this,FragmentAddKinOfRoom.class));
             }
         });
-
-        return view;
     }
+
+
 }

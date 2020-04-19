@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="@dimen/dp16"
-    android:paddingTop="@dimen/dp50"
+    android:paddingTop="?actionBarSize"
     android:paddingRight="@dimen/dp16"
     android:paddingBottom="@dimen/dp16"
     tools:context=".ui.systemManager.FragmentAddRoom">
@@ -84,13 +84,8 @@
         android:layout_marginBottom="@dimen/margin_bottom_edt"
         android:background="@drawable/round_buttom"
         android:backgroundTint="@color/colorAccent"
-<<<<<<< HEAD
-        android:id="@+id/btn_add_Room"
-        />
-=======
         android:text="Add"
         android:textColor="@color/colorWhile" />
->>>>>>> e86acfdfeb98d063a0c6fa86eb7cf6aa9430b5f8
 
     <Button
         android:layout_width="match_parent"

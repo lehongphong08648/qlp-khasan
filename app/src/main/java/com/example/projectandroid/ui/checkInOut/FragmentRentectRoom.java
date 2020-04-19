@@ -42,10 +42,10 @@ public class FragmentRentectRoom extends Fragment {
             e.printStackTrace();
         }
         Client client = new Client("le hong phong","122377709","Vietnames","dao luoi",03,1,date,"idtmnam@gmail.com");
-        User user = new User("phmg123","123","le hong phong","chu tich");
+        User user = new User("phmg123","123","le hong phong");
         KindOfRoom kindOfRoom = new KindOfRoom("phonghihi",200,70,500,"sieu me");
-        Rooms room = new Rooms(4,"massage","sieu phe",kindOfRoom);
-        Booking booking = new Booking(date,date,10000,"hihi",room,client,user);
+        Rooms room = new Rooms("123","massage",1,"ffff","ertyui");
+        Booking booking = new Booking("uio123","zxc456","890bnm","jkl567",date,date,741,"hihi");
         List<Booking> bookings = new ArrayList<>();
         bookings.add(booking);
         List<String> list = new ArrayList<>();

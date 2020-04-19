@@ -82,4 +82,8 @@ public class KindOfRoom {
     public void setDescribe(String describe) {
         this.describe = describe;
     }
+
+    public String toString(){
+        return name;
+    }
 }

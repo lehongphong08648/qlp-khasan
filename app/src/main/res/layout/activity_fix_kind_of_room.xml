@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/padding"
-    >
+    tools:context=".ui.systemManager.FixKindOfRoomActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -12,7 +14,7 @@
         android:layout_marginBottom="@dimen/dp16">
 
         <EditText
-            android:id="@+id/edt_maTlp"
+            android:id="@+id/edt_fix_maTlp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mã Thể Loại Phòng" />
@@ -25,7 +27,7 @@
         android:layout_marginBottom="@dimen/dp16">
 
         <EditText
-            android:id="@+id/edt_tenTlp"
+            android:id="@+id/edt_fix_tenTlp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tên Thể Loại Phòng" />
@@ -44,7 +46,7 @@
             android:layout_weight="1">
 
             <EditText
-                android:id="@+id/edt_gia2hDau"
+                android:id="@+id/edt_fix_gia2hDau"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Giá 2 giờ đầu"
@@ -59,7 +61,7 @@
             android:layout_weight="1">
 
             <EditText
-                android:id="@+id/edt_gia1Ngay"
+                android:id="@+id/edt_fix_gia1Ngay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Giá 1 ngày"
@@ -74,7 +76,7 @@
             android:layout_weight="1">
 
             <EditText
-                android:id="@+id/edt_gia1hTiep"
+                android:id="@+id/edt_fix_gia1hTiep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Giá 1 Giờ Tiếp"
@@ -90,7 +92,7 @@
         android:layout_marginBottom="@dimen/dp16">
 
         <EditText
-            android:id="@+id/edt_moTa"
+            android:id="@+id/edt_fix_moTa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mô Tả" />
@@ -98,17 +100,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_add_kindOfRoom"
+        android:id="@+id/btn_fix_kindOfRoom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp16"
         android:background="@drawable/round_buttom"
         android:backgroundTint="@color/colorAccent"
-        android:text="Add"
+        android:text="Lưu"
         android:textColor="@color/colorWhile" />
 
     <Button
-        android:id="@+id/btn_cancel_KindOfRom"
+        android:id="@+id/btn_cancel_fix_KindOfRom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/round_buttom"
