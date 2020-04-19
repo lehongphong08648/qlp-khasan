@@ -37,6 +37,7 @@ List<String> itemListAll;
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
                 holder.tv_ngayDenItem.setText(itemList.get(position));
                 holder.tv_nameClientItem.setText(position + "tên khách hàng");
+                holder.tv_stt_booking.setText(String.valueOf(position +1));
         }
 
     @Override
@@ -76,7 +77,7 @@ List<String> itemListAll;
     };
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_ngayDenItem, tv_ngayDiItem, tv_nameClientItem, tv_nameRoomItem, tv_tienConItem;
+        TextView tv_ngayDenItem, tv_ngayDiItem, tv_nameClientItem, tv_nameRoomItem, tv_tienConItem,tv_stt_booking;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_ngayDenItem = itemView.findViewById(R.id.tv_ngayDen_item);
@@ -84,6 +85,7 @@ List<String> itemListAll;
             tv_nameClientItem = itemView.findViewById(R.id.tv_nameClientItem);
             tv_nameRoomItem = itemView.findViewById(R.id.tv_nameRoomItem);
             tv_tienConItem = itemView.findViewById(R.id.tv_tienConItem);
+            tv_stt_booking = itemView.findViewById(R.id.tv_stt_booking);
         }
     }
 }

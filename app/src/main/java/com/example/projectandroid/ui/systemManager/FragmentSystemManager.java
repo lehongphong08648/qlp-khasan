@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +23,8 @@ public class FragmentSystemManager extends Fragment {
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
+    TextView tv_userName, tv_userId;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -34,6 +37,12 @@ public class FragmentSystemManager extends Fragment {
         statistical = view.findViewById(R.id.statistical);
         history = view.findViewById(R.id.history);
         staff = view.findViewById(R.id.user);
+
+        tv_userName = view.findViewById(R.id.tv_userName);
+        tv_userId = view.findViewById(R.id.tv_userId);
+        Intent intent = getActivity().getIntent();
+        Bundle bundle = intent.getExtras();
+
 
 
         kindofroom.setOnClickListener(new View.OnClickListener() {

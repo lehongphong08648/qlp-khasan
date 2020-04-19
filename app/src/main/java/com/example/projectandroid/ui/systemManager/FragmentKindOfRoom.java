@@ -1,8 +1,12 @@
 package com.example.projectandroid.ui.systemManager;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -62,5 +66,27 @@ public class FragmentKindOfRoom extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.note,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.note){
+            getDialog();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void getDialog(){
+        Dialog dialog = new Dialog(FragmentKindOfRoom.this);
+        dialog.setTitle("Ghí chú");
+        dialog.setContentView(R.layout.item_row_loai_phong);
+        dialog.show();
+
+    }
 }

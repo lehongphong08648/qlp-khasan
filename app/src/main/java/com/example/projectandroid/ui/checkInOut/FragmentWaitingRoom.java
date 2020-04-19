@@ -12,6 +12,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.adapter.AdapterWaitingRoom;
+import com.example.projectandroid.model.Rooms;
+import com.example.projectandroid.repository.RoomRepo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentWaitingRoom extends Fragment {
 
@@ -20,6 +25,9 @@ public class FragmentWaitingRoom extends Fragment {
     int [] img={R.drawable.money,R.drawable.money,R.drawable.money,R.drawable.money,R.drawable.money,
             R.drawable.money,R.drawable.money,R.drawable.money,R.drawable.money,R.drawable.money};
 
+    RoomRepo roomRepo;
+    List<Rooms> rooms;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -27,7 +35,10 @@ public class FragmentWaitingRoom extends Fragment {
         View view = inflater.inflate(R.layout.fragment_waiting_room,container,false);
 
         gv_waitingRoom = view.findViewById(R.id.gv_waitingRoom);
-        AdapterWaitingRoom adapterWaitingRoom = new AdapterWaitingRoom(getContext(),numberWork,img);
+        rooms = new ArrayList<>();
+        roomRepo = new RoomRepo(getContext());
+        rooms = roomRepo.getAll();
+        AdapterWaitingRoom adapterWaitingRoom = new AdapterWaitingRoom(getContext(),rooms);
         gv_waitingRoom.setAdapter(adapterWaitingRoom);
         return view;
     }

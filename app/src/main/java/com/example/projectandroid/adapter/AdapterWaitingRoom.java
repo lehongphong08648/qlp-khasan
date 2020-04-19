@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,9 +20,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.ui.checkInOut.CheckInActivity;
 import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
 import com.example.projectandroid.ui.systemManager.FragmentKindOfRoom;
+
+import java.util.List;
 
 
 public class AdapterWaitingRoom extends BaseAdapter{
@@ -29,18 +33,16 @@ public class AdapterWaitingRoom extends BaseAdapter{
 
     Context context;
     LayoutInflater layoutInflater;
-    String [] numberWork;
-    int [] numberimg;
+    List<Rooms> rooms;
 
-    public AdapterWaitingRoom(Context context, String[] numberWork, int[] numberimg) {
+    public AdapterWaitingRoom(Context context, List<Rooms> rooms) {
         this.context = context;
-        this.numberWork = numberWork;
-        this.numberimg = numberimg;
+        this.rooms = rooms;
     }
 
     @Override
     public int getCount() {
-        return numberimg.length;
+        return rooms.size();
     }
 
     @Override
@@ -67,6 +69,7 @@ public class AdapterWaitingRoom extends BaseAdapter{
         TextView tv = convertView.findViewById(R.id.tv_status_waitingRoom);
         TextView tvTenPhong_phongCho = convertView.findViewById(R.id.tv_tenPhong_phongCho);
 
+        tvTenPhong_phongCho.setText(rooms.get(position).getId());
 
         /*Chỗ này để có thể click nhận phòng,  rọn phòng cho phòng chờ
         * giống như option menu trên toolbar
@@ -88,9 +91,13 @@ public class AdapterWaitingRoom extends BaseAdapter{
                                 Toast.makeText(context,"nhận phòng",Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(context,CheckInActivity.class);
-                        /*intent.putExtra() để chuyển thông tin phòng
-                        *
-                        * */
+                                Bundle bundle = new Bundle();
+                                bundle.putString("idKor",String.valueOf(rooms.get(position).getIdKOR()));
+                                bundle.putString("Id",rooms.get(position).getId());
+                                bundle.putString("Floor",String.valueOf(rooms.get(position).getFloor()));
+                                bundle.putString("Service",rooms.get(position).getService());
+                                bundle.putString("Describe",rooms.get(position).getDescribe());
+                                intent.putExtras(bundle);
                         context.startActivity(intent);
 
                                 break;
@@ -112,8 +119,7 @@ public class AdapterWaitingRoom extends BaseAdapter{
 
         //nếu như mà phòng được trả mà chưa dọn dẹp thì sẽ hiển thị ở cả phần clean room mà waiting room
         //nhưng sẽ hiển tị là " Not cleaned yet " còn nếu rọn rẹp rồi thì tv sẽ chuyển thành " Tidied up "
-        img.setImageResource(numberimg[position]);
-        tv.setText(numberWork[position]);
+
         return convertView;
     }
 }

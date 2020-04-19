@@ -6,84 +6,93 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/padding"
-    tools:context=".ui.systemManager.FixUserActivity">
+    tools:context=".ui.systemManager.FixRoomActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp5">
+        android:layout_marginBottom="@dimen/dp16">
 
         <EditText
-            android:id="@+id/edt_fix_maND"
+            android:id="@+id/edt_fix_maPhong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mã người dùng"
             android:enabled="false"
+            android:hint="Mã Phòng"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp5">
+        android:layout_marginBottom="@dimen/dp16">
 
         <EditText
-            android:id="@+id/edt_fix_matKhauND"
+            android:id="@+id/edt_fix_idKor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mật Khẩu" />
+            android:hint="Mã loại phòng"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp5">
+        android:layout_marginBottom="@dimen/dp16">
 
         <EditText
-            android:id="@+id/edt_fix_hoTenND"
+            android:id="@+id/edt_fix_tang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Họ Tên" />
+            android:hint="Tầng"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp5">
+        android:layout_marginBottom="@dimen/dp16">
 
         <EditText
-            android:id="@+id/edt_fix_chucVuND"
+            android:id="@+id/edt_fix_dvKhac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Chức Vụ" />
+            android:hint="Dịch Vụ Khách"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/dp16">
+        android:layout_marginBottom="@dimen/dp16">
 
-        <Button
-            android:id="@+id/btn_fixNguoiDung"
+        <EditText
+            android:id="@+id/edt_fix_moTaPhong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp16"
-            android:background="@drawable/round_buttom"
-            android:backgroundTint="@color/colorAccent"
-            android:text="Thêm"
-            android:textColor="@color/colorWhile" />
+            android:hint="Tên phòng"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btn_huyFixNguoiDung"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorWhile"
-            android:text="Hủy"
-            android:background="@drawable/round_buttom"
-            android:textColor="@color/colorAccent" />
+    <Button
+        android:id="@+id/btn_fix_Room"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_bottom_edt"
+        android:background="@drawable/round_buttom"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Add"
+        android:textColor="@color/colorWhile" />
 
-    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:text="Cancel"
+        android:background="@drawable/round_buttom"
+        android:backgroundTint="@color/colorWhile"
+        android:id="@+id/btn_cancel_fix_Room"
+        />
 
 </LinearLayout>
