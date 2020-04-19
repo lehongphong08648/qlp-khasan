@@ -19,9 +19,9 @@ import androidx.room.PrimaryKey;
 )
 public class Invoice {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
-    private String id;
+    private int id;
 
     private String idBooking;
 
@@ -30,7 +30,7 @@ public class Invoice {
 
     private float total;
 
-    public Invoice(String id, String idBooking, float service, float discount, float total) {
+    public Invoice(int id, String idBooking, float service, float discount, float total) {
         this.id = id;
         this.idBooking = idBooking;
         this.service = service;
@@ -38,41 +38,40 @@ public class Invoice {
         this.total = total;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getIdBooking() {
         return idBooking;
     }
 
-    public float getService() {
-        return service;
-    }
-
-    public float getDiscount() {
-        return discount;
-    }
-
-    public float getTotal() {
-        return total;
-    }
-
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public void setIdBooking(String idBooking) {
         this.idBooking = idBooking;
+    }
+
+    public float getService() {
+        return service;
     }
 
     public void setService(float service) {
         this.service = service;
     }
 
+    public float getDiscount() {
+        return discount;
+    }
+
     public void setDiscount(float discount) {
         this.discount = discount;
+    }
+
+    public float getTotal() {
+        return total;
     }
 
     public void setTotal(float total) {
