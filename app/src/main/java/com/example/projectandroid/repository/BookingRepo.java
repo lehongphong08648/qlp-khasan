@@ -3,6 +3,8 @@ package com.example.projectandroid.repository;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import androidx.room.Room;
+
 import com.example.projectandroid.dao.BookingDAO;
 import com.example.projectandroid.database.AppDatabase;
 import com.example.projectandroid.model.Booking;
@@ -13,7 +15,7 @@ public class BookingRepo {
     private BookingDAO bookingDAO;
 
     public BookingRepo(Context context) {
-        AppDatabase database = AppDatabase.getInstance(context);
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbproject").allowMainThreadQueries().build();
         bookingDAO = database.bookingDAO();
     }
 
@@ -44,7 +46,7 @@ public class BookingRepo {
 
         @Override
         protected Void doInBackground(Booking... bookings) {
-            bookingDAO.insertBoooking(bookings);
+            bookingDAO.insertBooking(bookings);
 
             return null;
         }

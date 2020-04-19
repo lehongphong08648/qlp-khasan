@@ -3,6 +3,8 @@ package com.example.projectandroid.repository;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import androidx.room.Room;
+
 import com.example.projectandroid.dao.RoomDAO;
 import com.example.projectandroid.database.AppDatabase;
 import com.example.projectandroid.model.Rooms;
@@ -14,7 +16,7 @@ public class RoomRepo {
     private RoomDAO roomDAO;
 
     public RoomRepo(Context context) {
-        AppDatabase database = AppDatabase.getInstance(context);
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbproject").allowMainThreadQueries().build();
         roomDAO = database.roomDAO();
     }
 

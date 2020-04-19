@@ -2,10 +2,12 @@ package com.example.projectandroid.database;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.projectandroid.convert.Converters;
 import com.example.projectandroid.dao.BookingDAO;
@@ -25,7 +27,7 @@ import com.example.projectandroid.model.User;
         entities = {
                 Booking.class, Client.class, Invoice.class, KindOfRoom.class, Rooms.class, User.class
         },
-        version = 1
+        version = 2
 )
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
@@ -43,17 +45,5 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract ClientDAO clientDAO();
 
     public abstract BookingDAO bookingDAO();
-
-    public static synchronized AppDatabase getInstance(Context context) {
-
-        if (instance == null) {
-            instance = androidx.room.Room.databaseBuilder(context.getApplicationContext(),
-                    AppDatabase.class, "ProjectAndroid.db")
-                    .allowMainThreadQueries()
-                    .build();
-        }
-
-        return instance;
-    }
 
 }

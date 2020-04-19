@@ -8,7 +8,8 @@ import androidx.room.PrimaryKey;
         tableName = "user"
 )
 public class User {
-    @PrimaryKey(autoGenerate = true)
+
+    @PrimaryKey
     @ColumnInfo(name = "idUser")
     private int id;
 

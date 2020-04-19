@@ -14,9 +14,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.projectandroid.adapter.AdapterLoaiPhong;
 import com.example.projectandroid.model.Client;
+import com.example.projectandroid.model.KindOfRoom;
 import com.example.projectandroid.model.User;
 import com.example.projectandroid.repository.ClientRepo;
+import com.example.projectandroid.repository.KorRepo;
 import com.example.projectandroid.repository.UserRepo;
 import com.example.projectandroid.ui.bookingRoom.BookingRoomActivity;
 import com.example.projectandroid.ui.bookingRoom.FragmentBookingRoom;
@@ -25,6 +28,9 @@ import com.example.projectandroid.ui.FragmentHome;
 import com.example.projectandroid.ui.systemManager.FragmentSystemManager;
 import com.example.projectandroid.ui.systemManager.SystemManagerActivity;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

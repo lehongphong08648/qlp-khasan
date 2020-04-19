@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface BookingDAO {
     @Insert
-    void insertBoooking(Booking... bookings);
+    void insertBooking(Booking... bookings);
 
     @Update
     void updateBooking(Booking... bookings);

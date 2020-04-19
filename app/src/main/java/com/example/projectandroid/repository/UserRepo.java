@@ -3,6 +3,8 @@ package com.example.projectandroid.repository;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import androidx.room.Room;
+
 import com.example.projectandroid.dao.UserDAO;
 import com.example.projectandroid.database.AppDatabase;
 import com.example.projectandroid.model.User;
@@ -13,10 +15,7 @@ public class UserRepo {
     private UserDAO userDAO;
 
     public UserRepo(Context context) {
-        AppDatabase database = androidx.room.Room.databaseBuilder(context.getApplicationContext(),
-                AppDatabase.class, "ProjectAndroid.db")
-                .allowMainThreadQueries()
-                .build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbproject").allowMainThreadQueries().build();
         userDAO = database.userDAO();
     }
 

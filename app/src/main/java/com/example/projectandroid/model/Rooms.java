@@ -8,6 +8,8 @@ import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import org.jetbrains.annotations.NotNull;
+
 @Entity(tableName = "room",
         foreignKeys = {@ForeignKey(
                 entity = KindOfRoom.class,
@@ -31,7 +33,7 @@ public class Rooms {
 
     private String describe;
 
-    public Rooms(String id, String idKOR, int floor, String service, String describe) {
+    public Rooms(@NotNull String id, String idKOR, int floor, String service, String describe) {
         this.id = id;
         this.idKOR = idKOR;
         this.floor = floor;
