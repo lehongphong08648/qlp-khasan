@@ -59,7 +59,6 @@ public class AdapterRentectRoom extends BaseAdapter {
         TextView tv_timeRentect = convertView.findViewById(R.id.tv_timeRentect);
         TextView tv_tienPhaiTraRentect = convertView.findViewById(R.id.tv_tienPhaiTraRentect);
 
-        tv_tenPhongThue.setText(bookingList.get(position).getRoom().getId());
         edt_nameClientRentect.setText(nameClient.get(position));
         tv_tienCocRentect.setText(String.valueOf(bookingList.get(position).getDeposit()));
 //        tv_timeRentect.setText(chưa biết làm);
@@ -80,15 +79,15 @@ public class AdapterRentectRoom extends BaseAdapter {
                                 break;
 
                             case R.id.traPhong:
-                                Toast.makeText(parent.getContext(),"Chỉnh sửa",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(parent.getContext(),"Trả phòng",Toast.LENGTH_SHORT).show();
                                 break;
 
                             case R.id.doiPhong:
-                                Toast.makeText(parent.getContext(),"Chỉnh sửa",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(parent.getContext(),"Đổi phòng",Toast.LENGTH_SHORT).show();
                                 break;
 
                             case R.id.donVeSinh:
-                                Toast.makeText(parent.getContext(),"Chỉnh sửa",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(parent.getContext(),"Dọn vệ sinh",Toast.LENGTH_SHORT).show();
                                 break;
                             default:
                                 break;

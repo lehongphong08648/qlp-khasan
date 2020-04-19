@@ -40,7 +40,7 @@ public class FragmentBookingRoom extends Fragment {
         View view = inflater.inflate(R.layout.fragment_booking_rom,container,false);
 
         itemList = new ArrayList<>();
-        itemList.add("phog");
+        itemList.add("Ngày đến");
         itemList.add("hinh");
         itemList.add("da");
         itemList.add("Thom");

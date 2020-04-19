@@ -57,27 +57,15 @@ public class FragmentHome extends Fragment {
         yValue.add(new Entry(5,40f));
         yValue.add(new Entry(6,30f));
 
-        ArrayList<Entry> xValue = new ArrayList<>();
-        xValue.add(new Entry(0,600));
-        xValue.add(new Entry(1,200));
-        xValue.add(new Entry(2,500));
-        xValue.add(new Entry(3,900));
-        xValue.add(new Entry(4,100));
-        xValue.add(new Entry(5,400));
-        xValue.add(new Entry(6,300));
 
         LineDataSet set1 = new LineDataSet(yValue,"Số lượng phòng thuê");
         set1.setFillAlpha(110);
         set1.setColor(Color.RED);
-        LineDataSet set2 = new LineDataSet(xValue,"Tổng tiền thuê phòng");
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(set1);
-        dataSets.add(set2);
-
         LineData data = new LineData(dataSets);
         mLineChart.setData(data);
-
         return view;
     }
 }

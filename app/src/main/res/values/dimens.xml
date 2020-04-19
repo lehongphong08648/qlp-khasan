@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="padding">16dp</dimen>
-    <dimen name="margin_bottom_edt">5dp</dimen>
-    <dimen name="height_logo">200dp</dimen>
-    <dimen name="margin_22dp">22dp</dimen>
-    <dimen name="margin_button_left_right">8dp</dimen>
-    <dimen name="height_moTa">100dp</dimen>
-    <dimen name="height_width_img_menu">60dp</dimen>
+<dimen name="padding">16dp</dimen>
+<dimen name="margin_bottom_edt">5dp</dimen>
+<dimen name="height_logo">200dp</dimen>
+<dimen name="margin_22dp">22dp</dimen>
+<dimen name="margin_button_left_right">8dp</dimen>
+<dimen name="height_moTa">100dp</dimen>
+<dimen name="height_width_img_menu">60dp</dimen>
 
 </resources>

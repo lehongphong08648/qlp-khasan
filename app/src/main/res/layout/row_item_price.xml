@@ -12,7 +12,7 @@
         android:layout_rowWeight="1"
         app:cardElevation="6dp"
         app:cardCornerRadius="12dp"
-        android:layout_margin="@dimen/margin_bottom_edt"
+        android:layout_margin="@dimen/margin_button_left_right"
         >
 
         <LinearLayout
@@ -66,7 +66,7 @@
                     android:layout_width="@dimen/padding"
                     android:layout_height="@dimen/padding"
                     android:layout_marginRight="@dimen/margin_bottom_edt"
-                    android:src="@drawable/ic_account_balance_black_24dp" />
+                    android:src="@drawable/ic_account_circle_black_24dp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

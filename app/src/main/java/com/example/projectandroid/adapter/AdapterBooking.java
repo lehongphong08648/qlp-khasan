@@ -36,7 +36,7 @@ List<String> itemListAll;
     @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
                 holder.tv_ngayDenItem.setText(itemList.get(position));
-                holder.tv_nameClientItem.setText(String.valueOf(position));
+                holder.tv_nameClientItem.setText(String.valueOf(position) + "tên khách hàng");
         }
 
     @Override

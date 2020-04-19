@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="@dimen/margin_bottom_edt"
+    android:paddingRight="@dimen/margin_bottom_edt"
     android:layout_marginTop="?actionBarSize">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
