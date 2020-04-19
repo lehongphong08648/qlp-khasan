@@ -40,24 +40,15 @@ public class Booking {
     private String id;
 
     private String idRoom;
-    private String idClient;
-    private String idUser;
+    private int idClient;
+    private int idUser;
 
     private Date dayCome;
     private Date dayGo;
     private float deposit;
     private String status;
 
-    @Ignore
-    private Rooms room;
-
-    @Ignore
-    private Client client;
-
-    @Ignore
-    private User user;
-
-    public Booking(String id, String idRoom, String idClient, String idUser, Date dayCome, Date dayGo, float deposit, String status) {
+    public Booking(@NonNull String id, String idRoom, int idClient, int idUser, Date dayCome, Date dayGo, float deposit, String status) {
         this.id = id;
         this.idRoom = idRoom;
         this.idClient = idClient;
@@ -68,47 +59,68 @@ public class Booking {
         this.status = status;
     }
 
+    @NonNull
     public String getId() {
         return id;
+    }
+
+    public void setId(@NonNull String id) {
+        this.id = id;
     }
 
     public String getIdRoom() {
         return idRoom;
     }
 
-    public String getIdClient() {
+    public void setIdRoom(String idRoom) {
+        this.idRoom = idRoom;
+    }
+
+    public int getIdClient() {
         return idClient;
     }
 
-    public String getIdUser() {
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
+    }
+
+    public int getIdUser() {
         return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public Date getDayCome() {
         return dayCome;
     }
 
+    public void setDayCome(Date dayCome) {
+        this.dayCome = dayCome;
+    }
+
     public Date getDayGo() {
         return dayGo;
+    }
+
+    public void setDayGo(Date dayGo) {
+        this.dayGo = dayGo;
     }
 
     public float getDeposit() {
         return deposit;
     }
 
+    public void setDeposit(float deposit) {
+        this.deposit = deposit;
+    }
+
     public String getStatus() {
         return status;
     }
 
-    public Rooms getRoom() {
-        return room;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public User getUser() {
-        return user;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
