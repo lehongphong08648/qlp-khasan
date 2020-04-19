@@ -9,7 +9,7 @@ public class KindOfRoom {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idKOR")
-    private String id;
+    private int id;
 
     @ColumnInfo(name = "nameKOR")
     private String name;
@@ -34,9 +34,6 @@ public class KindOfRoom {
         this.describe = describe;
     }
 
-    public String getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -56,5 +53,33 @@ public class KindOfRoom {
 
     public String getDescribe() {
         return describe;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPriceTwoHourFirst(float priceTwoHourFirst) {
+        this.priceTwoHourFirst = priceTwoHourFirst;
+    }
+
+    public void setPriceOneHour(float priceOneHour) {
+        this.priceOneHour = priceOneHour;
+    }
+
+    public void setPriceOneDay(float priceOneDay) {
+        this.priceOneDay = priceOneDay;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 }

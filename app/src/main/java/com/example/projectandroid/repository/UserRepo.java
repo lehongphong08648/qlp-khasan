@@ -13,7 +13,10 @@ public class UserRepo {
     private UserDAO userDAO;
 
     public UserRepo(Context context) {
-        AppDatabase database = AppDatabase.getInstance(context);
+        AppDatabase database = androidx.room.Room.databaseBuilder(context.getApplicationContext(),
+                AppDatabase.class, "ProjectAndroid.db")
+                .allowMainThreadQueries()
+                .build();
         userDAO = database.userDAO();
     }
 

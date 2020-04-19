@@ -14,7 +14,7 @@ public class Client {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idClient")
-    private String id;
+    private int id;
 
     private String fullName;
     private String identityCard;
@@ -37,7 +37,7 @@ public class Client {
         this.email = email;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -71,5 +71,41 @@ public class Client {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setIdentityCard(String identityCard) {
+        this.identityCard = identityCard;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setVip(int vip) {
+        this.vip = vip;
+    }
+
+    public void setBirthOfDate(Date birthOfDate) {
+        this.birthOfDate = birthOfDate;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

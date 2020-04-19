@@ -1,8 +1,10 @@
 package com.example.projectandroid.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(
@@ -12,11 +14,13 @@ import androidx.room.PrimaryKey;
                 parentColumns = "idBooking",
                 childColumns = "idBooking",
                 onUpdate = ForeignKey.CASCADE
-        )}
+        )},
+        indices = {@Index(name = "idBooking_index", value = "idBooking")}
 )
 public class Invoice {
 
     @PrimaryKey
+    @NonNull
     private String id;
 
     private String idBooking;
@@ -26,15 +30,12 @@ public class Invoice {
 
     private float total;
 
-    @Ignore
-    private Booking booking;
-
-    public Invoice(float service, float discount, float total, Booking booking) {
+    public Invoice(String id, String idBooking, float service, float discount, float total) {
+        this.id = id;
+        this.idBooking = idBooking;
         this.service = service;
         this.discount = discount;
         this.total = total;
-        this.booking = booking;
-        this.idBooking = booking.getId();
     }
 
     public String getId() {
@@ -57,7 +58,24 @@ public class Invoice {
         return total;
     }
 
-    public Booking getBooking() {
-        return booking;
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setIdBooking(String idBooking) {
+        this.idBooking = idBooking;
+    }
+
+    public void setService(float service) {
+        this.service = service;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
     }
 }

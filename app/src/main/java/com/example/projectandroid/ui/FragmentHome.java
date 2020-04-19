@@ -22,7 +22,7 @@ public class FragmentHome extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         tv_home_hireOfDay = view.findViewById(R.id.tv_home_hireForDay);
         tv_home_waitingRoom = view.findViewById(R.id.tv_home_waitingRoom);

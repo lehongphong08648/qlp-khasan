@@ -7,34 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".ui.Login"
     android:orientation="vertical"
-    android:padding="@dimen/padding"
+    android:padding="@dimen/dp16"
     android:gravity="center"
     >
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_logo"
+        android:layout_height="@dimen/dp50"
         android:src="@drawable/logoandorid"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="@dimen/dp22"
         />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_bottom_edt">
+        android:layout_marginBottom="@dimen/dp5">
 
         <EditText
             android:id="@+id/edt_tenND_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding"
+            android:layout_marginBottom="@dimen/dp16"
             android:hint="Tên Người Dùng" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_22dp"
+        android:layout_marginBottom="@dimen/dp16"
         >
 
         <EditText
@@ -54,7 +54,6 @@
             android:id="@+id/btn_dangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/margin_button_left_right"
             android:layout_weight="1"
             android:background="@drawable/round_buttom"
             android:backgroundTint="@color/colorAccent"
@@ -65,7 +64,6 @@
             android:id="@+id/btn_dangKy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_button_left_right"
             android:layout_weight="1"
             android:background="@drawable/round_buttom"
             android:backgroundTint="@color/colorWhile"

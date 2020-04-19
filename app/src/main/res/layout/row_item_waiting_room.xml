@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/dp6"
     >
 
 
@@ -13,16 +14,15 @@
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
-        app:cardElevation="6dp"
-        app:cardCornerRadius="12dp"
-        android:layout_margin="6dp"
+        app:cardElevation="@dimen/dp6"
+        app:cardCornerRadius="@dimen/dp12"
         >
         <LinearLayout
             android:id="@+id/price"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/padding"
+            android:padding="@dimen/dp5"
             android:gravity="left"
             >
             <LinearLayout
@@ -62,10 +62,9 @@
                 >
 
                 <ImageView
-                    android:layout_width="@dimen/padding"
-                    android:layout_height="@dimen/padding"
+                    android:layout_width="@dimen/dp50"
+                    android:layout_height="@dimen/dp50"
                     android:src="@drawable/ic_directions_run_black_24dp"
-                    android:layout_marginRight="@dimen/margin_bottom_edt"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,10 +82,9 @@
                 >
 
                 <ImageView
-                    android:layout_width="@dimen/padding"
-                    android:layout_height="@dimen/padding"
+                    android:layout_width="@dimen/dp50"
+                    android:layout_height="@dimen/dp50"
                     android:src="@drawable/ic_done_black_24dp"
-                    android:layout_marginRight="@dimen/margin_bottom_edt"
                     android:id="@+id/img_status_waitingRoom"
                     />
                 <TextView

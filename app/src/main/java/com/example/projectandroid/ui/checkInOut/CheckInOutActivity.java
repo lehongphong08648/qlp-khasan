@@ -19,6 +19,7 @@ import android.widget.TableLayout;
 
 import com.example.projectandroid.MainActivity;
 import com.example.projectandroid.R;
+import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.ui.FragmentHome;
 import com.example.projectandroid.ui.bookingRoom.BookingRoomActivity;
 import com.example.projectandroid.ui.bookingRoom.FragmentBookingRoom;
@@ -43,6 +44,7 @@ public class CheckInOutActivity extends AppCompatActivity implements NavigationV
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,13 +64,13 @@ public class CheckInOutActivity extends AppCompatActivity implements NavigationV
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar, R.string.open,R.string.close);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerToggle.syncState();
 
         adapter = new com.example.projectandroid.adapter.PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
-                ,mtableLayout.getTabCount());
+                , mtableLayout.getTabCount());
         viewPager.setAdapter(adapter);
 
         mtableLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -96,18 +98,18 @@ public class CheckInOutActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
-        if (item.getItemId() == R.id.home1){
+        if (item.getItemId() == R.id.home1) {
             startActivity(new Intent(CheckInOutActivity.this, MainActivity.class));
         }
 
-        if (item.getItemId() == R.id.checkinout){
+        if (item.getItemId() == R.id.checkinout) {
             startActivity(new Intent(CheckInOutActivity.this, CheckInOutActivity.class));
         }
         if (item.getItemId() == R.id.bookingroom) {
             startActivity(new Intent(CheckInOutActivity.this, BookingRoomActivity.class));
         }
 
-        if (item.getItemId() == R.id.systemmanager){
+        if (item.getItemId() == R.id.systemmanager) {
             startActivity(new Intent(CheckInOutActivity.this, SystemManagerActivity.class));
         }
 

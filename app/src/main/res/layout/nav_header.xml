@@ -9,7 +9,7 @@
     android:foreground="?attr/selectableItemBackgroundBorderless"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="@dimen/dp16"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
@@ -22,9 +22,9 @@
         android:id="@+id/nav_header_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
+        android:paddingTop="@dimen/dp16"
         android:text="Hotel Manager"
-        android:textSize="24dp"
+        android:textSize="@dimen/dp24"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

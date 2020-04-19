@@ -4,7 +4,10 @@ import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
 
+import com.example.projectandroid.convert.Converters;
 import com.example.projectandroid.dao.BookingDAO;
 import com.example.projectandroid.dao.ClientDAO;
 import com.example.projectandroid.dao.InvoiceDAO;
@@ -24,8 +27,8 @@ import com.example.projectandroid.model.User;
         },
         version = 1
 )
+@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
-    private static final String DATABASE_NAME = "ProjectAndroidDB";
 
     private static AppDatabase instance;
 
@@ -45,10 +48,12 @@ public abstract class AppDatabase extends RoomDatabase {
 
         if (instance == null) {
             instance = androidx.room.Room.databaseBuilder(context.getApplicationContext(),
-                    AppDatabase.class, DATABASE_NAME)
-                    .fallbackToDestructiveMigration().build();
+                    AppDatabase.class, "ProjectAndroid.db")
+                    .allowMainThreadQueries()
+                    .build();
         }
 
         return instance;
     }
+
 }

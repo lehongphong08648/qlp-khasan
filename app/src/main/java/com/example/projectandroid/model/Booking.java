@@ -1,9 +1,11 @@
 package com.example.projectandroid.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
@@ -28,10 +30,12 @@ import java.util.Date;
                         childColumns = "idClient",
                         onUpdate = ForeignKey.CASCADE
                 )
-        }
+        },
+        indices = {@Index(name = "idRoom_index", value = "idRoom"), @Index(name = "idUser_index", value = "idUser"), @Index(name = "idClient_index", value = "idClient")}
 )
 public class Booking {
     @PrimaryKey
+    @NonNull
     @ColumnInfo(name = "idBooking")
     private String id;
 
@@ -53,17 +57,15 @@ public class Booking {
     @Ignore
     private User user;
 
-    public Booking(Date dayCome, Date dayGo, float deposit, String status, Rooms room, Client client, User user) {
+    public Booking(String id, String idRoom, String idClient, String idUser, Date dayCome, Date dayGo, float deposit, String status) {
+        this.id = id;
+        this.idRoom = idRoom;
+        this.idClient = idClient;
+        this.idUser = idUser;
         this.dayCome = dayCome;
         this.dayGo = dayGo;
         this.deposit = deposit;
         this.status = status;
-        this.room = room;
-        this.client = client;
-        this.user = user;
-        this.idClient = client.getId();
-        this.idRoom = client.getId();
-        this.idUser = client.getId();
     }
 
     public String getId() {

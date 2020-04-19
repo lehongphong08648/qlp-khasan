@@ -11,8 +11,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.projectandroid.model.Client;
+import com.example.projectandroid.model.User;
+import com.example.projectandroid.repository.ClientRepo;
+import com.example.projectandroid.repository.UserRepo;
 import com.example.projectandroid.ui.bookingRoom.BookingRoomActivity;
 import com.example.projectandroid.ui.bookingRoom.FragmentBookingRoom;
 import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
@@ -21,15 +26,15 @@ import com.example.projectandroid.ui.systemManager.FragmentSystemManager;
 import com.example.projectandroid.ui.systemManager.SystemManagerActivity;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-DrawerLayout drawerLayout;
-ActionBarDrawerToggle drawerToggle;
-Toolbar toolbar;
-NavigationView navigationView;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle drawerToggle;
+    Toolbar toolbar;
+    NavigationView navigationView;
 
-FragmentManager fragmentManager;
-FragmentTransaction fragmentTransaction;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
 
     @Override
@@ -43,33 +48,32 @@ FragmentTransaction fragmentTransaction;
         navigationView = findViewById(R.id.nagationView);
         navigationView.setNavigationItemSelectedListener(this);
 
-        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar, R.string.open,R.string.close);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerToggle.syncState();
 
-        fragmentManager =getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment,new FragmentHome());
+        fragmentTransaction.replace(R.id.container_fragment, new FragmentHome());
         fragmentTransaction.commit();
-
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-    drawerLayout.closeDrawer(GravityCompat.START);
-        if (item.getItemId() == R.id.home1){
+        drawerLayout.closeDrawer(GravityCompat.START);
+        if (item.getItemId() == R.id.home1) {
             startActivity(new Intent(MainActivity.this, MainActivity.class));
         }
 
-        if (item.getItemId() == R.id.checkinout){
+        if (item.getItemId() == R.id.checkinout) {
             startActivity(new Intent(MainActivity.this, CheckInOutActivity.class));
         }
         if (item.getItemId() == R.id.bookingroom) {
             startActivity(new Intent(MainActivity.this, BookingRoomActivity.class));
         }
 
-        if (item.getItemId() == R.id.systemmanager){
+        if (item.getItemId() == R.id.systemmanager) {
             startActivity(new Intent(MainActivity.this, SystemManagerActivity.class));
         }
 

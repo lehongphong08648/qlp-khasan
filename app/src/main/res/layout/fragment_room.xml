@@ -3,18 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:paddingLeft="@dimen/padding"
-    android:paddingTop="@dimen/padding"
-    android:paddingRight="@dimen/padding"
-    android:paddingBottom="@dimen/padding">
+    android:orientation="vertical">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_frm_add_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_margin="@dimen/padding"
+        android:layout_margin="@dimen/dp16"
         android:backgroundTint="@color/colorAccent"
         android:elevation="6dp"
         android:src="@drawable/ic_add_black_24dp"

@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroud"
-    android:paddingTop="50dp"
->
+    android:background="@drawable/backgroud">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,74 +13,67 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="2dp">
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp5">
 
             <TextView
                 android:id="@+id/tv_userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Name"
-                android:textSize="22sp"
                 android:textColor="#ffffff"
-                />
+                android:textSize="@dimen/sp22" />
+
             <TextView
                 android:id="@+id/tv_userId"
-                android:layout_below="@id/tv_userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User Id"
-                android:textSize="14sp"
+                android:layout_below="@id/tv_userName"
                 android:layout_marginTop="2dp"
+                android:text="User Id"
                 android:textColor="#ffffff"
-                />
+                android:textSize="@dimen/sp16" />
 
         </RelativeLayout>
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnOrderPreserved="false"
             android:alignmentMode="alignMargins"
-            android:rowCount="3"
             android:columnCount="2"
-            >
+            android:columnOrderPreserved="false"
+            android:rowCount="3">
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/dp12"
+                app:cardCornerRadius="@dimen/dp12"
+                app:cardElevation="@dimen/dp6">
 
                 <LinearLayout
                     android:id="@+id/kindofRoom"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp5">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/home"
-                        />
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/home" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/dp12"
                         android:text="Kind Of \n Room"
                         android:textColor="#6f6f6f"
-                        />
+                        android:textSize="@dimen/sp18" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -90,73 +81,66 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/dp12"
+                app:cardCornerRadius="@dimen/dp12"
+                app:cardElevation="@dimen/dp6">
 
                 <LinearLayout
                     android:id="@+id/room"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp16">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/beb"
-                        />
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/beb" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/dp12"
                         android:text="Room"
                         android:textColor="#6f6f6f"
-                        />
+                        android:textSize="@dimen/sp18" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
 
-
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/dp12"
+                app:cardCornerRadius="@dimen/dp12"
+                app:cardElevation="@dimen/dp6">
 
                 <LinearLayout
                     android:id="@+id/history"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp16">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/history"
-                        />
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/history" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/dp12"
                         android:text="History"
                         android:textColor="#6f6f6f"
-                        />
+                        android:textSize="@dimen/sp18" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -164,35 +148,32 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/dp12"
+                app:cardCornerRadius="@dimen/dp12"
+                app:cardElevation="@dimen/dp6">
 
                 <LinearLayout
                     android:id="@+id/statistical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp16">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/statistical"
-                        />
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/statistical" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/dp12"
                         android:text="Statistical"
                         android:textColor="#6f6f6f"
-                        />
+                        android:textSize="@dimen/sp18" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -200,47 +181,40 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/dp12"
+                app:cardCornerRadius="@dimen/dp12"
+                app:cardElevation="@dimen/dp6">
 
                 <LinearLayout
                     android:id="@+id/user"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp16">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/user"
-                        />
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/user" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/dp12"
                         android:text="User"
                         android:textColor="#6f6f6f"
-                        />
+                        android:textSize="@dimen/sp18" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-
-
 
 
         </GridLayout>
 
     </LinearLayout>
-
 
 
 </ScrollView>

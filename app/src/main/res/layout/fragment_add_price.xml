@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/padding"
-    android:paddingRight="@dimen/padding"
+    android:paddingLeft="@dimen/dp16"
+    android:paddingRight="@dimen/dp16"
     android:paddingTop="70dp"
-    android:paddingBottom="@dimen/padding">
+    android:paddingBottom="@dimen/dp16">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:id="@+id/edt_namePrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding"
+            android:layout_marginBottom="@dimen/dp16"
             android:hint="Name Price" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -28,14 +28,14 @@
             android:id="@+id/edt_firtHour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding"
+            android:layout_marginBottom="@dimen/dp16"
             android:hint="Firt Hour" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/padding"
+        android:layout_marginBottom="@dimen/dp16"
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -47,7 +47,6 @@
                 android:id="@+id/edt_firtHourPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin_button_left_right"
                 android:hint="Firt Hour Price" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,7 +59,6 @@
                 android:id="@+id/edt_laterHourPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_button_left_right"
                 android:hint="Later Hour Price" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,14 +67,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_addPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/margin_button_left_right"
-            android:layout_weight="1"
             android:background="@drawable/round_buttom"
             android:backgroundTint="@color/colorAccent"
             android:textColor="@color/colorWhile"
@@ -86,8 +82,6 @@
             android:id="@+id/btn_cancel_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_button_left_right"
-            android:layout_weight="1"
             android:background="@drawable/round_buttom"
             android:backgroundTint="@color/colorWhile"
             android:textColor="@color/colorAccent"

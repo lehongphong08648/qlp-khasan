@@ -1,0 +1,41 @@
+<resources>
+  <dimen name="dp16">
+    32.0dp
+  </dimen>
+  <dimen name="dp50">
+    100.0dp
+  </dimen>
+  <dimen name="dp5">
+    10.0dp
+  </dimen>
+  <dimen name="sp45">
+    90.0sp
+  </dimen>
+  <dimen name="dp70">
+    140.0dp
+  </dimen>
+  <dimen name="dp22">
+    44.0dp
+  </dimen>
+  <dimen name="sp22">
+    44.0sp
+  </dimen>
+  <dimen name="sp16">
+    32.0sp
+  </dimen>
+  <dimen name="dp12">
+    24.0dp
+  </dimen>
+  <dimen name="sp18">
+    36.0sp
+  </dimen>
+  <dimen name="dp6">
+    12.0dp
+  </dimen>
+  <dimen name="dp24">
+    48.0dp
+  </dimen>
+  <dimen name="dp30">
+    60.0dp
+  </dimen>
+</resources>

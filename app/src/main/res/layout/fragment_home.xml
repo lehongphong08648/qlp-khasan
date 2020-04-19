@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud"
-    android:paddingLeft="@dimen/padding"
-    android:paddingTop="70dp"
-    android:paddingRight="@dimen/padding"
-    android:paddingBottom="@dimen/padding">
+    android:paddingLeft="@dimen/dp16"
+    android:paddingTop="@dimen/dp70"
+    android:paddingRight="@dimen/dp16"
+    android:paddingBottom="@dimen/dp16">
 
     <GridLayout
         android:layout_width="match_parent"
@@ -33,39 +33,34 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="@dimen/padding">
+                android:padding="@dimen/dp16">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:gravity="center"
-                    >
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/total"
-                        />
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/total" />
 
                     <TextView
+                        android:id="@+id/tv_home_hireForDay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_home_hireForDay"
                         android:text="0"
-                        android:textSize="@dimen/height_width_img_menu"
-                        android:layout_marginLeft="@dimen/padding"
                         android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        />
+                        android:textSize="@dimen/sp45"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_bottom_edt"
                     android:text="Hire for the day"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -86,37 +81,33 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="@dimen/padding">
+                android:padding="@dimen/dp16">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:gravity="center"
-                    >
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/investment_duration"/>
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/investment_duration" />
 
                     <TextView
+                        android:id="@+id/tv_home_waitingRoom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_home_waitingRoom"
                         android:text="0"
-                        android:textSize="@dimen/height_width_img_menu"
-                        android:layout_marginLeft="@dimen/padding"
                         android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        />
+                        android:textSize="@dimen/sp45"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_bottom_edt"
                     android:text="Waiting Room"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -137,38 +128,33 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="@dimen/padding">
+                android:padding="@dimen/dp16">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:gravity="center"
-                    >
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/bed2"
-                        />
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/bed2" />
 
                     <TextView
+                        android:id="@+id/tv_home_rentectRoom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_home_rentectRoom"
                         android:text="0"
-                        android:textSize="@dimen/height_width_img_menu"
-                        android:layout_marginLeft="@dimen/padding"
                         android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        />
+                        android:textSize="@dimen/sp45"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_bottom_edt"
                     android:text="Rectect Room"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -189,37 +175,33 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="@dimen/padding">
+                android:padding="@dimen/dp16">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:gravity="center"
-                    >
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="@dimen/height_width_img_menu"
-                        android:layout_height="@dimen/height_width_img_menu"
-                        android:src="@drawable/cleaning"/>
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:src="@drawable/cleaning" />
 
                     <TextView
+                        android:id="@+id/tv_home_cleanRoom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_home_cleanRoom"
                         android:text="0"
-                        android:textSize="@dimen/height_width_img_menu"
-                        android:layout_marginLeft="@dimen/padding"
                         android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        />
+                        android:textSize="@dimen/sp45"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_bottom_edt"
                     android:text="Clean Room"
                     android:textSize="12sp" />
             </LinearLayout>
