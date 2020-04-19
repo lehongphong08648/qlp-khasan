@@ -45,7 +45,7 @@ public class FragmentRentectRoom extends Fragment {
         User user = new User("phmg123","123","le hong phong");
         KindOfRoom kindOfRoom = new KindOfRoom("phonghihi",200,70,500,"sieu me");
         Rooms room = new Rooms("123","massage",1,"ffff","ertyui");
-        Booking booking = new Booking("uio123","zxc456","890bnm","jkl567",date,date,741,"hihi");
+        Booking booking = new Booking("phng","12",22,123,date,date,741,"hihi");
         List<Booking> bookings = new ArrayList<>();
         bookings.add(booking);
         List<String> list = new ArrayList<>();
