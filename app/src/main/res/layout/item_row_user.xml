@@ -7,6 +7,7 @@
     android:layout_rowWeight="1"
     app:cardElevation="@dimen/dp6"
     app:cardCornerRadius="@dimen/dp12"
+    android:layout_margin="@dimen/padding"
     >
 
     <LinearLayout
@@ -27,6 +28,7 @@
             android:textColor="@color/colorWhile"
             android:textStyle="bold"
             android:layout_marginRight="@dimen/dp12"
+            android:layout_marginLeft="@dimen/dp12"
             />
 
 
@@ -70,18 +72,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 >
 
                 <ImageView
                     android:layout_width="@dimen/padding"
                     android:layout_height="@dimen/padding"
-                    android:src="@drawable/ic_settings_black_24dp"
+                    android:src="@drawable/ic_account_circle_black_24dp"
                     />
 
                 <TextView
 
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/margin_22dp"
                     android:text="Họ tên"
                     android:id="@+id/tv_hoTen_user"
                     android:textAppearance="?android:textAppearanceSmall"
@@ -93,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 >
                 <ImageView
                 android:layout_width="@dimen/padding"
@@ -102,7 +106,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/margin_22dp"
                     android:text="Mật khẩu"
                     android:id="@+id/tv_matKhau_user"
                     android:textAppearance="?android:textAppearanceSmall"

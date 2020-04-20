@@ -12,12 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.User;
+import com.example.projectandroid.repository.UserRepo;
 
 public class Fragment_Add_User extends AppCompatActivity {
     EditText edt_maND, edt_matKhauND, edt_hoTenND, edt_chucVuND;
     Button btn_themNguoiDung,btn_huyThemNguoiDung;
+
+    User user;
+    UserRepo userRepo;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +45,19 @@ public class Fragment_Add_User extends AppCompatActivity {
                 String matKhauND = edt_matKhauND.getText().toString();
                 String hoTenND = edt_hoTenND.getText().toString();
                 String chucVuND = edt_chucVuND.getText().toString();
+                if (matKhauND.isEmpty()){
+                    edt_matKhauND.setError("Vui lòng không bỏ trống mật khẩu");
+                }else if (hoTenND.isEmpty()){
+                    edt_matKhauND.setError("Vui lòng không bỏ trống họ tên");
+                }
+                else if (chucVuND.isEmpty()){
+                    edt_matKhauND.setError("Vui lòng không bỏ trống chức vụ");
+                }else {
+                    user = new User(matKhauND,hoTenND,chucVuND);
+                    userRepo = new UserRepo(Fragment_Add_User.this);
+                    userRepo.insert(user);
+                    Toast.makeText(Fragment_Add_User.this,"Đăng kí thàng công",Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

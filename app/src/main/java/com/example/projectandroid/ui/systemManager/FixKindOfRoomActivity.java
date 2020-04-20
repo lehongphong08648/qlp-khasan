@@ -1,9 +1,13 @@
 package com.example.projectandroid.ui.systemManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +23,9 @@ public class FixKindOfRoomActivity extends AppCompatActivity {
 
     KorRepo korRepo;
     KindOfRoom kindOfRoom;
+
+    Intent intent;
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +42,8 @@ public class FixKindOfRoomActivity extends AppCompatActivity {
         btn_fix_kindOfRoom = findViewById(R.id.btn_fix_kindOfRoom);
         btn_cancel_fix_kindOfRoom = findViewById(R.id.btn_cancel_fix_KindOfRom);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
+         intent = getIntent();
+         bundle = intent.getExtras();
         edt_fix_maTlp.setText(bundle.getString("maTheLoaiPhong"));
         edt_fix_tentlp.setText(bundle.getString("tenTheLoaiPhong"));
         edt_fix_gia2hDau.setText(bundle.getString("gia2hDau"));
@@ -53,7 +60,6 @@ public class FixKindOfRoomActivity extends AppCompatActivity {
                 String gia1Ngay = edt_fix_gia1Nay.getText().toString();
                 String gia1hTiep = edt_fix_gia1gioTiep.getText().toString();
                 String moTa = edt_fix_moTa.getText().toString();
-
                 if (tenTheLoaiPhong.isEmpty()){
                     edt_fix_tentlp.setError("Vui lòng nhập tên loại phòng");
                 }
@@ -77,5 +83,37 @@ public class FixKindOfRoomActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.delete,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.delete){
+            korRepo = new KorRepo(FixKindOfRoomActivity.this);
+            edt_fix_maTlp.setText(bundle.getString("maTheLoaiPhong"));
+            edt_fix_tentlp.setText(bundle.getString("tenTheLoaiPhong"));
+            edt_fix_gia2hDau.setText(bundle.getString("gia2hDau"));
+            edt_fix_gia1Nay.setText(bundle.getString("gia1Ngay"));
+            edt_fix_gia1gioTiep.setText(bundle.getString("gia1hTiep"));
+            edt_fix_moTa.setText(bundle.getString("moTa"));
+
+            String tenTheLoaiPhong =bundle.getString("tenTheLoaiPhong");
+            String maTheLoaiPhong = bundle.getString("maTheLoaiPhong");
+            String gia2hDau = bundle.getString("gia2hDau");
+            String gia1Ngay = bundle.getString("gia1Ngay");
+            String gia1hTiep = bundle.getString("gia1hTiep");
+            String moTa =bundle.getString("moTa");
+            KindOfRoom kindOfRoom = new KindOfRoom(tenTheLoaiPhong,Float.parseFloat(gia2hDau),Float.parseFloat(gia1hTiep),Float.parseFloat(gia1Ngay),moTa);
+            kindOfRoom.setId(Integer.parseInt(maTheLoaiPhong));
+            korRepo.delete(kindOfRoom);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

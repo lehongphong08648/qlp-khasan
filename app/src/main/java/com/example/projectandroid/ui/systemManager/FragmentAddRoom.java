@@ -103,7 +103,7 @@ Button btn_add_room, btn_cancel_room;
                     rooms = new Rooms(maPhong,String.valueOf(idKindOfRoom),Integer.parseInt(tang),dvKhach,moTa);
                     roomRepo.insert(rooms);
                     Toast.makeText(FragmentAddRoom.this,"Thêm phòng thành công",Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(FragmentAddRoom.this,idKindOfRoom+"",Toast.LENGTH_SHORT).show();
                     edt_maPhong.setText("");
                     edt_tang.setText("");
                     edt_dvKhac.setText("");

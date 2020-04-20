@@ -2,6 +2,7 @@ package com.example.projectandroid.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,18 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, FixUserActivity.class));
+                String maND_user = String.valueOf(users.get(position).getId());
+                String chucVu_user = String.valueOf(users.get(position).getPosition());
+                String hoTen_user = String.valueOf(users.get(position).getFullName());
+                String matKhau_user = String.valueOf(users.get(position).getPassword());
+                Intent intent = new Intent(mContext,FixUserActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("maND_user",maND_user);
+                bundle.putString("hoTen_user",hoTen_user);
+                bundle.putString("matKhau_user",matKhau_user);
+                bundle.putString("chucVu_user",chucVu_user);
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
             }
         });
 

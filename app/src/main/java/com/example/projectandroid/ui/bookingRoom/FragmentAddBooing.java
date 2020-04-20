@@ -16,6 +16,8 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -24,9 +26,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.KindOfRoom;
+import com.example.projectandroid.ui.systemManager.FragmentAddRoom;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class FragmentAddBooing extends AppCompatActivity {
     EditText edt_nameClient, edt_idClient, edt_locationClient, edt_sdt, edt_ngaySinh, edt_vip, edt_email;
@@ -37,6 +43,8 @@ public class FragmentAddBooing extends AppCompatActivity {
     AppCompatSpinner sp_quocTich, sp_maPhong;
 
     Button btn_add_booking, btn_cancel_booking;
+
+    List<String> listQuocTich;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,6 +77,32 @@ public class FragmentAddBooing extends AppCompatActivity {
         btn_cancel_booking = findViewById(R.id.btn_cancel_booking);
 
         mCreateEvent();
+
+        //set spiner quốc tịch
+        listQuocTich = new ArrayList<>();
+        listQuocTich.add("Việt Nam");
+        listQuocTich.add("Anh Quốc");
+        listQuocTich.add("Mỹ");
+        listQuocTich.add("Thái Lan");
+        listQuocTich.add("Trung Quốc");
+        listQuocTich.add("Nga");
+        listQuocTich.add("Nhật Bản");
+        listQuocTich.add("Hàn Quốc");
+        listQuocTich.add("khác");
+        ArrayAdapter<String> kindOfRoomArrayAdapter = new ArrayAdapter<>(FragmentAddBooing.this,android.R.layout.simple_spinner_item,listQuocTich);
+        kindOfRoomArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_quocTich.setAdapter(kindOfRoomArrayAdapter);
+        sp_quocTich.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
 
@@ -92,6 +126,14 @@ public class FragmentAddBooing extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showDateTimeDialog(tv_ngayDi);
+            }
+        });
+
+
+        btn_add_booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
@@ -142,3 +184,4 @@ public class FragmentAddBooing extends AppCompatActivity {
 
 
 }
+
