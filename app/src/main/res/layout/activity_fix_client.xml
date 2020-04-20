@@ -37,7 +37,7 @@
                 >
 
                 <EditText
-                    android:id="@+id/edt_nameClient_checkIn"
+                    android:id="@+id/edt_fix_nameClient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Họ tên khách hàng"
@@ -56,16 +56,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Số CMNN"
-                    android:id="@+id/edt_idCard_checkIn"
+                    android:id="@+id/edt_fix_idCard"
                     android:inputType="number"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +87,7 @@
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sp_quocTich_checkIn"
+                    android:id="@+id/sp_fix_quocTich_client"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Địa Chỉ"
-                    android:id="@+id/edt_location_checkIn"
+                    android:id="@+id/edt_fix_location"
                     android:inputType="number"
                     />
 
@@ -126,7 +123,7 @@
                 >
 
                 <EditText
-                    android:id="@+id/edt_sdt_checkIn"
+                    android:id="@+id/edt_fix_sdt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="SĐT"
@@ -142,16 +139,14 @@
                 >
 
                 <EditText
+                    android:id="@+id/edt_fix_ngaySinh"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:hint="Ngày Sinh"
-                    android:id="@+id/edt_ngaySinh_checkIn"
                     android:inputType="number"
+                    android:enabled="false"
                     />
-
             </com.google.android.material.textfield.TextInputLayout>
-
-
 
         </LinearLayout>
 
@@ -171,7 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Vip"
-                    android:id="@+id/edt_vip_checkIn"
+                    android:id="@+id/edt_fix_vip"
                     android:inputType="number"
                     />
 
@@ -188,12 +183,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:id="@+id/edt_email_checkIn"
+                    android:id="@+id/edt_fix_email"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
 
         </LinearLayout>
         <LinearLayout
@@ -203,8 +196,6 @@
             android:layout_marginTop="@dimen/margin_22dp"
             >
 
-
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -213,12 +204,9 @@
                 android:background="@drawable/round_buttom"
                 android:textColor="@color/colorWhile"
                 android:backgroundTint="@color/colorAccent"
-                android:text="Check In"
-                android:id="@+id/btn_checkIn"
+                android:text="Thêm khách hang"
+                android:id="@+id/btn_fix_client"
                 />
-
-
-
 
             <Button
                 android:layout_width="match_parent"
@@ -229,13 +217,8 @@
                 android:backgroundTint="@color/colorWhile"
                 android:layout_marginLeft="@dimen/padding"
                 android:textColor="@color/colorAccent"
-                android:id="@+id/btn_cancel_client"
+                android:id="@+id/btn_cancel_fix_client"
                 />
-
-
-
-
-
         </LinearLayout>
     </LinearLayout>
 

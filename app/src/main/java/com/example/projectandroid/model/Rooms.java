@@ -33,8 +33,7 @@ public class Rooms {
 
     private String describe;
 
-    @ColumnInfo(defaultValue = "Offline")
-    private String status;
+    private String status = "Ofline";
 
     public Rooms(@NotNull String id, String idKOR, int floor, String service, String describe) {
         this.id = id;
@@ -90,5 +89,11 @@ public class Rooms {
 
     public void setDescribe(String describe) {
         this.describe = describe;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return id;
     }
 }

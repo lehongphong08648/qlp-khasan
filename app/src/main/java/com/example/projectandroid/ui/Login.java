@@ -41,7 +41,6 @@ public class Login extends AppCompatActivity {
 
         users = new ArrayList<>();
         userRepo = new UserRepo(Login.this);
-        users= userRepo.getAll();
         dangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

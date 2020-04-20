@@ -12,13 +12,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.repository.KorRepo;
+import com.example.projectandroid.repository.RoomRepo;
 
 public class FixRoomActivity extends AppCompatActivity {
     EditText edt_fix_maPhong, edt_fix_tang, edt_fix_dvKhac, edt_fix_moTaPhong,edt_fix_idKor;
     Button btn_fix_room, btn_cancel_fix_room;
+
+    Rooms rooms;
+    RoomRepo roomRepo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +57,11 @@ public class FixRoomActivity extends AppCompatActivity {
                 String tang = edt_fix_maPhong.getText().toString();
                 String dvKhac = edt_fix_maPhong.getText().toString();
                 String moTaPhong = edt_fix_maPhong.getText().toString();
+
+                rooms = new Rooms(maPhong,idKor,Integer.parseInt(tang),dvKhac,moTaPhong);
+
+
+                Toast.makeText(FixRoomActivity.this,"",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -66,7 +77,18 @@ public class FixRoomActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.delete){
+            String maPhong = edt_fix_maPhong.getText().toString();
+            String idKor = edt_fix_maPhong.getText().toString();
+            String tang = edt_fix_maPhong.getText().toString();
+            String dvKhac = edt_fix_maPhong.getText().toString();
+            String moTaPhong = edt_fix_maPhong.getText().toString();
 
+            roomRepo = new RoomRepo(FixRoomActivity.this);
+            rooms = new Rooms(maPhong,idKor,Integer.parseInt(tang),dvKhac,moTaPhong);
+            rooms.setId(maPhong);
+            roomRepo.delete(rooms);
+            startActivity(new Intent(FixRoomActivity.this,FragmentRoom.class));
+            Toast.makeText(FixRoomActivity.this,"Đã xóa",Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

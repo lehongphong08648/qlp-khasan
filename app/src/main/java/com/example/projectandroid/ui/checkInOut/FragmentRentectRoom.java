@@ -42,7 +42,7 @@ public class FragmentRentectRoom extends Fragment {
             e.printStackTrace();
         }
 
-        gv_rentectRoom.setAdapter(adapterRentectRoom);
+//        gv_rentectRoom.setAdapter(adapterRentectRoom);
         return view;
     }
 }

@@ -39,12 +39,6 @@ public class Invoice {
         this.total = total;
     }
 
-    public Invoice(String idBooking, float service, float discount, float total) {
-        this.idBooking = idBooking;
-        this.service = service;
-        this.discount = discount;
-        this.total = total;
-    }
 
     public int getId() {
         return id;
