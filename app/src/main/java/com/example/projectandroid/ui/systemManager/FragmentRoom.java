@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,10 +53,10 @@ public class FragmentRoom extends AppCompatActivity {
         roomRepo = new RoomRepo(FragmentRoom.this);
         rooms = roomRepo.getAll();
         adapterRoom = new AdapterRoom(rooms,FragmentRoom.this);
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(FragmentRoom.this);
         lv_room.setAdapter(adapterRoom);
         lv_room.setLayoutManager(layoutManager);
+
 
         btn_frm_addRoom.setOnClickListener(new View.OnClickListener() {
             @Override

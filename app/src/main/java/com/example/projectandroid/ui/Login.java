@@ -21,6 +21,8 @@ import java.util.List;
 
 public class Login extends AppCompatActivity {
 
+    public static String idUser;
+
     EditText edt_tenNd_login, edt_makhau_login;
     Button dangNhap , DangKi;
     List<User> users;
@@ -43,7 +45,6 @@ public class Login extends AppCompatActivity {
 
         users = new ArrayList<>();
         userRepo = new UserRepo(Login.this);
-        users= userRepo.getAll();
         dangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +60,7 @@ public class Login extends AppCompatActivity {
                 } else {
                     String tk = edt_tenNd_login.getText().toString();
                     String mk = edt_makhau_login.getText().toString();
+                    idUser = tk;
                     Intent intent = new Intent(Login.this, SystemManagerActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("tk",tk);

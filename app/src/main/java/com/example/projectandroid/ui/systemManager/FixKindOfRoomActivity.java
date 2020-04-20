@@ -54,7 +54,7 @@ public class FixKindOfRoomActivity extends AppCompatActivity {
         btn_fix_kindOfRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String maTheLoaiPhong = bundle.getString("maTheLoaiPhong");
                 String tenTheLoaiPhong = edt_fix_tentlp.getText().toString();
                 String gia2hDau = edt_fix_gia2hDau.getText().toString();
                 String gia1Ngay = edt_fix_gia1Nay.getText().toString();
@@ -77,12 +77,18 @@ public class FixKindOfRoomActivity extends AppCompatActivity {
                     korRepo = new KorRepo(FixKindOfRoomActivity.this);
                     kindOfRoom = new KindOfRoom(tenTheLoaiPhong,Float.parseFloat(gia2hDau),Float.parseFloat(gia1Ngay)
                             ,Float.parseFloat(gia1hTiep),moTa);
+                    kindOfRoom.setId(Integer.parseInt(maTheLoaiPhong));
                     korRepo.update(kindOfRoom);
                     Toast.makeText(FixKindOfRoomActivity.this,"Chỉnh sửa thành công",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
+         btn_cancel_fix_kindOfRoom.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 startActivity(new Intent(FixKindOfRoomActivity.this,FragmentKindOfRoom.class));
+             }
+         });
     }
 
     @Override
@@ -97,22 +103,18 @@ public class FixKindOfRoomActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.delete){
             korRepo = new KorRepo(FixKindOfRoomActivity.this);
-            edt_fix_maTlp.setText(bundle.getString("maTheLoaiPhong"));
-            edt_fix_tentlp.setText(bundle.getString("tenTheLoaiPhong"));
-            edt_fix_gia2hDau.setText(bundle.getString("gia2hDau"));
-            edt_fix_gia1Nay.setText(bundle.getString("gia1Ngay"));
-            edt_fix_gia1gioTiep.setText(bundle.getString("gia1hTiep"));
-            edt_fix_moTa.setText(bundle.getString("moTa"));
-
-            String tenTheLoaiPhong =bundle.getString("tenTheLoaiPhong");
             String maTheLoaiPhong = bundle.getString("maTheLoaiPhong");
-            String gia2hDau = bundle.getString("gia2hDau");
-            String gia1Ngay = bundle.getString("gia1Ngay");
-            String gia1hTiep = bundle.getString("gia1hTiep");
-            String moTa =bundle.getString("moTa");
-            KindOfRoom kindOfRoom = new KindOfRoom(tenTheLoaiPhong,Float.parseFloat(gia2hDau),Float.parseFloat(gia1hTiep),Float.parseFloat(gia1Ngay),moTa);
+            String tenTheLoaiPhong = edt_fix_tentlp.getText().toString();
+            String gia2hDau = edt_fix_gia2hDau.getText().toString();
+            String gia1Ngay = edt_fix_gia1Nay.getText().toString();
+            String gia1hTiep = edt_fix_gia1gioTiep.getText().toString();
+            String moTa = edt_fix_moTa.getText().toString();
+
+            kindOfRoom = new KindOfRoom(tenTheLoaiPhong,Float.parseFloat(gia2hDau),Float.parseFloat(gia1hTiep),Float.parseFloat(gia1Ngay),moTa);
             kindOfRoom.setId(Integer.parseInt(maTheLoaiPhong));
             korRepo.delete(kindOfRoom);
+            startActivity(new Intent(FixKindOfRoomActivity.this,FragmentKindOfRoom.class));
+            Toast.makeText(FixKindOfRoomActivity.this,"Đã xóa",Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

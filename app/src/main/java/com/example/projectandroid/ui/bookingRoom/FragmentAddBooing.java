@@ -26,16 +26,25 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.Client;
 import com.example.projectandroid.model.KindOfRoom;
+import com.example.projectandroid.model.QuocTich;
+import com.example.projectandroid.model.Rooms;
+import com.example.projectandroid.repository.BookingRepo;
+import com.example.projectandroid.repository.ClientRepo;
+import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.ui.systemManager.FragmentAddRoom;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class FragmentAddBooing extends AppCompatActivity {
-    EditText edt_nameClient, edt_idClient, edt_locationClient, edt_sdt, edt_ngaySinh, edt_vip, edt_email;
+    EditText edt_nameClient, edt_idCard, edt_locationClient, edt_sdt, edt_ngaySinh, edt_vip, edt_email;
     EditText edt_giaCb, edt_datCoc;
     EditText tv_ngayDen, tv_ngayDi;
     ImageView img_ngayDen, img_ngayDi;
@@ -44,7 +53,20 @@ public class FragmentAddBooing extends AppCompatActivity {
 
     Button btn_add_booking, btn_cancel_booking;
 
-    List<String> listQuocTich;
+    List<QuocTich> listQuocTich;
+    List<Rooms> rooms;
+    RoomRepo roomRepo;
+
+    Booking booking;
+    BookingRepo bookingRepo;
+
+    Client client;
+    ClientRepo clientRepo;
+    List<Client> clients;
+
+    Date mNgayDen;
+    Date mNgayDi;
+    Date mNgaySinh;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +75,7 @@ public class FragmentAddBooing extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         edt_nameClient = findViewById(R.id.edt_nameClient);
-        edt_idClient = findViewById(R.id.edt_idCard);
+        edt_idCard = findViewById(R.id.edt_idCard);
         edt_locationClient = findViewById(R.id.edt_location);
         edt_sdt = findViewById(R.id.edt_sdt);
         edt_ngaySinh = findViewById(R.id.edt_ngaySinh);
@@ -80,29 +102,30 @@ public class FragmentAddBooing extends AppCompatActivity {
 
         //set spiner quốc tịch
         listQuocTich = new ArrayList<>();
-        listQuocTich.add("Việt Nam");
-        listQuocTich.add("Anh Quốc");
-        listQuocTich.add("Mỹ");
-        listQuocTich.add("Thái Lan");
-        listQuocTich.add("Trung Quốc");
-        listQuocTich.add("Nga");
-        listQuocTich.add("Nhật Bản");
-        listQuocTich.add("Hàn Quốc");
-        listQuocTich.add("khác");
-        ArrayAdapter<String> kindOfRoomArrayAdapter = new ArrayAdapter<>(FragmentAddBooing.this,android.R.layout.simple_spinner_item,listQuocTich);
+        QuocTich quocTich = new QuocTich("Việt Nam");
+        QuocTich quocTich1 = new QuocTich("Úc");
+        QuocTich quocTich2 = new QuocTich("Anh Quốc");
+        QuocTich quocTich3 = new QuocTich("Mỹ");
+        QuocTich quocTich4 = new QuocTich("Thái Lan");
+        QuocTich quocTich5 = new QuocTich("Trung Quốc");
+        QuocTich quocTich6 = new QuocTich("Nga");
+        QuocTich quocTich7 = new QuocTich("Nhật Bản");
+        QuocTich quocTich8 = new QuocTich("Hàn Quốc");
+        QuocTich quocTich9 = new QuocTich("khác");
+
+        listQuocTich.add(quocTich);listQuocTich.add(quocTich1);listQuocTich.add(quocTich2);
+        listQuocTich.add(quocTich3);listQuocTich.add(quocTich4);listQuocTich.add(quocTich5);
+        listQuocTich.add(quocTich6);listQuocTich.add(quocTich7);listQuocTich.add(quocTich8);listQuocTich.add(quocTich9);
+        ArrayAdapter<QuocTich> kindOfRoomArrayAdapter = new ArrayAdapter<>(FragmentAddBooing.this,android.R.layout.simple_spinner_item,listQuocTich);
         kindOfRoomArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_quocTich.setAdapter(kindOfRoomArrayAdapter);
-        sp_quocTich.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
+        rooms = new ArrayList<>();
+        roomRepo = new RoomRepo(FragmentAddBooing.this);
+        rooms = roomRepo.getAll();
+        ArrayAdapter<Rooms> roomsArrayAdapter = new ArrayAdapter<>(FragmentAddBooing.this,android.R.layout.simple_spinner_item,rooms);
+        roomsArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_maPhong.setAdapter(roomsArrayAdapter);
     }
 
 
@@ -133,7 +156,61 @@ public class FragmentAddBooing extends AppCompatActivity {
         btn_add_booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuocTich mQuocTich = (QuocTich) sp_quocTich.getSelectedItem();
+                String quocTich = mQuocTich.getQuocTich();
+                Rooms mRooms = (Rooms) sp_maPhong.getSelectedItem();
+                String maPhong = mRooms.getId();
 
+                String nameClient = edt_nameClient.getText().toString();
+                String idCard = edt_idCard.getText().toString();
+                String locationClient = edt_locationClient.getText().toString();
+                String sdt = edt_sdt.getText().toString();
+                String ngaySinh = edt_ngaySinh.getText().toString();
+                String vip = edt_vip.getText().toString();
+                String email = edt_email.getText().toString();
+                String ngayDen = tv_ngayDen.getText().toString();
+                String ngayDi = tv_ngayDi.getText().toString();
+                String giaCb = edt_giaCb.getText().toString();
+                String datCoc = edt_datCoc.getText().toString();
+
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                if (nameClient.isEmpty()){
+                    edt_nameClient.setError("Vui lòng nhập tên khách hàng");
+                }
+                if (idCard.isEmpty()){
+                    edt_idCard.setError("Vui lòng nhập tên khách hàng");
+                }
+                if (locationClient.isEmpty()){
+                    edt_locationClient.setError("Vui lòng nhập tên khách hàng");
+                }
+                if (sdt.isEmpty()){
+                    edt_sdt.setError("Vui lòng nhập tên khách hàng");
+                }
+                if (ngaySinh.isEmpty()){
+                    edt_ngaySinh.setError("Vui lòng nhập tên khách hàng");
+                }if (vip.isEmpty()){
+                    edt_vip.setError("Vui lòng nhập tên khách hàng");
+                }if (email.isEmpty()){
+                    edt_email.setError("Vui lòng nhập tên khách hàng");
+                }if (ngayDen.isEmpty()){
+                    tv_ngayDen.setError("Vui lòng nhập tên khách hàng");
+                }if (ngayDi.isEmpty()){
+                    tv_ngayDi.setError("Vui lòng nhập tên khách hàng");
+                }if (giaCb.isEmpty()){
+                    edt_giaCb.setError("Vui lòng nhập tên khách hàng");
+                }if (datCoc.isEmpty()){
+                    edt_datCoc.setError("Vui lòng nhập tên khách hàng");
+                }
+                else {
+                    try {
+                         mNgayDen =simpleDateFormat.parse(ngayDen);
+                         mNgaySinh = simpleDateFormat.parse(ngaySinh);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    client = new Client(nameClient,idCard,quocTich,locationClient,Integer.parseInt(sdt),Integer.parseInt(vip)
+                            ,mNgaySinh,email);
+                }
             }
         });
 

@@ -15,10 +15,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.Client;
 
 public class FragmentSystemManager extends Fragment {
 
-    LinearLayout price, kindofroom, room, statistical, history, staff;
+    LinearLayout price, kindofroom, room, statistical, history, staff,client;
 
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
@@ -37,6 +38,7 @@ public class FragmentSystemManager extends Fragment {
         statistical = view.findViewById(R.id.statistical);
         history = view.findViewById(R.id.history);
         staff = view.findViewById(R.id.user);
+        client = view.findViewById(R.id.client);
 
         tv_userName = view.findViewById(R.id.tv_userName);
         tv_userId = view.findViewById(R.id.tv_userId);
@@ -77,6 +79,13 @@ public class FragmentSystemManager extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(),FragmentStaff.class));
+            }
+        });
+
+        client.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ClientActivity.class));
             }
         });
 

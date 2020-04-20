@@ -18,7 +18,11 @@ public class BookingRepo {
     private RoomDAO roomDAO;
 
     public BookingRepo(Context context) {
+<<<<<<< HEAD
         AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "db1").allowMainThreadQueries().build();
+=======
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotlind").allowMainThreadQueries().build();
+>>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
         bookingDAO = database.bookingDAO();
         roomDAO = database.roomDAO();
     }
