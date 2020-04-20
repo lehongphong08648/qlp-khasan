@@ -41,18 +41,7 @@ public class FragmentRentectRoom extends Fragment {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Client client = new Client("le hong phong","122377709","Vietnames","dao luoi",03,1,date,"idtmnam@gmail.com");
-        User user = new User("phmg123","123","le hong phong");
-        KindOfRoom kindOfRoom = new KindOfRoom("phonghihi",200,70,500,"sieu me");
-        Rooms room = new Rooms("123","massage",1,"ffff","ertyui");
-        Booking booking = new Booking("phng","12",22,123,date,date,741,"hihi");
-        List<Booking> bookings = new ArrayList<>();
-        bookings.add(booking);
-        List<String> list = new ArrayList<>();
-        list.add("anh phong hello may cung");
 
-        gv_rentectRoom = view.findViewById(R.id.gv_rentectRoom);
-        adapterRentectRoom = new AdapterRentectRoom(getContext(),list,bookings);
         gv_rentectRoom.setAdapter(adapterRentectRoom);
         return view;
     }

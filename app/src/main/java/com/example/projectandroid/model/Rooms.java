@@ -33,12 +33,23 @@ public class Rooms {
 
     private String describe;
 
+    @ColumnInfo(defaultValue = "Offline")
+    private String status;
+
     public Rooms(@NotNull String id, String idKOR, int floor, String service, String describe) {
         this.id = id;
         this.idKOR = idKOR;
         this.floor = floor;
         this.service = service;
         this.describe = describe;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getId() {

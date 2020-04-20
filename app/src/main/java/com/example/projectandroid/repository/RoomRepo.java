@@ -36,6 +36,27 @@ public class RoomRepo {
         return roomDAO.getAllRoom();
     }
 
+    //Lấy tất cả phòng đang dọn
+    public List<Rooms> getAllBusyRoom() {
+        return roomDAO.getBusyRooms();
+    }
+
+    //Lấy tất cả phòng đang có người dùng
+    public List<Rooms> getAllOnlineRoom() {
+        return roomDAO.getOnlineRooms();
+    }
+
+
+    //Lấy tất cả các phòng trống
+    public List<Rooms> getAllOfflineRoom() {
+        return roomDAO.getOfflineRooms();
+    }
+
+    //Lấy tất cả các phòng đã đặt
+    public List<Rooms> getAllBookingRoom() {
+        return roomDAO.getBookingRooms();
+    }
+
     private static class InsertRoomAsyncTask extends AsyncTask<Rooms, Void, Void> {
 
         RoomDAO roomDAO;

@@ -12,6 +12,7 @@ import java.util.List;
 
 @Dao
 public interface RoomDAO {
+
     @Insert
     void insertRoom(Rooms... rooms);
 
@@ -23,4 +24,19 @@ public interface RoomDAO {
 
     @Query("SELECT * FROM ROOM")
     List<Rooms> getAllRoom();
+
+    @Query("SELECT * FROM ROOM WHERE STATUS LIKE 'Online'")
+    List<Rooms> getOnlineRooms();
+
+    @Query("SELECT * FROM ROOM WHERE STATUS LIKE 'Ofline'")
+    List<Rooms> getOfflineRooms();
+
+    @Query("SELECT * FROM ROOM WHERE STATUS LIKE 'Busy'")
+    List<Rooms> getBusyRooms();
+
+    @Query("SELECT * FROM ROOM WHERE STATUS LIKE 'Booking'")
+    List<Rooms> getBookingRooms();
+
+    @Query("SELECT * FROM ROOM WHERE :idRoom")
+    Rooms getRoom(String idRoom);
 }

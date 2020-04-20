@@ -1,11 +1,12 @@
 package com.example.projectandroid.model;
 
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import io.reactivex.annotations.NonNull;
 
 @Entity(
         tableName = "invoice",
@@ -32,6 +33,13 @@ public class Invoice {
 
     public Invoice(int id, String idBooking, float service, float discount, float total) {
         this.id = id;
+        this.idBooking = idBooking;
+        this.service = service;
+        this.discount = discount;
+        this.total = total;
+    }
+
+    public Invoice(String idBooking, float service, float discount, float total) {
         this.idBooking = idBooking;
         this.service = service;
         this.discount = discount;

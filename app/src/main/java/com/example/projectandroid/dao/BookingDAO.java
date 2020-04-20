@@ -12,8 +12,9 @@ import java.util.List;
 
 @Dao
 public interface BookingDAO {
+
     @Insert
-    void insertBooking(Booking... bookings);
+    long[] insertBooking(Booking... bookings);
 
     @Update
     void updateBooking(Booking... bookings);

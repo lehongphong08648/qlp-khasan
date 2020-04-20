@@ -27,12 +27,11 @@ import com.example.projectandroid.model.User;
         entities = {
                 Booking.class, Client.class, Invoice.class, KindOfRoom.class, Rooms.class, User.class
         },
-        version = 2
+        version = 2,
+        exportSchema = false
 )
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
-
-    private static AppDatabase instance;
 
     public abstract UserDAO userDAO();
 

@@ -46,9 +46,8 @@ public class Booking {
     private Date dayCome;
     private Date dayGo;
     private float deposit;
-    private String status;
 
-    public Booking(@NonNull String id, String idRoom, int idClient, int idUser, Date dayCome, Date dayGo, float deposit, String status) {
+    public Booking(@NonNull String id, String idRoom, int idClient, int idUser, Date dayCome, Date dayGo, float deposit) {
         this.id = id;
         this.idRoom = idRoom;
         this.idClient = idClient;
@@ -56,7 +55,6 @@ public class Booking {
         this.dayCome = dayCome;
         this.dayGo = dayGo;
         this.deposit = deposit;
-        this.status = status;
     }
 
     @NonNull
@@ -116,11 +114,4 @@ public class Booking {
         this.deposit = deposit;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }
