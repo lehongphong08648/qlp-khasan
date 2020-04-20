@@ -31,21 +31,12 @@ public class Invoice {
 
     private float total;
 
-<<<<<<< HEAD
     public Invoice(String idBooking, float service, float discount, float total) {
-=======
-    public Invoice(int id, String idBooking, float service, float discount, float total) {
-        this.id = id;
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
         this.idBooking = idBooking;
         this.service = service;
         this.discount = discount;
         this.total = total;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
 
     public int getId() {
         return id;

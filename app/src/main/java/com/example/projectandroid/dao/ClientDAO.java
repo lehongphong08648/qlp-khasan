@@ -25,4 +25,7 @@ public interface ClientDAO {
     @Query("SELECT * FROM CLIENT")
     List<Client> getAllClient();
 
+    @Query("SELECT * FROM CLIENT WHERE idClient like :idClient")
+    Client getClientById(int idClient);
+
 }

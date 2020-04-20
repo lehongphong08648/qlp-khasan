@@ -15,11 +15,7 @@ public class UserRepo {
     private UserDAO userDAO;
 
     public UserRepo(Context context) {
-<<<<<<< HEAD
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "db1").allowMainThreadQueries().build();
-=======
         AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotlind").allowMainThreadQueries().build();
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
         userDAO = database.userDAO();
     }
 
@@ -37,6 +33,17 @@ public class UserRepo {
 
     public List<User> getAll() {
         return userDAO.getAllUser();
+    }
+
+    //TODO: Lấy User theo user Name
+    public User getUserByUserName(String userName) {
+        return userDAO.getUserByUserName(userName);
+    }
+
+    //TODO: Check User Login
+    //Truyền vào user name và password trả về true nếu đúng
+    public List<User> checkUserLogin(String userName, String password) {
+        return userDAO.checkUserLogin(userName, password);
     }
 
     private static class InsertUserAsyncTask extends AsyncTask<User, User, Void> {

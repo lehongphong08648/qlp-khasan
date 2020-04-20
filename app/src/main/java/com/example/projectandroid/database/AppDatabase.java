@@ -27,11 +27,7 @@ import com.example.projectandroid.model.User;
         entities = {
                 Booking.class, Client.class, Invoice.class, KindOfRoom.class, Rooms.class, User.class
         },
-<<<<<<< HEAD
-        version = 3,
-=======
         version = 4,
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
         exportSchema = false
 )
 @TypeConverters({Converters.class})

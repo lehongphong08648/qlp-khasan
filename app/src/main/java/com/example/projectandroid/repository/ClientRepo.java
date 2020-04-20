@@ -16,11 +16,7 @@ public class ClientRepo {
     private ClientDAO clientDAO;
 
     public ClientRepo(Context context) {
-<<<<<<< HEAD
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "db1").allowMainThreadQueries().build();
-=======
         AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotlind").allowMainThreadQueries().build();
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
         clientDAO = database.clientDAO();
     }
 
@@ -38,6 +34,11 @@ public class ClientRepo {
 
     public List<Client> getAll() {
         return clientDAO.getAllClient();
+    }
+
+    //Lấy ra Khách Hàng theo id
+    public Client getClientById(int idClient) {
+        return clientDAO.getClientById(idClient);
     }
 
     private static class InsertClientAsyncTask extends AsyncTask<Client, Void, Void> {

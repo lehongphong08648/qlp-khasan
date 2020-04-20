@@ -1,5 +1,6 @@
 package com.example.projectandroid.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -9,36 +10,27 @@ import androidx.room.PrimaryKey;
 )
 public class User {
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "idUser")
-    private int id;
+    @PrimaryKey
+    @NonNull
+    private String idUser;
 
-    private String userName;
     private String password;
     private String fullName;
     private String position;
 
-    public User(String userName, String password, String fullName, String position) {
-        this.userName = userName;
+    public User(String idUser, String password, String fullName, String position) {
+        this.idUser = idUser;
         this.password = password;
         this.fullName = fullName;
         this.position = position;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getIdUser() {
+        return idUser;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
     }
 
     public String getPassword() {

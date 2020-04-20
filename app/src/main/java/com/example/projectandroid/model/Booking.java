@@ -34,20 +34,20 @@ import java.util.Date;
         indices = {@Index(name = "idRoom_index", value = "idRoom"), @Index(name = "idUser_index", value = "idUser"), @Index(name = "idClient_index", value = "idClient")}
 )
 public class Booking {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "idBooking")
-    private String id;
+    private int id;
 
     private String idRoom;
     private int idClient;
-    private int idUser;
+    private String idUser;
 
     private Date dayCome;
     private Date dayGo;
     private float deposit;
 
-    public Booking(String idRoom, int idClient, int idUser, Date dayCome, Date dayGo, float deposit) {
+    public Booking(String idRoom, int idClient, String idUser, Date dayCome, Date dayGo, float deposit) {
         this.idRoom = idRoom;
         this.idClient = idClient;
         this.idUser = idUser;
@@ -57,11 +57,11 @@ public class Booking {
     }
 
     @NonNull
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(@NonNull String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -81,11 +81,11 @@ public class Booking {
         this.idClient = idClient;
     }
 
-    public int getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 

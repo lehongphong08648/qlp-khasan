@@ -16,11 +16,7 @@ public class RoomRepo {
     private RoomDAO roomDAO;
 
     public RoomRepo(Context context) {
-<<<<<<< HEAD
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "db1").allowMainThreadQueries().build();
-=======
         AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotlind").allowMainThreadQueries().build();
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
         roomDAO = database.roomDAO();
     }
 
@@ -49,7 +45,6 @@ public class RoomRepo {
     public List<Rooms> getAllOnlineRoom() {
         return roomDAO.getOnlineRooms();
     }
-
 
     //Lấy tất cả các phòng trống
     public List<Rooms> getAllOfflineRoom() {

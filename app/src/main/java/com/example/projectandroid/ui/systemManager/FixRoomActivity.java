@@ -15,10 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.projectandroid.R;
-<<<<<<< HEAD
 import com.example.projectandroid.dao.RoomDAO;
-=======
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
 import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.repository.KorRepo;
 import com.example.projectandroid.repository.RoomRepo;
@@ -27,14 +24,9 @@ public class FixRoomActivity extends AppCompatActivity {
     EditText edt_fix_maPhong, edt_fix_tang, edt_fix_dvKhac, edt_fix_moTaPhong, edt_fix_idKor;
     Button btn_fix_room, btn_cancel_fix_room;
 
-<<<<<<< HEAD
-    private RoomRepo roomRepo;
-    private Rooms room;
-
-=======
     Rooms rooms;
     RoomRepo roomRepo;
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,15 +61,10 @@ public class FixRoomActivity extends AppCompatActivity {
                 String tang = edt_fix_maPhong.getText().toString();
                 String dvKhac = edt_fix_maPhong.getText().toString();
                 String moTaPhong = edt_fix_maPhong.getText().toString();
-<<<<<<< HEAD
-                room = new Rooms(maPhong, idKor, Integer.parseInt(tang), dvKhac, moTaPhong);
-=======
-
-                rooms = new Rooms(maPhong,Integer.parseInt(idKor),Integer.parseInt(tang),dvKhac,moTaPhong);
+                rooms = new Rooms(maPhong, Integer.parseInt(idKor), Integer.parseInt(tang), dvKhac, moTaPhong);
 
 
-                Toast.makeText(FixRoomActivity.this,"",Toast.LENGTH_SHORT).show();
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
+                Toast.makeText(FixRoomActivity.this, "", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -92,24 +79,25 @@ public class FixRoomActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-<<<<<<< HEAD
         if (id == R.id.delete) {
-            roomRepo.delete(room);
-=======
-        if (id == R.id.delete){
-            String maPhong = edt_fix_maPhong.getText().toString();
-            String idKor = edt_fix_maPhong.getText().toString();
-            String tang = edt_fix_maPhong.getText().toString();
-            String dvKhac = edt_fix_maPhong.getText().toString();
-            String moTaPhong = edt_fix_maPhong.getText().toString();
-
-            roomRepo = new RoomRepo(FixRoomActivity.this);
-            rooms = new Rooms(maPhong,Integer.parseInt(idKor),Integer.parseInt(tang),dvKhac,moTaPhong);
             roomRepo.delete(rooms);
-            startActivity(new Intent(FixRoomActivity.this,FragmentRoom.class));
-            Toast.makeText(FixRoomActivity.this,"Đã xóa",Toast.LENGTH_SHORT).show();
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
+            if (id == R.id.delete) {
+                String maPhong = edt_fix_maPhong.getText().toString();
+                String idKor = edt_fix_maPhong.getText().toString();
+                String tang = edt_fix_maPhong.getText().toString();
+                String dvKhac = edt_fix_maPhong.getText().toString();
+                String moTaPhong = edt_fix_maPhong.getText().toString();
+
+                roomRepo = new RoomRepo(FixRoomActivity.this);
+                rooms = new Rooms(maPhong, Integer.parseInt(idKor), Integer.parseInt(tang), dvKhac, moTaPhong);
+                roomRepo.delete(rooms);
+                startActivity(new Intent(FixRoomActivity.this, FragmentRoom.class));
+                Toast.makeText(FixRoomActivity.this, "Đã xóa", Toast.LENGTH_SHORT).show();
+            }
+
+            return super.onOptionsItemSelected(item);
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

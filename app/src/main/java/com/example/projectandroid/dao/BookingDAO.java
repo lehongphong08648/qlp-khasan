@@ -24,4 +24,7 @@ public interface BookingDAO {
 
     @Query("SELECT * FROM BOOKING")
     List<Booking> getAllBooking();
+
+    @Query("SELECT * FROM BOOKING WHERE :idBooking = idBooking")
+    Booking getBookingById(int idBooking);
 }

@@ -69,8 +69,6 @@ UserRepo userRepo;
         userRepo = new UserRepo(CheckInActivity.this);
         users = userRepo.getAll();
 
-        Log.e("User",users.get(0).getId()+"");
-
         edt_idBooking = findViewById(R.id.idBooking);
         edt_tienCoc = findViewById(R.id.edt_tienCoc);
         tv_ngayDen_checkIn = findViewById(R.id.tv_ngayDen_checkIn);
@@ -102,8 +100,6 @@ UserRepo userRepo;
                 SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("dd-MM-yyyy HH:mm");
                 Intent intent = getIntent();
                 Bundle bundle = intent.getExtras();
-<<<<<<< HEAD
-=======
                 String idKor = bundle.getString("idKor");
                 String IdRooms =  bundle.getString("Id");
                 String Floor =  bundle.getString("Floor");
@@ -124,7 +120,7 @@ UserRepo userRepo;
                 Client client = (Client) spClient.getSelectedItem();
                 int idClient = client.getId();
                 bookingRepo = new BookingRepo(CheckInActivity.this);
-                booking = new Booking(idBooking,IdRooms,idClient,0,dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
+                booking = new Booking(IdRooms,idClient,"ab",dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
 
                 bookingRepo.insert(booking);
                 tv_ngayDen_checkIn.setText("");
@@ -137,8 +133,6 @@ UserRepo userRepo;
                 roomRepo = new RoomRepo(CheckInActivity.this);
                 roomRepo.update(rooms);
 
-
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
 
             }
         });

@@ -33,11 +33,7 @@ public class Rooms {
 
     private String describe;
 
-<<<<<<< HEAD
-    private String status = "Offline";
-=======
     private String status = "Ofline";
->>>>>>> ddab3151a97f631cabdd26fd2142afefecf68cd6
 
     public Rooms(@NotNull String id, int idKOR, int floor, String service, String describe) {
         this.id = id;

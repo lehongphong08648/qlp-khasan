@@ -21,17 +21,18 @@ import java.util.List;
 
 public class Login extends AppCompatActivity {
 
-    public static String idUser;
+    //TODO: Anh lấy ra cả model luôn r e get id ra nhé
+    //TODO:Đọc repo test xem nhé có gì lỗi bảo a
+    public static User user;
 
     EditText edt_tenNd_login, edt_makhau_login;
-    Button dangNhap , DangKi;
+    Button dangNhap, DangKi;
     List<User> users;
     UserRepo userRepo;
 
-    public static User user;
-
     String userName = "";
     String mk = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +61,10 @@ public class Login extends AppCompatActivity {
                 } else {
                     String tk = edt_tenNd_login.getText().toString();
                     String mk = edt_makhau_login.getText().toString();
-                    idUser = tk;
                     Intent intent = new Intent(Login.this, SystemManagerActivity.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("tk",tk);
-                    bundle.putString("mk",mk);
+                    bundle.putString("tk", tk);
+                    bundle.putString("mk", mk);
                     startActivity(intent);
                     Toast.makeText(Login.this, "Sai họ tên hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                 }
@@ -74,8 +74,21 @@ public class Login extends AppCompatActivity {
         DangKi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            startActivity(new Intent(Login.this,SignIn.class));
+                startActivity(new Intent(Login.this, SignIn.class));
             }
         });
-}
+    }
+
+    //TODO
+    //Hàm check login trong db
+    //Lắp hàm này vào btn đăng nhập lấy user Name và pass word của ng dùng nhập vào
+    public void checkLogin(String userName, String password) {
+        if (userRepo.checkUserLogin(userName, password).size() == 1) {
+            user = userRepo.checkUserLogin(userName, password).get(0);
+
+            //Xử lý tiếp nếu User đúng với db
+        } else {
+            //Xử lý nếu User sai
+        }
+    }
 }

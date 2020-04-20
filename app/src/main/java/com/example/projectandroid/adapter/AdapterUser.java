@@ -38,7 +38,7 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.tv_maND_user.setText(String.valueOf(users.get(position).getId()));
+            holder.tv_maND_user.setText(String.valueOf(users.get(position).getIdUser()));
         holder.tv_chucVu_user.setText(users.get(position).getPosition());
         holder.tv_hoTen_user.setText(users.get(position).getFullName());
         holder.tv_matKhau_user.setText(users.get(position).getPassword());
@@ -47,7 +47,7 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String maND_user = String.valueOf(users.get(position).getId());
+                String maND_user = String.valueOf(users.get(position).getIdUser());
                 String chucVu_user = String.valueOf(users.get(position).getPosition());
                 String hoTen_user = String.valueOf(users.get(position).getFullName());
                 String matKhau_user = String.valueOf(users.get(position).getPassword());
