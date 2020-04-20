@@ -17,9 +17,11 @@ import android.view.MenuItem;
 import com.example.projectandroid.adapter.AdapterLoaiPhong;
 import com.example.projectandroid.model.Client;
 import com.example.projectandroid.model.KindOfRoom;
+import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.model.User;
 import com.example.projectandroid.repository.ClientRepo;
 import com.example.projectandroid.repository.KorRepo;
+import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.repository.UserRepo;
 import com.example.projectandroid.ui.bookingRoom.BookingRoomActivity;
 import com.example.projectandroid.ui.bookingRoom.FragmentBookingRoom;
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment, new FragmentHome());
         fragmentTransaction.commit();
+
+
     }
 
     @Override

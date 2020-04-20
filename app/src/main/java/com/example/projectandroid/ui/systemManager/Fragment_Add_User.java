@@ -53,7 +53,8 @@ public class Fragment_Add_User extends AppCompatActivity {
                 else if (chucVuND.isEmpty()){
                     edt_matKhauND.setError("Vui lòng không bỏ trống chức vụ");
                 }else {
-                    user = new User(matKhauND,hoTenND,chucVuND);
+                    //todo: Xử lý lại constructor user
+                    //user = new User(matKhauND,hoTenND,chucVuND);
                     userRepo = new UserRepo(Fragment_Add_User.this);
                     userRepo.insert(user);
                     Toast.makeText(Fragment_Add_User.this,"Đăng kí thàng công",Toast.LENGTH_SHORT).show();

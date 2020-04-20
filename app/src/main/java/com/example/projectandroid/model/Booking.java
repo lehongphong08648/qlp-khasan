@@ -47,8 +47,7 @@ public class Booking {
     private Date dayGo;
     private float deposit;
 
-    public Booking(@NonNull String id, String idRoom, int idClient, int idUser, Date dayCome, Date dayGo, float deposit) {
-        this.id = id;
+    public Booking(String idRoom, int idClient, int idUser, Date dayCome, Date dayGo, float deposit) {
         this.idRoom = idRoom;
         this.idClient = idClient;
         this.idUser = idUser;

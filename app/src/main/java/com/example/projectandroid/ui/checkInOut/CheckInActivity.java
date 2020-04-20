@@ -47,11 +47,7 @@ Button btn_checkIn, btn_huy_checkIn;
                 String vip_checkIn = edt_nameClient_checkIn.getText().toString();
                 Intent intent = getIntent();
                 Bundle bundle = intent.getExtras();
-                String idKor = bundle.get("idKor");
-                String Id =  bundle.get("Id");
-                String Floor =  bundle.get("Floor");
-                String Service =  bundle.get("Service");
-                String Describe = bundle.get("Describe");
+
             }
         });
 

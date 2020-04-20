@@ -14,16 +14,25 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.dao.RoomDAO;
+import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.repository.KorRepo;
+import com.example.projectandroid.repository.RoomRepo;
 
 public class FixRoomActivity extends AppCompatActivity {
-    EditText edt_fix_maPhong, edt_fix_tang, edt_fix_dvKhac, edt_fix_moTaPhong,edt_fix_idKor;
+    EditText edt_fix_maPhong, edt_fix_tang, edt_fix_dvKhac, edt_fix_moTaPhong, edt_fix_idKor;
     Button btn_fix_room, btn_cancel_fix_room;
+
+    private RoomRepo roomRepo;
+    private Rooms room;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fix_room);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        roomRepo = new RoomRepo(this);
 
         edt_fix_maPhong = findViewById(R.id.edt_fix_maPhong);
         edt_fix_idKor = findViewById(R.id.edt_fix_idKor);
@@ -51,6 +60,7 @@ public class FixRoomActivity extends AppCompatActivity {
                 String tang = edt_fix_maPhong.getText().toString();
                 String dvKhac = edt_fix_maPhong.getText().toString();
                 String moTaPhong = edt_fix_maPhong.getText().toString();
+                room = new Rooms(maPhong, idKor, Integer.parseInt(tang), dvKhac, moTaPhong);
             }
         });
     }
@@ -58,15 +68,15 @@ public class FixRoomActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.delete,menu);
+        inflater.inflate(R.menu.delete, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.delete){
-
+        if (id == R.id.delete) {
+            roomRepo.delete(room);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -8,6 +8,7 @@ import androidx.room.Update;
 
 import com.example.projectandroid.model.Invoice;
 
+import java.util.Date;
 import java.util.List;
 
 @Dao
@@ -24,8 +25,8 @@ public interface InvoiceDAO {
     @Query("SELECT * FROM INVOICE")
     List<Invoice> getAllInvoice();
 
-    @Query("SELECT * FROM INVOICE INNER JOIN BOOKING " +
+    @Query("SELECT SUM(total) FROM INVOICE INNER JOIN BOOKING " +
             "ON INVOICE.idBooking = BOOKING.idBooking " +
             "WHERE BOOKING.dayGo Like :day")
-    List<Invoice> getAllInvoiceByDay(long day);
+    float getAllInvoiceByDay(Date day);
 }

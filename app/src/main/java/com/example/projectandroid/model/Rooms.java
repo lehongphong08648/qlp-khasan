@@ -33,8 +33,7 @@ public class Rooms {
 
     private String describe;
 
-    @ColumnInfo(defaultValue = "Offline")
-    private String status;
+    private String status = "Offline";
 
     public Rooms(@NotNull String id, String idKOR, int floor, String service, String describe) {
         this.id = id;

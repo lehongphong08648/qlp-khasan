@@ -26,6 +26,8 @@ public class Login extends AppCompatActivity {
     List<User> users;
     UserRepo userRepo;
 
+    public static User user;
+
     String userName = "";
     String mk = "";
     @Override

@@ -47,7 +47,7 @@ UserRepo userRepo;
                 else if(chucVuND_signIn.isEmpty()){
                     edt_chucVuND_signIn.setError("Vui lòng không bỏ trống mật khẩu");
                 }else {
-                    user = new User(matKhauND_signIn,hoTenND_signIn,chucVuND_signIn);
+                    user = new User("ab",matKhauND_signIn,hoTenND_signIn,chucVuND_signIn);
                     userRepo = new UserRepo(SignIn.this);
                     userRepo.insert(user);
                     Toast.makeText(SignIn.this,"Đăng kí thành công",Toast.LENGTH_SHORT).show();
