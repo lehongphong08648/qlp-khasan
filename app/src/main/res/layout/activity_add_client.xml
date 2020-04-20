@@ -144,7 +144,6 @@
                     android:layout_height="56dp"
                     android:hint="Ngày Sinh"
                     android:inputType="number"
-                    android:enabled="false"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -100,7 +100,7 @@ Button btn_add_room, btn_cancel_room;
                 else {
                     KindOfRoom kindOfRoom = (KindOfRoom) sp_maTlp.getSelectedItem();
                     int idKindOfRoom = kindOfRoom.getId();
-                    rooms = new Rooms(maPhong,String.valueOf(idKindOfRoom),Integer.parseInt(tang),dvKhach,moTa);
+                    rooms = new Rooms(maPhong,idKindOfRoom,Integer.parseInt(tang),dvKhach,moTa);
                     roomRepo.insert(rooms);
                     Toast.makeText(FragmentAddRoom.this,"Thêm phòng thành công",Toast.LENGTH_SHORT).show();
                     Toast.makeText(FragmentAddRoom.this,idKindOfRoom+"",Toast.LENGTH_SHORT).show();

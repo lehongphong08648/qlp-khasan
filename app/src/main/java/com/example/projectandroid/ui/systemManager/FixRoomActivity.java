@@ -58,7 +58,7 @@ public class FixRoomActivity extends AppCompatActivity {
                 String dvKhac = edt_fix_maPhong.getText().toString();
                 String moTaPhong = edt_fix_maPhong.getText().toString();
 
-                rooms = new Rooms(maPhong,idKor,Integer.parseInt(tang),dvKhac,moTaPhong);
+                rooms = new Rooms(maPhong,Integer.parseInt(idKor),Integer.parseInt(tang),dvKhac,moTaPhong);
 
 
                 Toast.makeText(FixRoomActivity.this,"",Toast.LENGTH_SHORT).show();
@@ -84,8 +84,7 @@ public class FixRoomActivity extends AppCompatActivity {
             String moTaPhong = edt_fix_maPhong.getText().toString();
 
             roomRepo = new RoomRepo(FixRoomActivity.this);
-            rooms = new Rooms(maPhong,idKor,Integer.parseInt(tang),dvKhac,moTaPhong);
-            rooms.setId(maPhong);
+            rooms = new Rooms(maPhong,Integer.parseInt(idKor),Integer.parseInt(tang),dvKhac,moTaPhong);
             roomRepo.delete(rooms);
             startActivity(new Intent(FixRoomActivity.this,FragmentRoom.class));
             Toast.makeText(FixRoomActivity.this,"Đã xóa",Toast.LENGTH_SHORT).show();

@@ -18,6 +18,8 @@ import com.example.projectandroid.model.Client;
 import com.example.projectandroid.model.KindOfRoom;
 import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.model.User;
+import com.example.projectandroid.repository.BookingRepo;
+import com.example.projectandroid.repository.RoomRepo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,20 +31,26 @@ public class FragmentRentectRoom extends Fragment {
 
     GridView gv_rentectRoom;
     AdapterRentectRoom adapterRentectRoom;
-    Date date;
+    List<Rooms> rooms;
+    RoomRepo roomRepo;
+    List<Booking> bookingList;
+    BookingRepo bookingRepo;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rectect_room,container,false);
-        String s = "24-10-2000";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        try {
-             date = simpleDateFormat.parse(s);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
-//        gv_rentectRoom.setAdapter(adapterRentectRoom);
+        rooms = new ArrayList<>();
+        roomRepo = new RoomRepo(getContext());
+        rooms = roomRepo.getAllOnlineRoom();
+
+        bookingList = new ArrayList<>();
+        bookingRepo = new BookingRepo(getContext());
+        bookingList = bookingRepo.getAll();
+
+//        adapterRentectRoom = new AdapterRentectRoom(getContext())
+        gv_rentectRoom = view.findViewById(R.id.gv_rentectRoom);
+        gv_rentectRoom.setAdapter(adapterRentectRoom);
         return view;
     }
 }

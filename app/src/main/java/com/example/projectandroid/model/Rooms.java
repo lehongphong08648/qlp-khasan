@@ -25,7 +25,7 @@ public class Rooms {
     @ColumnInfo(name = "idRoom")
     private String id;
 
-    private String idKOR;
+    private int idKOR;
 
     private int floor;
 
@@ -35,7 +35,7 @@ public class Rooms {
 
     private String status = "Ofline";
 
-    public Rooms(@NotNull String id, String idKOR, int floor, String service, String describe) {
+    public Rooms(@NotNull String id, int idKOR, int floor, String service, String describe) {
         this.id = id;
         this.idKOR = idKOR;
         this.floor = floor;
@@ -59,11 +59,11 @@ public class Rooms {
         this.id = id;
     }
 
-    public String getIdKOR() {
+    public int getIdKOR() {
         return idKOR;
     }
 
-    public void setIdKOR(String idKOR) {
+    public void setIdKOR(int idKOR) {
         this.idKOR = idKOR;
     }
 

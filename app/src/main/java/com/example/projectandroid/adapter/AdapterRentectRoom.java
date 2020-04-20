@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
 import com.example.projectandroid.ui.checkInOut.CheckOutActivity;
 
@@ -22,14 +23,15 @@ import java.util.List;
 public class AdapterRentectRoom extends BaseAdapter {
 
     LayoutInflater mLayoutInflater;
-    List<String> nameClient;
     List<Booking> bookingList;
     Context context;
+    List<Rooms> rooms;
 
-    public AdapterRentectRoom(Context context,List<String> nameClient, List<Booking> bookingList) {
-        this.nameClient = nameClient;
+    //todo lấy cho em hàm getId Clien , getId User, getId.. mà làm getId của các model hết luôn đi anh !
+    public AdapterRentectRoom(Context context, List<Booking> bookingList, List<Rooms> rooms) {
         this.bookingList = bookingList;
         this.context = context;
+        this.rooms = rooms;
     }
 
     @Override
@@ -63,7 +65,6 @@ public class AdapterRentectRoom extends BaseAdapter {
         TextView tv_timeRentect = convertView.findViewById(R.id.tv_timeRentect);
         TextView tv_tienPhaiTraRentect = convertView.findViewById(R.id.tv_tienPhaiTraRentect);
 
-        edt_nameClientRentect.setText(nameClient.get(position));
         tv_tienCocRentect.setText(String.valueOf(bookingList.get(position).getDeposit()));
 //        tv_timeRentect.setText(chưa biết làm);
 //        tv_tienPhaiTraRentect.setText(cũng thế);

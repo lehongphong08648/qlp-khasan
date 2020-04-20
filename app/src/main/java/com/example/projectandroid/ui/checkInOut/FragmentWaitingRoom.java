@@ -21,10 +21,6 @@ import java.util.List;
 public class FragmentWaitingRoom extends Fragment {
 
     GridView gv_waitingRoom;
-    String[] numberWork = {"one","two","three","four","five","six","seven","eight","night","ten"};
-    int [] img={R.drawable.money,R.drawable.money,R.drawable.money,R.drawable.money,R.drawable.money,
-            R.drawable.money,R.drawable.money,R.drawable.money,R.drawable.money,R.drawable.money};
-
     RoomRepo roomRepo;
     List<Rooms> rooms;
 
@@ -37,7 +33,7 @@ public class FragmentWaitingRoom extends Fragment {
         gv_waitingRoom = view.findViewById(R.id.gv_waitingRoom);
         rooms = new ArrayList<>();
         roomRepo = new RoomRepo(getContext());
-        rooms = roomRepo.getAll();
+        rooms = roomRepo.getAllOfflineRoom();
         AdapterWaitingRoom adapterWaitingRoom = new AdapterWaitingRoom(getContext(),rooms);
         gv_waitingRoom.setAdapter(adapterWaitingRoom);
         return view;

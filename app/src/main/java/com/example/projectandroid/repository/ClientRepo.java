@@ -3,6 +3,7 @@ package com.example.projectandroid.repository;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import androidx.annotation.NonNull;
 import androidx.room.Room;
 
 import com.example.projectandroid.dao.ClientDAO;
@@ -15,7 +16,7 @@ public class ClientRepo {
     private ClientDAO clientDAO;
 
     public ClientRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotel").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotlind").allowMainThreadQueries().build();
         clientDAO = database.clientDAO();
     }
 
@@ -85,4 +86,5 @@ public class ClientRepo {
         }
 
     }
+
 }
