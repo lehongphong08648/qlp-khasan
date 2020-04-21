@@ -56,6 +56,7 @@ public class Fragment_Add_User extends AppCompatActivity {
                     //todo: Xử lý lại constructor user
                     //user = new User(matKhauND,hoTenND,chucVuND);
                     userRepo = new UserRepo(Fragment_Add_User.this);
+                    user = new User(maND,matKhauND,hoTenND,chucVuND);
                     userRepo.insert(user);
                     Toast.makeText(Fragment_Add_User.this,"Đăng kí thàng công",Toast.LENGTH_SHORT).show();
                 }

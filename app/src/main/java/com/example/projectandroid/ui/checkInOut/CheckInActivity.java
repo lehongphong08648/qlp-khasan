@@ -120,7 +120,7 @@ UserRepo userRepo;
                 Client client = (Client) spClient.getSelectedItem();
                 int idClient = client.getId();
                 bookingRepo = new BookingRepo(CheckInActivity.this);
-                booking = new Booking(IdRooms,idClient,"ab",dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
+                booking = new Booking(idBooking,idClient,Login.user.getIdUser(),dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
 
                 bookingRepo.insert(booking);
                 tv_ngayDen_checkIn.setText("");

@@ -114,6 +114,6 @@ public class Client {
     @Override
     public String toString() {
 
-        return super.toString();
+        return fullName + " | " + identityCard;
     }
 }

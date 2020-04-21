@@ -64,7 +64,7 @@ public class FragmentHome extends Fragment {
 
         tv_home_cleanRoom = view.findViewById(R.id.tv_home_cleanRoom);
         slCleanRooms = new ArrayList<>();
-        slCleanRooms = roomRepo.getAllOnlineRoom();
+        slCleanRooms = roomRepo.getAllBusyRoom();
         int slCleanRoom = slCleanRooms.size();
         tv_home_cleanRoom.setText(String.valueOf(slCleanRoom));
 

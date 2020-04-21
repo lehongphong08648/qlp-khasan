@@ -38,7 +38,6 @@ public class Booking {
     @NonNull
     @ColumnInfo(name = "idBooking")
     private int id;
-
     private String idRoom;
     private int idClient;
     private String idUser;
