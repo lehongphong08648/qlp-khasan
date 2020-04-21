@@ -39,4 +39,5 @@ public interface RoomDAO {
 
     @Query("SELECT * FROM ROOM WHERE :idRoom")
     Rooms getRoomById(String idRoom);
+
 }

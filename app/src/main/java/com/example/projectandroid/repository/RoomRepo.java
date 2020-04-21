@@ -56,6 +56,10 @@ public class RoomRepo {
         return roomDAO.getBookingRooms();
     }
 
+    public Rooms getRoomById(String idRoom){
+        return roomDAO.getRoomById(idRoom);
+    }
+
     private static class InsertRoomAsyncTask extends AsyncTask<Rooms, Void, Void> {
 
         RoomDAO roomDAO;
