@@ -37,7 +37,7 @@ public class UserRepo {
 
     //TODO: Lấy User theo user Name
     public User getUserByUserName(String userName) {
-        return userDAO.getUserByUserName(userName);
+        return userDAO.getUserByUserName(userName).get(0);
     }
 
     //TODO: Check User Login

@@ -36,8 +36,8 @@ public class InvoiceRepo {
         return invoiceDAO.getAllInvoice();
     }
 
-    public List<Invoice> getInvoiceByID(int id) {
-        return invoiceDAO.getInvoiceById(id);
+    public Invoice getInvoiceByID(int id) {
+        return invoiceDAO.getInvoiceById(id).get(0);
     }
 
     private static class InsertInvoiceAsyncTask extends AsyncTask<Invoice, Void, Void> {

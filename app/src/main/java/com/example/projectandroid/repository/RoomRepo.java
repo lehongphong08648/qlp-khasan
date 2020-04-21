@@ -59,7 +59,7 @@ public class RoomRepo {
     }
 
     public Rooms getRoomById(String idRoom){
-        return roomDAO.getRoomById(idRoom);
+        return roomDAO.getRoomById(idRoom).get(0);
     }
 
     private static class InsertRoomAsyncTask extends AsyncTask<Rooms, Void, Void> {

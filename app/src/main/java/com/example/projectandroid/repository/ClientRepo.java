@@ -37,8 +37,8 @@ public class ClientRepo {
     }
 
     //Lấy ra Khách Hàng theo id
-    public List<Client> getClientById(int idClient) {
-        return clientDAO.getClientById(idClient);
+    public Client getClientById(int idClient) {
+        return clientDAO.getClientById(idClient).get(0);
     }
 
     private static class InsertClientAsyncTask extends AsyncTask<Client, Void, Void> {

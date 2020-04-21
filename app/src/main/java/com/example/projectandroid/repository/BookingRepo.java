@@ -40,8 +40,8 @@ public class BookingRepo {
     }
 
     //TODO: lấy booking theo id
-    public List<Booking> getBookingById(int idBooking) {
-        return bookingDAO.getBookingById(idBooking);
+    public Booking getBookingById(int idBooking) {
+        return bookingDAO.getBookingById(idBooking).get(0);
     }
 
 

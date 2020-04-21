@@ -35,8 +35,8 @@ public class KorRepo {
         return korDAO.getAllKindOfRoom();
     }
 
-    public List<KindOfRoom> getKindOfRoomById(int idKORs) {
-        return korDAO.getKindOfRoomById(idKORs);
+    public KindOfRoom getKindOfRoomById(int idKORs) {
+        return korDAO.getKindOfRoomById(idKORs).get(0);
     }
 
     private static class InsertKORAsyncTask extends AsyncTask<KindOfRoom, Void, Void> {
