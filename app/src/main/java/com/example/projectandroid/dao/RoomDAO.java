@@ -38,6 +38,7 @@ public interface RoomDAO {
     List<Rooms> getBookingRooms();
 
     @Query("SELECT * FROM ROOM WHERE :idRoom")
+    Rooms getRoom(String idRoom);
     Rooms getRoomById(String idRoom);
 
 }

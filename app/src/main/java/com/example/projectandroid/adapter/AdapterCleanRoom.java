@@ -37,7 +37,7 @@ public class AdapterCleanRoom extends BaseAdapter {
         if (layoutInflater == null){
             layoutInflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         } if (convertView != null){
-//            layoutInflater.inflate(R.layout.row_item_clean_room,null);
+            layoutInflater.inflate(R.layout.row_item_clean_room,null);
 
         }
 

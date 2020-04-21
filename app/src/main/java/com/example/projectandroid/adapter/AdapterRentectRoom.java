@@ -14,10 +14,19 @@ import android.widget.Toast;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.Client;
+import com.example.projectandroid.model.KindOfRoom;
 import com.example.projectandroid.model.Rooms;
+import com.example.projectandroid.repository.BookingRepo;
+import com.example.projectandroid.repository.ClientRepo;
+import com.example.projectandroid.repository.KorRepo;
+import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
 import com.example.projectandroid.ui.checkInOut.CheckOutActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AdapterRentectRoom extends BaseAdapter {
@@ -26,12 +35,18 @@ public class AdapterRentectRoom extends BaseAdapter {
     List<Booking> bookingList;
     Context context;
     List<Rooms> rooms;
+    BookingRepo bookingRepo;
+    RoomRepo roomRepo;
+    ClientRepo clientRepo;
+    List<Client> clients;
 
-    //todo lấy cho em hàm getId Clien , getId User, getId.. mà làm getId của các model hết luôn đi anh !
-    public AdapterRentectRoom(Context context, List<Booking> bookingList, List<Rooms> rooms) {
-        this.bookingList = bookingList;
+    KorRepo korRepo;
+    List<KindOfRoom> kindOfRooms;
+
+
+    public AdapterRentectRoom(Context context, List<Booking> bookingList) {
         this.context = context;
-        this.rooms = rooms;
+        this.bookingList = bookingList;
     }
 
     @Override
@@ -58,6 +73,25 @@ public class AdapterRentectRoom extends BaseAdapter {
             convertView = mLayoutInflater.inflate(R.layout.row_item_rentect_room,null);
         }
 
+
+
+        roomRepo = new RoomRepo(context);
+        rooms = new ArrayList<>();
+        bookingRepo = new BookingRepo(context);
+        String idRoom = bookingList.get(position).getIdRoom();
+        rooms = (List<Rooms>) roomRepo.getRoomById(idRoom);
+        clients = new ArrayList<>();
+        clientRepo = new ClientRepo(context);
+        int idClient = bookingList.get(position).getIdClient();
+        clients = (List<Client>) clientRepo.getClientById(idClient);
+        korRepo = new KorRepo(context);
+        kindOfRooms = new ArrayList<>();
+        //todo làm cho e getID kindOfRoom nhé
+//        kindOfRooms = korRepo.get
+
+
+
+        TextView tv_ngayDen_Rentect = convertView.findViewById(R.id.tv_ngayDen_Rentect);
         TextView tv_tenPhongThue = convertView.findViewById(R.id.tv_tenPhong_rentect);
         TextView tvOptionDigitRentect = convertView.findViewById(R.id.tvOptionDigitRentect);
         TextView edt_nameClientRentect = convertView.findViewById(R.id.tv_nameClientRentect);
@@ -65,8 +99,37 @@ public class AdapterRentectRoom extends BaseAdapter {
         TextView tv_timeRentect = convertView.findViewById(R.id.tv_timeRentect);
         TextView tv_tienPhaiTraRentect = convertView.findViewById(R.id.tv_tienPhaiTraRentect);
 
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        SimpleDateFormat getNgay = new SimpleDateFormat("dd");
+        SimpleDateFormat getGio = new SimpleDateFormat("HH");
+        SimpleDateFormat getThang = new SimpleDateFormat("MM");
+        SimpleDateFormat getNam = new SimpleDateFormat("yy");
+        Date dateNgayDen = bookingList.get(position).getDayCome();
+        Date dateNgayDi = bookingList.get(position).getDayGo();
+        int ngayDi = Integer.parseInt(getNgay.format(dateNgayDi));
+        int thangDi = Integer.parseInt(getThang.format(dateNgayDi));
+        int gioDi = Integer.parseInt(getGio.format(dateNgayDi));
+        int namDi = Integer.parseInt(getNam.format(dateNgayDi));
+        int mGioDi = (namDi*365) +(thangDi * 30) + (ngayDi * 24) + gioDi;
+
+        int ngayDen = Integer.parseInt(getNgay.format(dateNgayDen));
+        int thangDen = Integer.parseInt(getThang.format(dateNgayDen));
+        int gioDen = Integer.parseInt(getGio.format(dateNgayDen));
+        int namDen = Integer.parseInt(getNam.format(dateNgayDen));
+        int mGioDen = (namDen*365) +(thangDen * 30) + (ngayDen * 24) + gioDen;
+
+        int thoiGianThue = mGioDen - mGioDi;
+
+        String mNgayDen = simpleDateFormat.format(dateNgayDen);
+
         tv_tienCocRentect.setText(String.valueOf(bookingList.get(position).getDeposit()));
-//        tv_timeRentect.setText(chưa biết làm);
+
+        Float tienPhong ;
+
+        tv_ngayDen_Rentect.setText(mNgayDen);
+        tv_tenPhongThue.setText(rooms.get(position).getId());
+        edt_nameClientRentect.setText(clients.get(position).getFullName());
+        tv_timeRentect.setText(String.valueOf(thoiGianThue));
 //        tv_tienPhaiTraRentect.setText(cũng thế);
         tvOptionDigitRentect.setOnClickListener(new View.OnClickListener() {
             @Override

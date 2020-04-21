@@ -7,6 +7,7 @@ import androidx.room.Room;
 
 import com.example.projectandroid.dao.RoomDAO;
 import com.example.projectandroid.database.AppDatabase;
+import com.example.projectandroid.model.Booking;
 import com.example.projectandroid.model.Rooms;
 
 import java.util.List;
@@ -16,13 +17,14 @@ public class RoomRepo {
     private RoomDAO roomDAO;
 
     public RoomRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotlind").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "hotlindbling").allowMainThreadQueries().build();
         roomDAO = database.roomDAO();
     }
 
     public void insert(Rooms room) {
         new InsertRoomAsyncTask(roomDAO).execute(room);
     }
+
 
     public void update(Rooms room) {
         new UpdateRoomAsyncTask(roomDAO).execute(room);

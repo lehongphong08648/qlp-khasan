@@ -9,7 +9,7 @@ import android.os.Handler;
 import com.example.projectandroid.R;
 
 public class SplashScreen extends AppCompatActivity {
-
+//todo anh vượt làm màn hình chào nhé !
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

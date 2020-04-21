@@ -16,7 +16,7 @@ public class InvoiceRepo {
     private InvoiceDAO invoiceDAO;
 
     public InvoiceRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotlind").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "hotlindbling").allowMainThreadQueries().build();
         invoiceDAO = database.invoiceDAO();
     }
 

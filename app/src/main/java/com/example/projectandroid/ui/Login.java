@@ -23,6 +23,7 @@ public class Login extends AppCompatActivity {
 
     //TODO: Anh lấy ra cả model luôn r e get id ra nhé
     //TODO:Đọc repo test xem nhé có gì lỗi bảo a
+    //todo an vượt làm cả login luôn nhá, làm chất vào nhé !!!!
     public static User user;
 
     EditText edt_tenNd_login, edt_makhau_login;

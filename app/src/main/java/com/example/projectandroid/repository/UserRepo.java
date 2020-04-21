@@ -15,7 +15,7 @@ public class UserRepo {
     private UserDAO userDAO;
 
     public UserRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "dbhotlind").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "hotlindbling").allowMainThreadQueries().build();
         userDAO = database.userDAO();
     }
 
