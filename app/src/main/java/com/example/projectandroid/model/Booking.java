@@ -1,14 +1,14 @@
 package com.example.projectandroid.model;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+
+import io.reactivex.annotations.NonNull;
 
 @Entity(
         tableName = "booking",

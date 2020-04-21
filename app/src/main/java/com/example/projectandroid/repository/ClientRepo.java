@@ -37,7 +37,7 @@ public class ClientRepo {
     }
 
     //Lấy ra Khách Hàng theo id
-    public Client getClientById(int idClient) {
+    public List<Client> getClientById(int idClient) {
         return clientDAO.getClientById(idClient);
     }
 

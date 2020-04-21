@@ -40,7 +40,7 @@ public class BookingRepo {
     }
 
     //TODO: lấy booking theo id
-    public Booking getBookingById(int idBooking) {
+    public List<Booking> getBookingById(int idBooking) {
         return bookingDAO.getBookingById(idBooking);
     }
 
@@ -60,7 +60,7 @@ public class BookingRepo {
         protected Void doInBackground(Booking... bookings) {
             if (bookingDAO.insertBooking(bookings)[0] > 0) {
                 String idRoom = bookings[0].getIdRoom();
-                Rooms room = roomDAO.getRoom(idRoom);
+                Rooms room = roomDAO.getRoomById(idRoom).get(0);
                 room.setStatus("Online");
                 roomDAO.updateRoom(room);
             }

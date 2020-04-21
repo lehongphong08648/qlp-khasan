@@ -23,4 +23,7 @@ public interface KindOfRoomDAO {
 
     @Query("SELECT * FROM KINDOFROOM")
     List<KindOfRoom> getAllKindOfRoom();
+
+    @Query("SELECT * FROM KINDOFROOM WHERE idKOR = :idKOR")
+    List<KindOfRoom> getKindOfRoomById(int idKOR);
 }

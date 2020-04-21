@@ -30,4 +30,7 @@ public interface InvoiceDAO {
             "WHERE BOOKING.dayGo Like :day")
     float getAllInvoiceByDay(Date day);
 
+    @Query("SELECT * FROM INVOICE WHERE id = :idInvoice")
+    List<Invoice> getInvoiceById(int idInvoice);
+
 }

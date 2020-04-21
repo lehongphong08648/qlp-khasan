@@ -26,6 +26,6 @@ public interface ClientDAO {
     List<Client> getAllClient();
 
     @Query("SELECT * FROM CLIENT WHERE idClient like :idClient")
-    Client getClientById(int idClient);
+    List<Client> getClientById(int idClient);
 
 }
