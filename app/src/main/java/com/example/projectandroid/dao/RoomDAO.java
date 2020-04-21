@@ -37,12 +37,6 @@ public interface RoomDAO {
     @Query("SELECT * FROM ROOM WHERE STATUS LIKE 'Booking'")
     List<Rooms> getBookingRooms();
 
-<<<<<<< HEAD
     @Query("SELECT * FROM ROOM WHERE idRoom LIKE :idRoom")
     List<Rooms> getRoomById(String idRoom);
-=======
-    @Query("SELECT * FROM ROOM WHERE :idRoom")
-    Rooms getRoomById(String idRoom);
->>>>>>> 799094b42fd0b400741f03a237558e4b03fe0033
-
 }
