@@ -29,4 +29,5 @@ public interface InvoiceDAO {
             "ON INVOICE.idBooking = BOOKING.idBooking " +
             "WHERE BOOKING.dayGo Like :day")
     float getAllInvoiceByDay(Date day);
+
 }
