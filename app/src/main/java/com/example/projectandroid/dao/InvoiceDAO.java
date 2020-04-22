@@ -27,8 +27,23 @@ public interface InvoiceDAO {
 
     @Query("SELECT SUM(total) FROM INVOICE INNER JOIN BOOKING " +
             "ON INVOICE.idBooking = BOOKING.idBooking " +
-            "WHERE BOOKING.dayGo Like :day")
-    float getAllInvoiceByDay(Date day);
+            "WHERE strftime('%Y-%m-%d',dayGo) = strftime('%Y-%m-%d','now')")
+    List<Float> getInvoiceToday();
+
+    @Query("SELECT SUM(total) FROM INVOICE INNER JOIN BOOKING " +
+            "ON INVOICE.idBooking = BOOKING.idBooking " +
+            "WHERE strftime('%Y-%m-%d',dayGo) = strftime('%Y-%m-%d', :date)")
+    List<Float> getInvoiceByDay(Date date);
+
+    @Query("SELECT SUM(total) FROM INVOICE INNER JOIN BOOKING " +
+            "ON INVOICE.idBooking = BOOKING.idBooking " +
+            "WHERE strftime('%m', dayGo) = strftime('%m', :date)")
+    List<Float> getInvoiceByMonth(Date date);
+
+    @Query("SELECT SUM(total) FROM INVOICE INNER JOIN BOOKING " +
+            "ON INVOICE.idBooking = BOOKING.idBooking " +
+            "WHERE strftime('%Y', dayGo) = strftime('%Y', :date)")
+    List<Float> getInvoiceByYear(Date date);
 
     @Query("SELECT * FROM INVOICE WHERE id = :idInvoice")
     List<Invoice> getInvoiceById(int idInvoice);

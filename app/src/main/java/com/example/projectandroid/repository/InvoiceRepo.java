@@ -9,6 +9,8 @@ import com.example.projectandroid.dao.InvoiceDAO;
 import com.example.projectandroid.database.AppDatabase;
 import com.example.projectandroid.model.Invoice;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class InvoiceRepo {
@@ -34,6 +36,40 @@ public class InvoiceRepo {
 
     public List<Invoice> getAll() {
         return invoiceDAO.getAllInvoice();
+    }
+
+    //Lấy tổng hóa đơn trong ngày
+    public float getInvoiceToday() {
+        return invoiceDAO.getInvoiceToday().get(0);
+    }
+
+    public float getInvoiceByDay(int day){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), day);
+
+        Date date = new Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+
+        return invoiceDAO.getInvoiceByDay(date).get(0);
+    }
+
+    //Lấy hóa đơn theo tháng
+    public float getInvoiceByMonth(int month) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.get(Calendar.YEAR), month - 1, calendar.get(Calendar.DATE));
+
+        Date date = new Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+
+        return invoiceDAO.getInvoiceByMonth(date).get(0);
+    }
+
+    //Lấy doanh thu năm
+    public float getInvoiceByYear(int year) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+
+        Date date = new Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+
+        return invoiceDAO.getInvoiceByYear(date).get(0);
     }
 
     public Invoice getInvoiceByID(int id) {
