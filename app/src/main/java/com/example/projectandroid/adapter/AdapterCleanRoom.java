@@ -11,15 +11,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.Rooms;
+import com.example.projectandroid.repository.RoomRepo;
+
+import java.util.List;
 
 public class AdapterCleanRoom extends BaseAdapter {
 
     LayoutInflater layoutInflater;
-
+    List<Rooms> rooms;
+    RoomRepo roomRepo;
+    Rooms roomsModel;
+    public AdapterCleanRoom(List<Rooms> rooms) {
+        this.rooms = rooms;
+    }
 
     @Override
     public int getCount() {
-        return 0;
+        return rooms.size();
     }
 
     @Override
@@ -36,15 +45,18 @@ public class AdapterCleanRoom extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (layoutInflater == null){
             layoutInflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        } if (convertView != null){
-            layoutInflater.inflate(R.layout.row_item_clean_room,null);
+        } if (convertView == null){
+            convertView=  layoutInflater.inflate(R.layout.row_item_clean_room,null);
 
         }
 
-        TextView tv_tenPhong_clean = convertView.findViewById(R.id.tv_tenPhong_clean);
+        TextView tv_tenPhong_clean = convertView.findViewById(R.id.tvtenPhongclean);
         TextView tvOptionDigitClean = convertView.findViewById(R.id.tvOptionDigitClean);
-        TextView img_tinhTrangPhong = convertView.findViewById(R.id.img_tinhTrangPhong);
         TextView tv_tinhTrangPhong = convertView.findViewById(R.id.tv_tinhTrangPhong);
+
+        tv_tenPhong_clean.setText(rooms.get(position).getId());
+        tv_tinhTrangPhong.setText(rooms.get(position).getStatus());
+
 
         tvOptionDigitClean.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +68,12 @@ public class AdapterCleanRoom extends BaseAdapter {
                     public boolean onMenuItemClick(MenuItem item) {
                         int id = item.getItemId();
                         if (id == R.id.donDep){
+                            roomRepo = new RoomRepo(parent.getContext());
+                            roomsModel = new Rooms(rooms.get(position).getId(),rooms.get(position).getIdKOR(),rooms.get(position).getFloor()
+                                    ,rooms.get(position).getService(),rooms.get(position).getDescribe());
+                            roomsModel.setStatus("Ofline");
+                            roomRepo.update(roomsModel);
+                            notifyDataSetChanged();
                             Toast.makeText(parent.getContext(),"Ok e! đã dọn dẹp",Toast.LENGTH_SHORT).show();
                         }
                         return false;

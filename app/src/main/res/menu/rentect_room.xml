@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:id="@+id/chinhSua"
-            android:title="Chỉnh sửa"/>
+
 
     <item android:id="@+id/traPhong"
         android:title="Trả Phòng"/>
@@ -9,6 +8,4 @@
     <item android:id="@+id/doiPhong"
         android:title="Đổi phòng"/>
 
-    <item android:id="@+id/donVeSinh"
-        android:title="Dọn vệ sinh"/>
 </menu>

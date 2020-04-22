@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.model.Client;
+import com.example.projectandroid.ui.Login;
 
 public class FragmentSystemManager extends Fragment {
 
@@ -42,8 +43,9 @@ public class FragmentSystemManager extends Fragment {
 
         tv_userName = view.findViewById(R.id.tv_userName);
         tv_userId = view.findViewById(R.id.tv_userId);
-        Intent intent = getActivity().getIntent();
-        Bundle bundle = intent.getExtras();
+
+        tv_userName.setText(Login.user.getFullName());
+        tv_userId.setText(Login.user.getIdUser());
 
 
 

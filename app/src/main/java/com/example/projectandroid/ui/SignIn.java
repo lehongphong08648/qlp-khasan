@@ -41,13 +41,17 @@ UserRepo userRepo;
                 if (matKhauND_signIn.isEmpty()){
                     edt_matKhauND_signIn.setError("Vui lòng không bỏ trống mật khẩu");
                 }
-                else if(hoTenND_signIn.isEmpty()){
+                 if(hoTenND_signIn.isEmpty()){
                     edt_hoTenND_signIn.setError("Vui lòng không bỏ trống mật khẩu");
                 }
-                else if(chucVuND_signIn.isEmpty()){
+                 if(chucVuND_signIn.isEmpty()){
                     edt_chucVuND_signIn.setError("Vui lòng không bỏ trống mật khẩu");
-                }else {
-                    user = new User("ab",matKhauND_signIn,hoTenND_signIn,chucVuND_signIn);
+                }
+                if(maND_signIn.isEmpty()){
+                    edt_maND_signIn.setError("Vui lòng không bỏ trống mật khẩu");
+                }
+                 else {
+                    user = new User(maND_signIn,matKhauND_signIn,hoTenND_signIn,chucVuND_signIn);
                     userRepo = new UserRepo(SignIn.this);
                     userRepo.insert(user);
                     Toast.makeText(SignIn.this,"Đăng kí thành công",Toast.LENGTH_SHORT).show();

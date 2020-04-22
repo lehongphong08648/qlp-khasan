@@ -29,7 +29,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/tv_tenPhong_clean"
+                    android:id="@+id/tvtenPhongclean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
@@ -60,12 +60,11 @@
                 >
 
                 <ImageView
+                    android:id="@+id/img_tinhTrangPhong"
                     android:layout_width="@dimen/padding"
                     android:layout_height="@dimen/padding"
-                    android:src="@drawable/ic_done_black_24dp"
-                    android:id="@+id/img_tinhTrangPhong"
                     android:layout_marginRight="@dimen/margin_bottom_edt"
-                    />
+                    android:src="@drawable/ic_clear_black_24dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

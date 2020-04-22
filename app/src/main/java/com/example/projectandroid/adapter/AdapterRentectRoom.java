@@ -21,6 +21,7 @@ import com.example.projectandroid.repository.BookingRepo;
 import com.example.projectandroid.repository.ClientRepo;
 import com.example.projectandroid.repository.KorRepo;
 import com.example.projectandroid.repository.RoomRepo;
+import com.example.projectandroid.ui.Login;
 import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
 import com.example.projectandroid.ui.checkInOut.CheckOutActivity;
 
@@ -34,14 +35,15 @@ public class AdapterRentectRoom extends BaseAdapter {
     LayoutInflater mLayoutInflater;
     List<Booking> bookingList;
     Context context;
-    List<Rooms> rooms;
+    Rooms rooms;
     BookingRepo bookingRepo;
     RoomRepo roomRepo;
     ClientRepo clientRepo;
-    List<Client> clients;
+    Client clients;
 
     KorRepo korRepo;
-    List<KindOfRoom> kindOfRooms;
+    KindOfRoom kindOfRooms;
+    List<Rooms> listRooms;
 
 
     public AdapterRentectRoom(Context context, List<Booking> bookingList) {
@@ -76,18 +78,14 @@ public class AdapterRentectRoom extends BaseAdapter {
 
 
         roomRepo = new RoomRepo(context);
-        rooms = new ArrayList<>();
         bookingRepo = new BookingRepo(context);
         String idRoom = bookingList.get(position).getIdRoom();
-        rooms = (List<Rooms>) roomRepo.getRoomById(idRoom);
-        clients = new ArrayList<>();
+        rooms =roomRepo.getRoomById(idRoom);
         clientRepo = new ClientRepo(context);
         int idClient = bookingList.get(position).getIdClient();
-        clients = (List<Client>) clientRepo.getClientById(idClient);
+        clients =clientRepo.getClientById(idClient);
         korRepo = new KorRepo(context);
-        kindOfRooms = new ArrayList<>();
-        //todo làm cho e getID kindOfRoom nhé
-//        kindOfRooms = korRepo.get
+        kindOfRooms = korRepo.getKindOfRoomById(rooms.getIdKOR());
 
 
 
@@ -118,19 +116,19 @@ public class AdapterRentectRoom extends BaseAdapter {
         int namDen = Integer.parseInt(getNam.format(dateNgayDen));
         int mGioDen = (namDen*365) +(thangDen * 30) + (ngayDen * 24) + gioDen;
 
-        int thoiGianThue = mGioDen - mGioDi;
+        int thoiGianThue = mGioDi - mGioDen;
 
         String mNgayDen = simpleDateFormat.format(dateNgayDen);
 
         tv_tienCocRentect.setText(String.valueOf(bookingList.get(position).getDeposit()));
 
-        Float tienPhong ;
+        Float tienPhong = kindOfRooms.getPriceOneHour() ;
 
         tv_ngayDen_Rentect.setText(mNgayDen);
-        tv_tenPhongThue.setText(rooms.get(position).getId());
-        edt_nameClientRentect.setText(clients.get(position).getFullName());
+        tv_tenPhongThue.setText(rooms.getId());
+        edt_nameClientRentect.setText(clients.getFullName());
         tv_timeRentect.setText(String.valueOf(thoiGianThue));
-//        tv_tienPhaiTraRentect.setText(cũng thế);
+        tv_tienPhaiTraRentect.setText(String.valueOf(tienPhong * thoiGianThue));
         tvOptionDigitRentect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,18 +140,38 @@ public class AdapterRentectRoom extends BaseAdapter {
                     public boolean onMenuItemClick(MenuItem item) {
 
                         switch (item.getItemId()){
-                            case R.id.chinhSua:
-                                Toast.makeText(parent.getContext(),"Chỉnh sửa",Toast.LENGTH_SHORT).show();
-                                break;
+
 
                             case R.id.traPhong:
                                 Intent intent = new Intent(context, CheckOutActivity.class);
                                 Bundle bundle = new Bundle();
 
-                                //to be khong tinh yeu :.
+                                SimpleDateFormat setBirthOfDay = new SimpleDateFormat("dd/MM/yyyy");
+                                String bitrhDay = setBirthOfDay.format(clients.getBirthOfDate());
+
+                                bundle.putString("hoTenKhacHang",clients.getFullName());
+                                bundle.putString("idBooking",String.valueOf(bookingList.get(position).getId()));
+                                bundle.putString("cmnn",clients.getIdentityCard());
+                                bundle.putString("quocTich",clients.getNation());
+                                bundle.putString("ngaySinh",bitrhDay);
+                                bundle.putString("sdt",String.valueOf(clients.getPhoneNumber()));
+                                bundle.putString("diaChi",clients.getAddress());
+                                bundle.putString("vip",String.valueOf(clients.getVip()));
+                                bundle.putString("email",clients.getEmail());
+                                bundle.putString("tenPhong",rooms.getId());
+                                bundle.putString("ngayDen",String.valueOf(bookingList.get(position).getDayCome()));
+                                bundle.putString("ngayDi",String.valueOf(bookingList.get(position).getDayGo()));
+                                bundle.putString("tienCoc",String.valueOf(bookingList.get(position).getDeposit()));
+                                bundle.putString("tongTien",String.valueOf((tienPhong - thoiGianThue) - (bookingList.get(position).getDeposit())));
 
                                 intent.putExtras(bundle);
                                 context.startActivity(intent);
+                                bookingRepo = new BookingRepo(context);
+                                Booking booking = new Booking(bookingList.get(position).getIdRoom(),bookingList.get(position).getIdClient()
+                                        , Login.user.getIdUser(),bookingList.get(position).getDayCome(),bookingList.get(position).getDayGo()
+                                        ,bookingList.get(position).getDeposit());
+                                booking.setId(bookingList.get(position).getId());
+                                bookingRepo.delete(booking);
                                 Toast.makeText(parent.getContext(),"Trả phòng",Toast.LENGTH_SHORT).show();
                                 break;
 
@@ -161,9 +179,6 @@ public class AdapterRentectRoom extends BaseAdapter {
                                 Toast.makeText(parent.getContext(),"Đổi phòng",Toast.LENGTH_SHORT).show();
                                 break;
 
-                            case R.id.donVeSinh:
-                                Toast.makeText(parent.getContext(),"Dọn vệ sinh",Toast.LENGTH_SHORT).show();
-                                break;
                             default:
                                 break;
                         }

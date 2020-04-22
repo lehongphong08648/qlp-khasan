@@ -144,7 +144,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Phí dịch vụ"
+                    android:hint="Tiền thừa"
                     android:id="@+id/edt_phiDv_checkOut"
                     android:inputType="number"
                     android:enabled="false"

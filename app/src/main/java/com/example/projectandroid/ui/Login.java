@@ -28,8 +28,9 @@ public class Login extends AppCompatActivity {
 
     EditText edt_tenNd_login, edt_makhau_login;
     Button dangNhap, DangKi;
-    List<User> users;
+
     UserRepo userRepo;
+
 
     String userName = "";
     String mk = "";
@@ -45,7 +46,6 @@ public class Login extends AppCompatActivity {
         dangNhap = findViewById(R.id.btn_dangNhap);
         DangKi = findViewById(R.id.btn_dangKy);
 
-        users = new ArrayList<>();
         userRepo = new UserRepo(Login.this);
         dangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,12 +62,20 @@ public class Login extends AppCompatActivity {
                 } else {
                     String tk = edt_tenNd_login.getText().toString();
                     String mk = edt_makhau_login.getText().toString();
-                    Intent intent = new Intent(Login.this, SystemManagerActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tk", tk);
-                    bundle.putString("mk", mk);
-                    startActivity(intent);
-                    Toast.makeText(Login.this, "Sai họ tên hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+//                    user = userRepo.getUserByUserName(tk);
+                    checkLogin(tk,mk);
+//                    if (user != null){
+//                        if (user.getPassword().matches(mk)){
+//                            Intent intent = new Intent(Login.this, SystemManagerActivity.class);
+//                            startActivity(intent);
+//                            Toast.makeText(Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+//                        }else {
+//                            Toast.makeText(Login.this, "Sai họ tên hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+
+
+
                 }
             }
         });
@@ -86,10 +94,11 @@ public class Login extends AppCompatActivity {
     public void checkLogin(String userName, String password) {
         if (userRepo.checkUserLogin(userName, password).size() == 1) {
             user = userRepo.checkUserLogin(userName, password).get(0);
-
-            //Xử lý tiếp nếu User đúng với db
+            Intent intent = new Intent(Login.this, SystemManagerActivity.class);
+                         startActivity(intent);
+            Toast.makeText(Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
         } else {
-            //Xử lý nếu User sai
+            Toast.makeText(Login.this, "Sai họ tên hoặc mật khẩu", Toast.LENGTH_SHORT).show();
         }
     }
 }

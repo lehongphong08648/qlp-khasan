@@ -10,12 +10,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.Client;
+import com.example.projectandroid.model.Invoice;
 
 import java.util.List;
 
 public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.ViewHolder>{
 
     Context mContext;
+String ngayDen;
+String ngayDi;
+String tenPhong;
+Float tienPhong;
+Client client;
+List<Invoice>invoices;
+
+    public AdapterHistory(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
 
     @NonNull
     @Override
@@ -29,11 +41,15 @@ public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tv_stt_history.setText(String.valueOf(position+1));
+        holder.tv_ngayThue_history.setText(invoices.get(position).getId());
+        holder.tv_ngayTra_history.setText(invoices.get(position).getIdBooking());
+        holder.tv_tenPhong_history.setText(String.valueOf(invoices.get(position).getDiscount()));
+        holder.tv_tienPhong_history.setText(String.valueOf(invoices.get(position).getTotal()));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return invoices.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
