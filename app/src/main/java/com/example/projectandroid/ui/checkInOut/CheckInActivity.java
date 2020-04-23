@@ -71,7 +71,6 @@ UserRepo userRepo;
         userRepo = new UserRepo(CheckInActivity.this);
         users = userRepo.getAll();
 
-        edt_idBooking = findViewById(R.id.idBooking);
         edt_tienCoc = findViewById(R.id.edt_tienCoc);
         tv_ngayDen_checkIn = findViewById(R.id.tv_ngayDen_checkIn);
         tv_ngayDi_checkIn = findViewById(R.id.tv_ngayDi_checkIn);
@@ -110,7 +109,6 @@ UserRepo userRepo;
 
                 String ngayDen_checkInt = tv_ngayDen_checkIn.getText().toString();
                 String ngayDi_checkInt = tv_ngayDi_checkIn.getText().toString();
-                String idBooking = edt_idBooking.getText().toString();
                 String tienCoc = edt_tienCoc.getText().toString();
 
                 try {
@@ -123,15 +121,12 @@ UserRepo userRepo;
                 int idClient = client.getId();
                 bookingRepo = new BookingRepo(CheckInActivity.this);
                 booking = new Booking(IdRooms,idClient,Login.user.getIdUser(),dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
-
                 bookingRepo.insert(booking);
                 tv_ngayDen_checkIn.setText("");
                 tv_ngayDi_checkIn.setText("");
                 edt_idBooking.setText("");
                 edt_tienCoc.setText("");
 
-                BookingStatusRepo bookingStatusRepo = new BookingStatusRepo(CheckInActivity.this);
-                BookingStatus bookingStatus = new BookingStatus(idBooking)
 
             }
         });

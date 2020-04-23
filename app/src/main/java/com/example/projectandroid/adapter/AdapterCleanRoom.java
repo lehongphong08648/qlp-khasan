@@ -55,7 +55,7 @@ public class AdapterCleanRoom extends BaseAdapter {
         TextView tv_tinhTrangPhong = convertView.findViewById(R.id.tv_tinhTrangPhong);
 
         tv_tenPhong_clean.setText(rooms.get(position).getId());
-        tv_tinhTrangPhong.setText(rooms.get(position).getStatus());
+        tv_tinhTrangPhong.setText("cần dọn dẹp");
 
 
         tvOptionDigitClean.setOnClickListener(new View.OnClickListener() {
