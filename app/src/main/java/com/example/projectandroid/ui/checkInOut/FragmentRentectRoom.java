@@ -47,6 +47,8 @@ public class FragmentRentectRoom extends Fragment {
         bookingList = new ArrayList<>();
         bookingRepo = new BookingRepo(getContext());
         bookingList = bookingRepo.getAll();
+
+
         adapterRentectRoom = new AdapterRentectRoom(getContext(),bookingList);
         gv_rentectRoom = view.findViewById(R.id.gv_rentectRoom);
         gv_rentectRoom.setAdapter(adapterRentectRoom);

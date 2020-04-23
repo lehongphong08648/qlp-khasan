@@ -2,21 +2,14 @@ package com.example.projectandroid.ui.bookingRoom;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
-import android.text.InputType;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -28,14 +21,12 @@ import android.widget.TimePicker;
 import com.example.projectandroid.R;
 import com.example.projectandroid.model.Booking;
 import com.example.projectandroid.model.Client;
-import com.example.projectandroid.model.KindOfRoom;
 import com.example.projectandroid.model.QuocTich;
 import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.repository.BookingRepo;
 import com.example.projectandroid.repository.ClientRepo;
 import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.ui.Login;
-import com.example.projectandroid.ui.systemManager.FragmentAddRoom;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -76,9 +67,8 @@ public class FragmentAddBooing extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tv_ngayDen = findViewById(R.id.tv_ngayDen);
-        tv_ngayDi = findViewById(R.id.tv_ngayDi);
+        tv_ngayDi = findViewById(R.id.tv_ngayDi_fixBooing);
         edt_datCoc = findViewById(R.id.edt_datCoc);
-
 
         img_ngayDen = findViewById(R.id.img_ngayDen);
         img_ngayDi = findViewById(R.id.img_ngayDi);
@@ -87,7 +77,6 @@ public class FragmentAddBooing extends AppCompatActivity {
         sp_client = findViewById(R.id.sp_client_booking);
 
         btn_add_booking = findViewById(R.id.btn_booking);
-        btn_cancel_booking = findViewById(R.id.btn_cancel_booking);
         mCreateEvent();
 
         //đổ phòng ra sp
@@ -110,12 +99,6 @@ public class FragmentAddBooing extends AppCompatActivity {
 
 
     public void mCreateEvent(){
-        edt_ngaySinh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDateDialog(edt_ngaySinh);
-            }
-        });
 
         img_ngayDen.setOnClickListener(new View.OnClickListener() {
             @Override

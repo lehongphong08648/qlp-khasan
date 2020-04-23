@@ -47,6 +47,7 @@ InvoiceRepo invoiceRepo;
         edt_tienCoc_checkOut.setText(bundle.getString("tienCoc"));
 
         Float Ftongtien = Float.parseFloat(bundle.getString("tongTien"));
+        Float tongTien = Float.parseFloat(bundle.getString("tienPhong"));
 
         if (Ftongtien >= 0){
             edt_tongTen_checkOut.setText(String.valueOf(Ftongtien));
@@ -67,7 +68,7 @@ InvoiceRepo invoiceRepo;
 
                 Float discount = (Ftongtien / 100) * 10;
                 invoiceRepo = new InvoiceRepo(CheckOutActivity.this);
-                invoice = new Invoice(bundle.getString("idBooking"),0,discount,Ftongtien);
+                invoice = new Invoice(bundle.getString("idBooking"),0,discount,tongTien);
                 invoiceRepo.insert(invoice);
                 Toast.makeText(CheckOutActivity.this,"Trả phòng thành công",Toast.LENGTH_SHORT).show();
             }

@@ -32,24 +32,14 @@ public class FragmentBookingRoom extends Fragment {
     FloatingActionButton btn_frm_add_booking;
     RecyclerView lv_booking;
     AdapterBooking adapterBooking;
-    List<String> itemList;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_booking_rom,container,false);
 
-        itemList = new ArrayList<>();
-        itemList.add("Ngày đến");
-        itemList.add("hinh");
-        itemList.add("da");
-        itemList.add("Thom");
-        itemList.add("nho");
-        itemList.add("ca");
-        itemList.add("bao");
-        itemList.add("gach");
 
-        adapterBooking = new AdapterBooking(itemList);
+//        adapterBooking = new AdapterBooking();
 
         btn_frm_add_booking = view.findViewById(R.id.btn_frm_add_booking);
         btn_frm_add_booking.setOnClickListener(new View.OnClickListener() {
@@ -64,24 +54,4 @@ public class FragmentBookingRoom extends Fragment {
         lv_booking.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
-
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        inflater.inflate(R.menu.filter,menu);
-//        MenuItem item = menu.findItem(R.id.search_view);
-//        SearchView searchView = (SearchView) item.getActionView();
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                adapterBooking.getFilter().filter(newText);
-//                return false;
-//            }
-//        });
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
 }

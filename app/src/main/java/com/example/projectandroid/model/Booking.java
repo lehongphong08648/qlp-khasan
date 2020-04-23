@@ -54,7 +54,6 @@ public class Booking {
         this.dayGo = dayGo;
         this.deposit = deposit;
     }
-
     @NonNull
     public int getId() {
         return id;

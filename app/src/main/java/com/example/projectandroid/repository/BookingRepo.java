@@ -37,7 +37,7 @@ public class BookingRepo {
         return bookingDAO.getAllBooking();
     }
 
-    //TODO: lấy booking theo id
+
     public Booking getBookingById(int idBooking) {
         return bookingDAO.getBookingById(idBooking).get(0);
     }

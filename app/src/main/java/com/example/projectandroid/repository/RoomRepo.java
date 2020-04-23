@@ -51,7 +51,7 @@ public class RoomRepo {
         return roomDAO.getRoomByStatus("Online");
     }
 
-    //Lấy tất cả phòng đang có người đặt
+        //Lấy tất cả phòng đang có người đặt
     public List<Rooms> getAllBookingRoom() {
         return roomDAO.getRoomByStatus("Booking");
     }
@@ -66,7 +66,7 @@ public class RoomRepo {
 
         List<Rooms> roomList = new ArrayList<>();
 
-        for (Rooms room : this.getAll()) {
+        for (Rooms room : roomDAO.getAllRoom()) {
             int beforeSize = roomSet.size();
 
             roomSet.add(room);

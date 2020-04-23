@@ -289,7 +289,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_ngayDen"
+                        android:id="@+id/tv_ngayDen_booking"
                         android:hint="Ngày đến"
                         android:enabled="false"
                         android:textColor="@color/colorAccent"
@@ -302,7 +302,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_alarm"
                     android:layout_weight="4"
-                    android:id="@+id/img_ngayDen"
+                    android:id="@+id/img_ngayDen_fixBooking"
                     />
             </LinearLayout>
 

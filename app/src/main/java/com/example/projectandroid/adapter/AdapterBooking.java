@@ -1,5 +1,8 @@
 package com.example.projectandroid.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +12,27 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.Client;
+import com.example.projectandroid.model.Rooms;
+import com.example.projectandroid.repository.ClientRepo;
+import com.example.projectandroid.repository.RoomRepo;
+import com.example.projectandroid.ui.bookingRoom.FixBookingActivity;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class AdapterBooking extends RecyclerView.Adapter<AdapterBooking.ViewHolder> implements Filterable {
-List<String> itemList;
-List<String> itemListAll;
+public class AdapterBooking extends RecyclerView.Adapter<AdapterBooking.ViewHolder>{
 
-    public AdapterBooking(List<String> itemList) {
-        this.itemList = itemList;
+List<Booking> bookings;
+Context context;
+    public AdapterBooking(List<Booking> bookings, Context context) {
+        this.bookings = bookings;
+        this.context = context;
     }
 
     @NonNull
@@ -35,46 +46,39 @@ List<String> itemListAll;
 
     @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-                holder.tv_ngayDenItem.setText(itemList.get(position));
-                holder.tv_nameClientItem.setText(position + "tên khách hàng");
+        ClientRepo clientRepo = new ClientRepo(context);
+        int idClient = bookings.get(position).getIdClient();
+        Client client = clientRepo.getClientById(idClient);
+        String clientName = client.getFullName();
+
+                holder.tv_ngayDenItem.setText(String.valueOf(bookings.get(position).getDayCome()));
+                holder.tv_nameClientItem.setText(clientName);
                 holder.tv_stt_booking.setText(String.valueOf(position +1));
+                holder.tv_ngayDiItem.setText(String.valueOf(bookings.get(position).getDayGo()));
+                holder.tv_tienConItem.setText(String.valueOf(bookings.get(position).getDeposit()));
+                holder.tv_nameRoomItem.setText(bookings.get(position).getIdRoom());
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, FixBookingActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("dayCome",String.valueOf(bookings.get(position).getDayCome()));
+                        bundle.putString("dayGo",String.valueOf(bookings.get(position).getDayGo()));
+                        bundle.putString("tienCoc",String.valueOf(bookings.get(position).getDeposit()));
+                        bundle.putString("idBooking",String.valueOf(bookings.get(position).getId()));
+                        intent.putExtras(bundle);
+                        context.startActivity(intent);
+                    }
+                });
         }
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return bookings.size();
     }
 
-    @Override
-    public Filter getFilter() {
-        return filter;
-    }
-    Filter filter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<String> filteredList = new ArrayList<>();
-            if (constraint.toString().isEmpty()){
-                filteredList.addAll(itemListAll);
-            }else {
-                for (String item: itemListAll){
-                    if (item.toLowerCase().contains(constraint.toString().toLowerCase())){
-                        filteredList.add(item);
-                    }
-                }
-            }
 
-            FilterResults filterResults = new FilterResults();
-            filterResults.values = filteredList;
-            return filterResults;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            itemList.clear();
-            itemList.addAll((Collection<? extends String>) results.values);
-            notifyDataSetChanged();
-        }
-    };
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tv_ngayDenItem, tv_ngayDiItem, tv_nameClientItem, tv_nameRoomItem, tv_tienConItem,tv_stt_booking;

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bookingRoom.FragmentAddBooing"
+    tools:context=".ui.bookingRoom.FixBookingActivity"
     android:padding="@dimen/padding"
     >
 
@@ -201,7 +201,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginRight="@dimen/padding"
                 android:background="@drawable/round_buttom"
                 android:textColor="@color/colorWhile"
                 android:backgroundTint="@color/colorAccent"
@@ -212,26 +211,10 @@
 
 
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Hủy"
-                android:background="@drawable/round_buttom"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorWhile"
-                android:layout_marginLeft="@dimen/padding"
-                android:textColor="@color/colorAccent"
-                android:id="@+id/btn_cancel_booking"
-                />
-
-
 
 
 
     </LinearLayout>
-
-
-
 
     </LinearLayout>
 </ScrollView>

@@ -33,7 +33,7 @@ public class FragmentWaitingRoom extends Fragment {
         gv_waitingRoom = view.findViewById(R.id.gv_waitingRoom);
         rooms = new ArrayList<>();
         roomRepo = new RoomRepo(getContext());
-        rooms = roomRepo.getAllOfflineRoom();
+        rooms = roomRepo.getAllBookingRoom();
         AdapterWaitingRoom adapterWaitingRoom = new AdapterWaitingRoom(getContext(),rooms);
         gv_waitingRoom.setAdapter(adapterWaitingRoom);
         return view;

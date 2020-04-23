@@ -19,11 +19,13 @@ import android.widget.TimePicker;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.BookingStatus;
 import com.example.projectandroid.model.Client;
 import com.example.projectandroid.model.QuocTich;
 import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.model.User;
 import com.example.projectandroid.repository.BookingRepo;
+import com.example.projectandroid.repository.BookingStatusRepo;
 import com.example.projectandroid.repository.ClientRepo;
 import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.repository.UserRepo;
@@ -120,7 +122,7 @@ UserRepo userRepo;
                 Client client = (Client) spClient.getSelectedItem();
                 int idClient = client.getId();
                 bookingRepo = new BookingRepo(CheckInActivity.this);
-                booking = new Booking(idBooking,idClient,Login.user.getIdUser(),dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
+                booking = new Booking(IdRooms,idClient,Login.user.getIdUser(),dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
 
                 bookingRepo.insert(booking);
                 tv_ngayDen_checkIn.setText("");
@@ -128,11 +130,8 @@ UserRepo userRepo;
                 edt_idBooking.setText("");
                 edt_tienCoc.setText("");
 
-                rooms = new Rooms(IdRooms,Integer.parseInt(idKor),Integer.parseInt(Floor),Service,Describe);
-                rooms.setStatus("Online");
-                roomRepo = new RoomRepo(CheckInActivity.this);
-                roomRepo.update(rooms);
-
+                BookingStatusRepo bookingStatusRepo = new BookingStatusRepo(CheckInActivity.this);
+                BookingStatus bookingStatus = new BookingStatus(idBooking)
 
             }
         });
