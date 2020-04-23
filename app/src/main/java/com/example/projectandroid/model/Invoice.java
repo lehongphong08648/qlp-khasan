@@ -6,6 +6,8 @@ import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 import io.reactivex.annotations.NonNull;
 
 @Entity(
@@ -30,12 +32,14 @@ public class Invoice {
     private float discount;
 
     private float total;
+    private Date dayPay;
 
-    public Invoice(int idBooking, float service, float discount, float total) {
+    public Invoice(int idBooking, float service, float discount, float total, Date dayPay) {
         this.idBooking = idBooking;
         this.service = service;
         this.discount = discount;
         this.total = total;
+        this.dayPay = dayPay;
     }
 
     public int getId() {
@@ -76,5 +80,13 @@ public class Invoice {
 
     public void setTotal(float total) {
         this.total = total;
+    }
+
+    public Date getDayPay() {
+        return dayPay;
+    }
+
+    public void setDayPay(Date dayPay) {
+        this.dayPay = dayPay;
     }
 }

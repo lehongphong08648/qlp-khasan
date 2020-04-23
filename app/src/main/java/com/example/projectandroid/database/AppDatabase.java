@@ -11,12 +11,14 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.projectandroid.convert.Converters;
 import com.example.projectandroid.dao.BookingDAO;
+import com.example.projectandroid.dao.BookingStatusDAO;
 import com.example.projectandroid.dao.ClientDAO;
 import com.example.projectandroid.dao.InvoiceDAO;
 import com.example.projectandroid.dao.KindOfRoomDAO;
 import com.example.projectandroid.dao.RoomDAO;
 import com.example.projectandroid.dao.UserDAO;
 import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.BookingStatus;
 import com.example.projectandroid.model.Client;
 import com.example.projectandroid.model.Invoice;
 import com.example.projectandroid.model.KindOfRoom;
@@ -25,7 +27,7 @@ import com.example.projectandroid.model.User;
 
 @Database(
         entities = {
-                Booking.class, Client.class, Invoice.class, KindOfRoom.class, Rooms.class, User.class
+                Booking.class, Client.class, Invoice.class, KindOfRoom.class, Rooms.class, User.class, BookingStatus.class
         },
         version = 4,
         exportSchema = false
@@ -45,4 +47,5 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract BookingDAO bookingDAO();
 
+    public abstract BookingStatusDAO bookingStatusDAO();
 }

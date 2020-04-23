@@ -15,16 +15,14 @@ import java.util.List;
 
 public class BookingRepo {
     private BookingDAO bookingDAO;
-    private RoomDAO roomDAO;
 
     public BookingRepo(Context context) {
         AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "hotlindbling").allowMainThreadQueries().build();
         bookingDAO = database.bookingDAO();
-        roomDAO = database.roomDAO();
     }
 
     public void insert(Booking booking) {
-        new InsertBookingAsyncTask(bookingDAO, roomDAO).execute(booking);
+        new InsertBookingAsyncTask(bookingDAO).execute(booking);
     }
 
     public void update(Booking booking) {
@@ -45,15 +43,12 @@ public class BookingRepo {
     }
 
 
-
     private static class InsertBookingAsyncTask extends AsyncTask<Booking, Void, Void> {
 
         BookingDAO bookingDAO;
-        RoomDAO roomDAO;
 
-        InsertBookingAsyncTask(BookingDAO bookingDAO, RoomDAO roomDAO) {
+        InsertBookingAsyncTask(BookingDAO bookingDAO) {
             this.bookingDAO = bookingDAO;
-            this.roomDAO = roomDAO;
         }
 
 
@@ -61,9 +56,6 @@ public class BookingRepo {
         protected Void doInBackground(Booking... bookings) {
             if (bookingDAO.insertBooking(bookings)[0] > 0) {
                 String idRoom = bookings[0].getIdRoom();
-                Rooms room = roomDAO.getRoomById(idRoom).get(0);
-                room.setStatus("Online");
-                roomDAO.updateRoom(room);
             }
 
             return null;

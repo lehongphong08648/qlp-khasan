@@ -45,9 +45,7 @@ public class AdapterRentectRoom extends BaseAdapter {
     KindOfRoom kindOfRooms;
     List<Rooms> listRooms;
 //TODO: anh phải tạo getBooking bằng idRoom, không thì thì khi trả phòng thì đồng nghĩa với việc phải xóa luôn cái Booking đó đi
-    //TODO: Mỗi lần trả phòng không phải xóa gì hết e
-    //E update lại status của room sau khi trả phòng
-    //chuyển booking đấy vào invcoie để thanh toán thôi
+    // TODO: đã fix
     public AdapterRentectRoom(Context context, List<Booking> bookingList) {
         this.context = context;
         this.bookingList = bookingList;

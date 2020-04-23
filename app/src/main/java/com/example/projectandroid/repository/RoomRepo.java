@@ -10,7 +10,10 @@ import com.example.projectandroid.database.AppDatabase;
 import com.example.projectandroid.model.Booking;
 import com.example.projectandroid.model.Rooms;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class RoomRepo {
 
@@ -40,25 +43,45 @@ public class RoomRepo {
 
     //Lấy tất cả phòng đang dọn
     public List<Rooms> getAllBusyRoom() {
-        return roomDAO.getBusyRooms();
+        return roomDAO.getRoomByStatus("Busy");
     }
 
     //Lấy tất cả phòng đang có người dùng
     public List<Rooms> getAllOnlineRoom() {
-        return roomDAO.getOnlineRooms();
+        return roomDAO.getRoomByStatus("Online");
+    }
+
+    //Lấy tất cả phòng đang có người đặt
+    public List<Rooms> getAllBookingRoom() {
+        return roomDAO.getRoomByStatus("Booking");
     }
 
     //Lấy tất cả các phòng trống
     public List<Rooms> getAllOfflineRoom() {
-        return roomDAO.getOfflineRooms();
+
+        Set<Rooms> roomSet = new HashSet<>();
+        roomSet.addAll(roomDAO.getRoomByStatus("Busy"));
+        roomSet.addAll(roomDAO.getRoomByStatus("Online"));
+        roomSet.addAll(roomDAO.getRoomByStatus("Booking"));
+
+        List<Rooms> roomList = new ArrayList<>();
+
+        for (Rooms room : this.getAll()) {
+            int beforeSize = roomSet.size();
+
+            roomSet.add(room);
+
+            int afterSize = roomSet.size();
+
+            if (beforeSize != afterSize)
+                roomList.add(room);
+
+        }
+
+        return roomList;
     }
 
-    //Lấy tất cả các phòng đã đặt
-    public List<Rooms> getAllBookingRoom() {
-        return roomDAO.getBookingRooms();
-    }
-
-    public Rooms getRoomById(String idRoom){
+    public Rooms getRoomById(String idRoom) {
         return roomDAO.getRoomById(idRoom).get(0);
     }
 

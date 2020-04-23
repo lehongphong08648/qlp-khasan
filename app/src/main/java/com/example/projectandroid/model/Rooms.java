@@ -33,22 +33,12 @@ public class Rooms {
 
     private String describe;
 
-    private String status = "Ofline";
-
     public Rooms(@NotNull String id, int idKOR, int floor, String service, String describe) {
         this.id = id;
         this.idKOR = idKOR;
         this.floor = floor;
         this.service = service;
         this.describe = describe;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getId() {
