@@ -35,6 +35,12 @@ public class BookingStatusRepo {
         return statusDAO.getAllBooking();
     }
 
+    public List<BookingStatus> getBookingStatusById(int idBooking){
+        return statusDAO.getBookingStatusByIdBooking(idBooking);
+    }
+
+
+
     private static class InsertBookingStatusAsyncTask extends AsyncTask<BookingStatus, Void, Void> {
 
         BookingStatusDAO statusDAO;
