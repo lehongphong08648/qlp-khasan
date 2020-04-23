@@ -37,7 +37,7 @@ List<Invoice> invoices;
 
         lv_history = findViewById(R.id.lv_history);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-        adapterHistory = new AdapterHistory(invoices);
+        adapterHistory = new AdapterHistory(invoices,this);
         lv_history.setAdapter(adapterHistory);
         lv_history.setLayoutManager(mLayoutManager);
     }

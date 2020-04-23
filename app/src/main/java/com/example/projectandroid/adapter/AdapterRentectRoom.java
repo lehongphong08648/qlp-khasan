@@ -44,8 +44,7 @@ public class AdapterRentectRoom extends BaseAdapter {
     KorRepo korRepo;
     KindOfRoom kindOfRooms;
     List<Rooms> listRooms;
-
-
+//TODO: anh phải tạo getBooking bằng idRoom, không thì thì khi trả phòng thì đồng nghĩa với việc phải xóa luôn cái Booking đó đi
     public AdapterRentectRoom(Context context, List<Booking> bookingList) {
         this.context = context;
         this.bookingList = bookingList;
@@ -162,7 +161,7 @@ public class AdapterRentectRoom extends BaseAdapter {
                                 bundle.putString("ngayDen",String.valueOf(bookingList.get(position).getDayCome()));
                                 bundle.putString("ngayDi",String.valueOf(bookingList.get(position).getDayGo()));
                                 bundle.putString("tienCoc",String.valueOf(bookingList.get(position).getDeposit()));
-                                bundle.putString("tongTien",String.valueOf((tienPhong - thoiGianThue) - (bookingList.get(position).getDeposit())));
+                                bundle.putString("tongTien",String.valueOf((tienPhong * thoiGianThue) - (bookingList.get(position).getDeposit())));
 
                                 intent.putExtras(bundle);
                                 context.startActivity(intent);
