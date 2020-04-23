@@ -24,14 +24,14 @@ public class Invoice {
     @NonNull
     private int id;
 
-    private String idBooking;
+    private int idBooking;
 
     private float service;
     private float discount;
 
     private float total;
 
-    public Invoice(String idBooking, float service, float discount, float total) {
+    public Invoice(int idBooking, float service, float discount, float total) {
         this.idBooking = idBooking;
         this.service = service;
         this.discount = discount;
@@ -46,11 +46,11 @@ public class Invoice {
         this.id = id;
     }
 
-    public String getIdBooking() {
+    public int getIdBooking() {
         return idBooking;
     }
 
-    public void setIdBooking(String idBooking) {
+    public void setIdBooking(int idBooking) {
         this.idBooking = idBooking;
     }
 
