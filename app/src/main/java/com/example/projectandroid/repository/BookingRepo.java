@@ -45,6 +45,10 @@ public class BookingRepo {
         return bookingDAO.getBookingById(idBooking).get(0);
     }
 
+    public Booking getBookingByIdRoom(String idRoom) {
+        return bookingDAO.getBookingByIdAndStatus(idRoom, "Online").get(0);
+    }
+
 
     private static class InsertBookingAsyncTask extends AsyncTask<Booking, Void, Void> {
 
