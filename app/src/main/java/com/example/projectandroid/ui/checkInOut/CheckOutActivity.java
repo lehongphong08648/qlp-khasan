@@ -10,10 +10,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.BookingStatus;
 import com.example.projectandroid.model.Invoice;
 import com.example.projectandroid.model.Rooms;
+import com.example.projectandroid.repository.BookingStatusRepo;
 import com.example.projectandroid.repository.InvoiceRepo;
 import com.example.projectandroid.repository.RoomRepo;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
 
 public class CheckOutActivity extends AppCompatActivity {
 EditText edt_tenKh_CheckOut, edt_idCard_checkOut, edt_quocTich_CheckOut, edt_ngaySinh_checkOut
@@ -22,7 +29,7 @@ EditText edt_tenKh_CheckOut, edt_idCard_checkOut, edt_quocTich_CheckOut, edt_nga
         , edt_tienCoc_checkOut, edt_tongTen_checkOut;
 
 Button btn_checkOut, btn_cancel_checkOut;
-
+private Date date;
 Invoice invoice;
 InvoiceRepo invoiceRepo;
     @Override
@@ -57,18 +64,25 @@ InvoiceRepo invoiceRepo;
             edt_tongTen_checkOut.setText("0");
         }
 
+        Calendar calendar = Calendar.getInstance();
+        String dateNow = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        try {
+            date = DateFormat.getDateInstance(DateFormat.FULL).parse(dateNow);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         btn_checkOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RoomRepo roomRepo = new RoomRepo(CheckOutActivity.this);
-                Rooms rooms = roomRepo.getRoomById(bundle.getString("tenPhong"));
-                rooms.setStatus("Busy");
-                roomRepo.update(rooms);
-
+                String sIdBooking = bundle.getString("idBooking");
+                int idBooking = Integer.parseInt(sIdBooking);
+                BookingStatusRepo bookingStatusRepo = new BookingStatusRepo(CheckOutActivity.this);
+                BookingStatus bookingStatus = new BookingStatus(idBooking,"Busy");
+                bookingStatusRepo.delete(bookingStatus);
                 Float discount = (Ftongtien / 100) * 10;
                 invoiceRepo = new InvoiceRepo(CheckOutActivity.this);
-                invoice = new Invoice(bundle.getString("idBooking"),0,discount,tongTien);
+                invoice = new Invoice(idBooking,0,discount,tongTien,date);
                 invoiceRepo.insert(invoice);
                 Toast.makeText(CheckOutActivity.this,"Trả phòng thành công",Toast.LENGTH_SHORT).show();
             }

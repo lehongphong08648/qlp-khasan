@@ -44,7 +44,6 @@ public class AdapterRentectRoom extends BaseAdapter {
     KorRepo korRepo;
     KindOfRoom kindOfRooms;
     List<Rooms> listRooms;
-//TODO: anh phải tạo getBooking bằng idRoom, không thì thì khi trả phòng thì đồng nghĩa với việc phải xóa luôn cái Booking đó đi
     public AdapterRentectRoom(Context context, List<Booking> bookingList) {
         this.context = context;
         this.bookingList = bookingList;
