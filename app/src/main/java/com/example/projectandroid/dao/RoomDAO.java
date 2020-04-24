@@ -25,7 +25,7 @@ public interface RoomDAO {
     @Query("SELECT * FROM ROOM")
     List<Rooms> getAllRoom();
 
-    @Query("SELECT * FROM ROOM " +
+    @Query("SELECT ROOM.* FROM ROOM " +
             "INNER JOIN BOOKING " +
             "ON ROOM.idRoom = BOOKING.idRoom " +
             "INNER JOIN BookingStatus " +

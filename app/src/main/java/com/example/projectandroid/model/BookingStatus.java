@@ -16,7 +16,7 @@ import io.reactivex.annotations.NonNull;
                 childColumns = "idBooking",
                 onUpdate = ForeignKey.CASCADE
         )},
-        indices = {@Index(name = "idBooking_index", value = "idBooking")}
+        indices = {@Index(name = "idBooking_Status_index", value = "idBooking")}
 )
 public class BookingStatus {
     @PrimaryKey(autoGenerate = true)
