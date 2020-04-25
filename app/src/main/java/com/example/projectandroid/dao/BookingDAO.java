@@ -34,4 +34,11 @@ public interface BookingDAO {
             "WHERE BOOKING.idRoom lIKE :idRoom AND BOOKINGSTATUS.status LIKE :status")
     List<Booking> getBookingByIdAndStatus(String idRoom, String status);
 
+    //Hàm đếm booking
+    @Query("SELECT COUNT(*) FROM BOOKING ")
+    int[] countBooking();
+
+    @Query("SELECT MAX(idBooking) FROM booking")
+    int[] maxIdBooking();
+
 }

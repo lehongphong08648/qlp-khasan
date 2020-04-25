@@ -26,7 +26,7 @@ public class BookingRepo {
     }
 
     public void insert(Booking booking) {
-        new InsertBookingAsyncTask(bookingDAO, bookingStatusDAO).execute(booking);
+        new InsertBookingAsyncTask(bookingDAO).execute(booking);
     }
 
     public void update(Booking booking) {
@@ -35,6 +35,16 @@ public class BookingRepo {
 
     public void delete(Booking booking) {
         new DeleteBookingAsyncTask(bookingDAO).execute(booking);
+    }
+
+    //TODO: Hàm tự sinh id Booking
+    //E truyền cái này vào 1 text View để hiển thị idBooking cho nó
+    public int autoGenerateIdBooking() {
+        if (bookingDAO.countBooking()[0] == 0) {
+            return 1;
+        } else {
+            return bookingDAO.maxIdBooking()[0] + 1;
+        }
     }
 
     public List<Booking> getAll() {
@@ -53,19 +63,15 @@ public class BookingRepo {
     private static class InsertBookingAsyncTask extends AsyncTask<Booking, Void, Void> {
 
         BookingDAO bookingDAO;
-        BookingStatusDAO bookingStatusDAO;
 
-        InsertBookingAsyncTask(BookingDAO bookingDAO, BookingStatusDAO bookingStatusDAO) {
+        InsertBookingAsyncTask(BookingDAO bookingDAO) {
             this.bookingDAO = bookingDAO;
-            this.bookingStatusDAO = bookingStatusDAO;
         }
 
 
         @Override
         protected Void doInBackground(Booking... bookings) {
-            if (bookingDAO.insertBooking(bookings)[0] > 0) {
-                bookingStatusDAO.insertStatusDAO(new BookingStatus(bookings[0].getId(), "Online"));
-            }
+            bookingDAO.insertBooking(bookings);
 
             return null;
         }
