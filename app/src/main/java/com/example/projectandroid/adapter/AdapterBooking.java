@@ -66,7 +66,7 @@ Context context;
                         bundle.putString("dayCome",String.valueOf(bookings.get(position).getDayCome()));
                         bundle.putString("dayGo",String.valueOf(bookings.get(position).getDayGo()));
                         bundle.putString("tienCoc",String.valueOf(bookings.get(position).getDeposit()));
-                        bundle.putString("idBooking",String.valueOf(bookings.get(position).getId()));
+                        bundle.putString("idBooking",String.valueOf(bookings.get(position).getIdBooking()));
                         intent.putExtras(bundle);
                         context.startActivity(intent);
                     }

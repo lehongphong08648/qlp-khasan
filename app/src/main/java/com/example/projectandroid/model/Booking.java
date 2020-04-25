@@ -35,9 +35,8 @@ import io.reactivex.annotations.NonNull;
 )
 public class Booking {
     @PrimaryKey
-    @NonNull
-    @ColumnInfo(name = "idBooking")
-    private int id;
+    private int idBooking;
+
     private String idRoom;
     private int idClient;
     private String idUser;
@@ -47,7 +46,7 @@ public class Booking {
     private float deposit;
 
     public Booking(int idBooking, String idRoom, int idClient, String idUser, Date dayCome, Date dayGo, float deposit) {
-        this.id = idBooking;
+        this.idBooking = idBooking;
         this.idRoom = idRoom;
         this.idClient = idClient;
         this.idUser = idUser;
@@ -56,13 +55,12 @@ public class Booking {
         this.deposit = deposit;
     }
 
-    @NonNull
-    public int getId() {
-        return id;
+    public int getIdBooking() {
+        return idBooking;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdBooking(int idBooking) {
+        this.idBooking = idBooking;
     }
 
     public String getIdRoom() {

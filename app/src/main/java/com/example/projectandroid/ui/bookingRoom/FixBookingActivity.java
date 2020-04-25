@@ -122,7 +122,7 @@ private ImageView img_ngayDen,img_ngayDi;
                         e.printStackTrace();
                     }
                     Booking booking =new Booking(maPhong,idKhachHang, Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
-                    booking.setId(idBooking);
+                    booking.setIdBooking(idBooking);
                     BookingRepo bookingRepo = new BookingRepo(FixBookingActivity.this);
                     bookingRepo.update(booking);
                     edt_dayCome.setText("");
