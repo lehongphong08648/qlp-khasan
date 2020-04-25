@@ -42,8 +42,8 @@ TextView tv_doanhSoNGay, tv_doanhSoThang,tv_doanhSoNam;
         tv_doanhSoThang = findViewById(R.id.tv_doanhSoThang);
         tv_doanhSoNam = findViewById(R.id.tv_doangSoNam);
 
-
-        Float doanhSoNgay = invoiceRepo.getInvoiceByDay(Integer.parseInt(ngay));
+int ngayI = Integer.parseInt(ngay);
+        Float doanhSoNgay = invoiceRepo.getInvoiceByDay(ngayI);
         Float doanhSoThang = invoiceRepo.getInvoiceByMonth(Integer.parseInt(thang));
         Float doanhSoNam = invoiceRepo.getInvoiceByYear(Integer.parseInt(nam));
 

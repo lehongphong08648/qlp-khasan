@@ -289,8 +289,8 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_ngayDen_booking"
-                        android:hint="Ngày đến"
+                        android:id="@+id/tv_ngayDi_checkOut"
+                        android:hint="Ngày đi"
                         android:enabled="false"
                         android:textColor="@color/colorAccent"
                         />

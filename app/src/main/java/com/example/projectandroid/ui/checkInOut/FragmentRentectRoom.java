@@ -1,10 +1,14 @@
 package com.example.projectandroid.ui.checkInOut;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,12 +47,11 @@ public class FragmentRentectRoom extends Fragment {
         rooms = new ArrayList<>();
         roomRepo = new RoomRepo(getContext());
         rooms = roomRepo.getAllOnlineRoom();
-
         bookingList = new ArrayList<>();
         bookingRepo = new BookingRepo(getContext());
         bookingList = bookingRepo.getAll();
 
-        adapterRentectRoom = new AdapterRentectRoom(getContext(),bookingList);
+        adapterRentectRoom = new AdapterRentectRoom(getContext(),rooms);
         gv_rentectRoom = view.findViewById(R.id.gv_rentectRoom);
         gv_rentectRoom.setAdapter(adapterRentectRoom);
         return view;

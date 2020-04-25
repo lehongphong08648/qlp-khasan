@@ -40,23 +40,24 @@ public class AdapterRentectRoom extends BaseAdapter {
     RoomRepo roomRepo;
     ClientRepo clientRepo;
     Client clients;
+    Booking booking;
 
     KorRepo korRepo;
     KindOfRoom kindOfRooms;
     List<Rooms> listRooms;
-    public AdapterRentectRoom(Context context, List<Booking> bookingList) {
+    public AdapterRentectRoom(Context context, List<Rooms> listRooms) {
         this.context = context;
-        this.bookingList = bookingList;
+        this.listRooms = listRooms;
     }
 
     @Override
     public int getCount() {
-        return bookingList.size();
+        return listRooms.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return bookingList.get(position);
+        return listRooms.get(position);
     }
 
     @Override
@@ -77,13 +78,13 @@ public class AdapterRentectRoom extends BaseAdapter {
 
         roomRepo = new RoomRepo(context);
         bookingRepo = new BookingRepo(context);
-        String idRoom = bookingList.get(position).getIdRoom();
-        rooms =roomRepo.getRoomById(idRoom);
+        String idRoom = listRooms.get(position).getId();
+        booking =bookingRepo.getBookingByIdRoom(idRoom);
         clientRepo = new ClientRepo(context);
-        int idClient = bookingList.get(position).getIdClient();
+        int idClient = booking.getIdClient();
         clients =clientRepo.getClientById(idClient);
         korRepo = new KorRepo(context);
-        kindOfRooms = korRepo.getKindOfRoomById(rooms.getIdKOR());
+        kindOfRooms = korRepo.getKindOfRoomById(listRooms.get(position).getIdKOR());
 
 
 
@@ -100,8 +101,8 @@ public class AdapterRentectRoom extends BaseAdapter {
         SimpleDateFormat getGio = new SimpleDateFormat("HH");
         SimpleDateFormat getThang = new SimpleDateFormat("MM");
         SimpleDateFormat getNam = new SimpleDateFormat("yy");
-        Date dateNgayDen = bookingList.get(position).getDayCome();
-        Date dateNgayDi = bookingList.get(position).getDayGo();
+        Date dateNgayDen = booking.getDayCome();
+        Date dateNgayDi = booking.getDayGo();
         int ngayDi = Integer.parseInt(getNgay.format(dateNgayDi));
         int thangDi = Integer.parseInt(getThang.format(dateNgayDi));
         int gioDi = Integer.parseInt(getGio.format(dateNgayDi));
@@ -118,12 +119,12 @@ public class AdapterRentectRoom extends BaseAdapter {
 
         String mNgayDen = simpleDateFormat.format(dateNgayDen);
 
-        tv_tienCocRentect.setText(String.valueOf(bookingList.get(position).getDeposit()));
+        tv_tienCocRentect.setText(String.valueOf(booking.getDeposit()));
 
         Float tienPhong = kindOfRooms.getPriceOneHour() ;
 
         tv_ngayDen_Rentect.setText(mNgayDen);
-        tv_tenPhongThue.setText(rooms.getId());
+        tv_tenPhongThue.setText(listRooms.get(position).getId());
         edt_nameClientRentect.setText(clients.getFullName());
         tv_timeRentect.setText(String.valueOf(thoiGianThue));
         tv_tienPhaiTraRentect.setText(String.valueOf(tienPhong * thoiGianThue));
@@ -148,7 +149,7 @@ public class AdapterRentectRoom extends BaseAdapter {
                                 String bitrhDay = setBirthOfDay.format(clients.getBirthOfDate());
 
                                 bundle.putString("hoTenKhacHang",clients.getFullName());
-                                bundle.putString("idBooking",String.valueOf(bookingList.get(position).getId()));
+                                bundle.putString("idBooking",String.valueOf(booking.getIdBooking()));
                                 bundle.putString("cmnn",clients.getIdentityCard());
                                 bundle.putString("quocTich",clients.getNation());
                                 bundle.putString("ngaySinh",bitrhDay);
@@ -156,20 +157,14 @@ public class AdapterRentectRoom extends BaseAdapter {
                                 bundle.putString("diaChi",clients.getAddress());
                                 bundle.putString("vip",String.valueOf(clients.getVip()));
                                 bundle.putString("email",clients.getEmail());
-                                bundle.putString("tenPhong",rooms.getId());
-                                bundle.putString("ngayDen",String.valueOf(bookingList.get(position).getDayCome()));
-                                bundle.putString("ngayDi",String.valueOf(bookingList.get(position).getDayGo()));
-                                bundle.putString("tienCoc",String.valueOf(bookingList.get(position).getDeposit()));
-                                bundle.putString("tongTien",String.valueOf((tienPhong * thoiGianThue) - (bookingList.get(position).getDeposit())));
-
+                                bundle.putString("tenPhong",listRooms.get(position).getId());
+                                bundle.putString("ngayDen",String.valueOf(booking.getDayCome()));
+                                bundle.putString("ngayDi",String.valueOf(booking.getDayGo()));
+                                bundle.putString("tienCoc",String.valueOf(booking.getDeposit()));
+                                bundle.putString("tongTien",String.valueOf((tienPhong * thoiGianThue) - (booking.getDeposit())));
+                                bundle.putString("tienPhong",String.valueOf(tienPhong*thoiGianThue));
                                 intent.putExtras(bundle);
                                 context.startActivity(intent);
-                                bookingRepo = new BookingRepo(context);
-                                Booking booking = new Booking(bookingList.get(position).getIdRoom(),bookingList.get(position).getIdClient()
-                                        , Login.user.getIdUser(),bookingList.get(position).getDayCome(),bookingList.get(position).getDayGo()
-                                        ,bookingList.get(position).getDeposit());
-                                booking.setId(bookingList.get(position).getId());
-                                bookingRepo.delete(booking);
                                 Toast.makeText(parent.getContext(),"Trả phòng",Toast.LENGTH_SHORT).show();
                                 break;
 

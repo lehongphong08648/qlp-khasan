@@ -21,9 +21,6 @@ import java.util.List;
 
 public class Login extends AppCompatActivity {
 
-    //TODO: Anh lấy ra cả model luôn r e get id ra nhé
-    //TODO:Đọc repo test xem nhé có gì lỗi bảo a
-    //todo an vượt làm cả login luôn nhá, làm chất vào nhé !!!!
     public static User user;
 
     EditText edt_tenNd_login, edt_makhau_login;
@@ -60,10 +57,9 @@ public class Login extends AppCompatActivity {
                         edt_makhau_login.setError("Vui lòng nhập mật khẩu");
                     }
                 } else {
-                    String tk = edt_tenNd_login.getText().toString();
-                    String mk = edt_makhau_login.getText().toString();
+
 //                    user = userRepo.getUserByUserName(tk);
-                    checkLogin(tk,mk);
+                    checkLogin(tenND,makhau);
 //                    if (user != null){
 //                        if (user.getPassword().matches(mk)){
 //                            Intent intent = new Intent(Login.this, SystemManagerActivity.class);

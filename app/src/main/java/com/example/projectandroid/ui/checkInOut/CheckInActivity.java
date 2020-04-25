@@ -42,7 +42,7 @@ import java.util.List;
 public class CheckInActivity extends AppCompatActivity {
 
 AppCompatSpinner spClient;
-
+public static int vnkye2;
 Button btn_checkIn, btn_huy_checkIn;
 List<Client> listQuocTich;
 ClientRepo clientRepo;
@@ -110,23 +110,41 @@ UserRepo userRepo;
                 String ngayDen_checkInt = tv_ngayDen_checkIn.getText().toString();
                 String ngayDi_checkInt = tv_ngayDi_checkIn.getText().toString();
                 String tienCoc = edt_tienCoc.getText().toString();
-
                 try {
                      dateNgayDen = simpleDateFormat1.parse(ngayDen_checkInt);
                      dateNgayDi = simpleDateFormat1.parse(ngayDi_checkInt);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Client client = (Client) spClient.getSelectedItem();
-                int idClient = client.getId();
-                bookingRepo = new BookingRepo(CheckInActivity.this);
-                booking = new Booking(IdRooms,idClient,Login.user.getIdUser(),dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
-                bookingRepo.insert(booking);
-                tv_ngayDen_checkIn.setText("");
-                tv_ngayDi_checkIn.setText("");
-                edt_idBooking.setText("");
-                edt_tienCoc.setText("");
 
+                bookingRepo = new BookingRepo(CheckInActivity.this);
+
+                if (ngayDen_checkInt.isEmpty()){
+                    tv_ngayDen_checkIn.setError("Vui lòng chọn ngày đến");
+                }if (ngayDi_checkInt.isEmpty()){
+                    tv_ngayDi_checkIn.setError("Vui lòng chọn ngày đi");
+                }if (tienCoc.isEmpty()){
+                    edt_tienCoc.setError("Vui lòng nhập tiền cọc");
+                }
+
+               else {
+                    Client client = (Client) spClient.getSelectedItem();
+                    int idClient = client.getId();
+                    vnkye2 = bookingRepo.autoGenerateIdBooking();
+                    booking = new Booking(vnkye2,IdRooms,idClient,Login.user.getIdUser(),dateNgayDen,dateNgayDi,Float.parseFloat(tienCoc));
+                    bookingRepo.insert(booking);
+                    tv_ngayDen_checkIn.setText("");
+                    tv_ngayDi_checkIn.setText("");
+                    edt_tienCoc.setText("");
+                    BookingStatus bookingStatus = new BookingStatus(vnkye2,"Online");
+                    BookingStatusRepo statusRepo = new BookingStatusRepo(CheckInActivity.this);
+                    statusRepo.insert(bookingStatus);
+                    Intent intent1 = new Intent(CheckInActivity.this,CheckInOutActivity.class);
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("vnkye2",String.valueOf(vnkye2));
+                    intent.putExtras(bundle1);
+                            startActivity(intent1);
+                }
 
             }
         });

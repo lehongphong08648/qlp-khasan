@@ -121,8 +121,7 @@ private ImageView img_ngayDen,img_ngayDi;
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    Booking booking =new Booking(maPhong,idKhachHang, Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
-                    booking.setIdBooking(idBooking);
+                    Booking booking =new Booking(idBooking,maPhong,idKhachHang, Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
                     BookingRepo bookingRepo = new BookingRepo(FixBookingActivity.this);
                     bookingRepo.update(booking);
                     edt_dayCome.setText("");
@@ -183,8 +182,7 @@ private ImageView img_ngayDen,img_ngayDi;
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.delete){
-            Booking booking =new Booking(mRooms.getId(),client.getId(), Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
-            booking.setId(idBooking);
+            Booking booking =new Booking(idBooking,mRooms.getId(),client.getId(), Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
             BookingRepo bookingRepo = new BookingRepo(FixBookingActivity.this);
             bookingRepo.delete(booking);
         }

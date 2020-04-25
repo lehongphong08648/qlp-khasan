@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TableLayout;
+import android.widget.TextView;
 
 import com.example.projectandroid.MainActivity;
 import com.example.projectandroid.R;
@@ -49,7 +50,8 @@ public class CheckInOutActivity extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_in_out);
-
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
         toolbar = findViewById(R.id.toolbar_check_in_out);
         setSupportActionBar(toolbar);
 

@@ -79,12 +79,18 @@ InvoiceRepo invoiceRepo;
                 int idBooking = Integer.parseInt(sIdBooking);
                 BookingStatusRepo bookingStatusRepo = new BookingStatusRepo(CheckOutActivity.this);
                 BookingStatus bookingStatus = new BookingStatus(idBooking,"Busy");
-                bookingStatusRepo.delete(bookingStatus);
+                bookingStatusRepo.update(bookingStatus);
                 Float discount = (Ftongtien / 100) * 10;
                 invoiceRepo = new InvoiceRepo(CheckOutActivity.this);
                 invoice = new Invoice(idBooking,0,discount,tongTien,date);
                 invoiceRepo.insert(invoice);
                 Toast.makeText(CheckOutActivity.this,"Trả phòng thành công",Toast.LENGTH_SHORT).show();
+
+                Intent intent1 = new Intent(CheckOutActivity.this,CheckInOutActivity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("idBookingB",String.valueOf(idBooking));
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 btn_cancel_checkOut.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +111,7 @@ btn_cancel_checkOut.setOnClickListener(new View.OnClickListener() {
         edt_email_checkOut = findViewById(R.id.edt_email_checkOut);
         edt_tenPhong_checkOut = findViewById(R.id.edt_tenPhong_checkOut);
         tv_ngayDen_checkOut = findViewById(R.id.tv_ngayDen_checkOut);
-        tv_ngayDen = findViewById(R.id.tv_ngayDen);
+        tv_ngayDen = findViewById(R.id.tv_ngayDi_checkOut);
         edt_phiDv_checkOut = findViewById(R.id.edt_phiDv_checkOut);
         edt_tienCoc_checkOut = findViewById(R.id.edt_tienCoc_checkOut);
         edt_tongTen_checkOut = findViewById(R.id.edt_tongTen_checkOut);

@@ -36,7 +36,6 @@ import java.util.Date;
 import java.util.List;
 
 public class FragmentAddBooing extends AppCompatActivity {
-    EditText edt_ngaySinh;
     EditText edt_datCoc;
     EditText tv_ngayDen, tv_ngayDi;
     ImageView img_ngayDen, img_ngayDi;
@@ -45,12 +44,10 @@ public class FragmentAddBooing extends AppCompatActivity {
 
     Button btn_add_booking, btn_cancel_booking;
 
-    List<QuocTich> listQuocTich;
     List<Rooms> rooms;
     RoomRepo roomRepo;
 
     Booking booking;
-    BookingRepo bookingRepo;
 
     Client client;
     ClientRepo clientRepo;
@@ -58,7 +55,6 @@ public class FragmentAddBooing extends AppCompatActivity {
 
     Date mNgayDen;
     Date mNgayDi;
-    Date mNgaySinh;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -144,7 +140,8 @@ public class FragmentAddBooing extends AppCompatActivity {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    booking =new Booking(maPhong,idKhachHang, Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
+                    BookingRepo bookingRepo = new BookingRepo(FragmentAddBooing.this);
+                    booking =new Booking(bookingRepo.autoGenerateIdBooking(),maPhong,idKhachHang, Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
                     tv_ngayDen.setText("");
                     tv_ngayDi.setText("");
                     edt_datCoc.setText("");

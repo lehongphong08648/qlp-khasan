@@ -74,7 +74,7 @@ public class AdapterWaitingRoom extends BaseAdapter{
         /*Chỗ này để có thể click nhận phòng,  rọn phòng cho phòng chờ
         * giống như option menu trên toolbar
         * */
-        tv.setText(rooms.get(position).getStatus());
+        tv.setText("Phòng chờ");
 
         final TextView tvOptionDigit = convertView.findViewById(R.id.tvOptionDigit);
 

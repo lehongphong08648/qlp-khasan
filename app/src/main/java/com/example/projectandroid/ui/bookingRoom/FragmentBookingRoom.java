@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.adapter.AdapterBooking;
+import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.repository.BookingRepo;
 import com.example.projectandroid.ui.systemManager.FragmentRoom;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -32,14 +34,17 @@ public class FragmentBookingRoom extends Fragment {
     FloatingActionButton btn_frm_add_booking;
     RecyclerView lv_booking;
     AdapterBooking adapterBooking;
+    BookingRepo bookingRepo;
+    List<Booking> bookingList;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_booking_rom,container,false);
-
-
-//        adapterBooking = new AdapterBooking();
+//TODO: anh tạo getBooking đặt phòng trước và chưa check in nhé;
+        bookingRepo = new BookingRepo(getContext());
+        bookingList = bookingRepo.getAll();
+        adapterBooking = new AdapterBooking(bookingList,getContext());
 
         btn_frm_add_booking = view.findViewById(R.id.btn_frm_add_booking);
         btn_frm_add_booking.setOnClickListener(new View.OnClickListener() {

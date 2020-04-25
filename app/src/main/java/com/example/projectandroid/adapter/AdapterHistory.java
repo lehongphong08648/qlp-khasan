@@ -51,10 +51,9 @@ public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.ViewHold
         holder.tv_tienPhong_history.setText(String.valueOf(invoices.get(position).getTotal()));
 
         bookingRepo = new BookingRepo(context);
-        //TODO: sao ở bảng Booking id là int và trong bảng Invoices idBooking lại là String ????;
-        //Todo: đã fix
+
         booking = bookingRepo.getBookingById(invoices.get(position).getIdBooking());
-        String idBooking = String.valueOf(booking.getId());
+        String idBooking = String.valueOf(booking.getIdBooking());
         String idRoom = String.valueOf(booking.getIdRoom());
         String idClient = String.valueOf(booking.getIdClient());
         String idUser = String.valueOf(booking.getIdUser());

@@ -11,8 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectandroid.R;
+import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.BookingStatus;
 import com.example.projectandroid.model.Rooms;
+import com.example.projectandroid.repository.BookingRepo;
+import com.example.projectandroid.repository.BookingStatusRepo;
 import com.example.projectandroid.repository.RoomRepo;
+import com.example.projectandroid.ui.checkInOut.CheckInActivity;
 
 import java.util.List;
 
@@ -69,10 +74,12 @@ public class AdapterCleanRoom extends BaseAdapter {
                         int id = item.getItemId();
                         if (id == R.id.donDep){
                             roomRepo = new RoomRepo(parent.getContext());
-                            roomsModel = new Rooms(rooms.get(position).getId(),rooms.get(position).getIdKOR(),rooms.get(position).getFloor()
-                                    ,rooms.get(position).getService(),rooms.get(position).getDescribe());
-                            roomsModel.setStatus("Ofline");
-                            roomRepo.update(roomsModel);
+                            BookingRepo bookingRepo = new BookingRepo(parent.getContext());
+                            Booking booking = bookingRepo.getBookingByIdRoom(rooms.get(position).getId());
+                            //TODO: em cần get booking by idRoom busy giống như online ý
+                            BookingStatus bookingStatus = new BookingStatus(CheckInActivity.vnkye2,"Ofline");
+                            BookingStatusRepo bookingStatusRepo = new BookingStatusRepo(parent.getContext());
+                            bookingStatusRepo.update(bookingStatus);
                             notifyDataSetChanged();
                             Toast.makeText(parent.getContext(),"Ok e! đã dọn dẹp",Toast.LENGTH_SHORT).show();
                         }
