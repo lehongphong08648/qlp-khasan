@@ -45,7 +45,6 @@ public class FragmentBookingRoom extends Fragment {
         bookingRepo = new BookingRepo(getContext());
         bookingList = bookingRepo.getAll();
         adapterBooking = new AdapterBooking(bookingList,getContext());
-
         btn_frm_add_booking = view.findViewById(R.id.btn_frm_add_booking);
         btn_frm_add_booking.setOnClickListener(new View.OnClickListener() {
             @Override

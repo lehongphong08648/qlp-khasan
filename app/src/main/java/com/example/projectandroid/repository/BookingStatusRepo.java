@@ -15,7 +15,7 @@ public class BookingStatusRepo {
     private BookingStatusDAO statusDAO;
 
     public BookingStatusRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "vnkye2").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "vnkye1").allowMainThreadQueries().build();
         statusDAO = database.bookingStatusDAO();
     }
 
@@ -37,6 +37,10 @@ public class BookingStatusRepo {
 
     public BookingStatus getBookingStatusById(int idBooking) {
         return statusDAO.getBookingStatusByIdBooking(idBooking).get(0);
+    }
+
+    public int getIdBookingStatusByIdRoomBusy(String idRoom) {
+        return statusDAO.getIDBookingStatusByIdRoomBusy(idRoom).get(0).getId();
     }
 
 

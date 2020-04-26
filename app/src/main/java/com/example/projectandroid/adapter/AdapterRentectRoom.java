@@ -79,7 +79,7 @@ public class AdapterRentectRoom extends BaseAdapter {
         roomRepo = new RoomRepo(context);
         bookingRepo = new BookingRepo(context);
         String idRoom = listRooms.get(position).getId();
-        booking =bookingRepo.getBookingByIdRoom(idRoom);
+        booking =bookingRepo.getBookingByIdRoom(idRoom,"Online");
         clientRepo = new ClientRepo(context);
         int idClient = booking.getIdClient();
         clients =clientRepo.getClientById(idClient);

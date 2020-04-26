@@ -21,6 +21,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class CheckOutActivity extends AppCompatActivity {
 EditText edt_tenKh_CheckOut, edt_idCard_checkOut, edt_quocTich_CheckOut, edt_ngaySinh_checkOut
@@ -78,7 +79,9 @@ InvoiceRepo invoiceRepo;
                 String sIdBooking = bundle.getString("idBooking");
                 int idBooking = Integer.parseInt(sIdBooking);
                 BookingStatusRepo bookingStatusRepo = new BookingStatusRepo(CheckOutActivity.this);
+                BookingStatus bookingStatusById = bookingStatusRepo.getBookingStatusById(idBooking);
                 BookingStatus bookingStatus = new BookingStatus(idBooking,"Busy");
+                bookingStatus.setId(bookingStatusById.getId());
                 bookingStatusRepo.update(bookingStatus);
                 Float discount = (Ftongtien / 100) * 10;
                 invoiceRepo = new InvoiceRepo(CheckOutActivity.this);

@@ -72,7 +72,7 @@ public class FixClientActivity extends AppCompatActivity {
         edt_fix_idCard.setText(bundle.getString("idCard"));
         edt_fix_location.setText(bundle.getString("Address"));
         edt_fix_sdt.setText(bundle.getString("PhoneNumber"));
-        edt_fix_ngaySinh.setText(bundle.getString("BirthOfDate"));
+        edt_fix_ngaySinh.setText(bundle.getString("ns"));
         edt_fix_vip.setText(bundle.getString("vip"));
         edt_fix_email.setText(bundle.getString("Email"));
         idClient = bundle.getString("Id");

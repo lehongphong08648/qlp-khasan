@@ -27,4 +27,10 @@ public interface BookingStatusDAO {
 
     @Query("SELECT * FROM BOOKINGSTATUS WHERE idBooking = :idBooking")
     List<BookingStatus> getBookingStatusByIdBooking(int idBooking);
+
+    @Query("SELECT * FROM BOOKINGSTATUS " +
+            "INNER JOIN BOOKING " +
+            "ON BOOKINGSTATUS.idBooking = BOOKING.idBooking " +
+            "WHERE idRoom LIKE :idRoom And status LIKE 'Busy'")
+    List<BookingStatus> getIDBookingStatusByIdRoomBusy(String idRoom);
 }

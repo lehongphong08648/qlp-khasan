@@ -42,6 +42,10 @@ public class FragmentHome extends Fragment {
     List<Rooms> slRentectRooms;
     List<Rooms> slCleanRooms;
 int ngay,ngay1,ngay2,ngay3,ngay4,ngay5,ngay6;
+
+    Calendar calendar;
+    SimpleDateFormat getMonth;
+    SimpleDateFormat getDay;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -73,10 +77,15 @@ int ngay,ngay1,ngay2,ngay3,ngay4,ngay5,ngay6;
         tv_home_cleanRoom.setText(String.valueOf(slCleanRoom));
 
         mLineChart =(LineChart) view.findViewById(R.id.lineChart);
-//        mLineChart.setOnChartGestureListener((OnChartGestureListener) getContext());
-//        mLineChart.setOnChartValueSelectedListener((OnChartValueSelectedListener) getContext());
         mLineChart.setDragEnabled(true);
         mLineChart.setScaleEnabled(false);
+
+
+         calendar = Calendar.getInstance();
+         getDay = new SimpleDateFormat("dd");
+         getMonth = new SimpleDateFormat("MM");
+
+
 
 
 
@@ -99,5 +108,23 @@ int ngay,ngay1,ngay2,ngay3,ngay4,ngay5,ngay6;
         LineData data = new LineData(dataSets);
         mLineChart.setData(data);
         return view;
+    }
+    private void sevenDay(){
+        String day0 = getDay.format(calendar.getTime());
+        String month = getMonth.format(calendar.getTime());
+        int thang = Integer.parseInt(month);
+        ngay = Integer.parseInt(day0);
+        if (ngay == 06 ){
+            ngay1 = ngay -1;
+            ngay2 = ngay1 -1;
+            ngay3 = ngay2 -1;
+            ngay4 = ngay3 -1;
+            ngay5 = ngay4 -1;
+            ngay6 = 01;
+        }
+
+        if (ngay == 5){
+
+        }
     }
 }

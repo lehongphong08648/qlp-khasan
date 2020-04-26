@@ -55,9 +55,9 @@ public class AdapterClient extends RecyclerView.Adapter<AdapterClient.ViewHolder
             public void onClick(View v) {
 
                 String idCard = clients.get(position).getIdentityCard();
-                String nameClient = clients.get(position).getIdentityCard();
-                String vip = clients.get(position).getIdentityCard();
-                String quocTich = clients.get(position).getIdentityCard();
+                String nameClient = clients.get(position).getFullName();
+                String vip = String.valueOf(clients.get(position).getVip());
+                String quocTich = clients.get(position).getNation();
                 String Address = clients.get(position).getAddress();
                 String Email = clients.get(position).getEmail();
                 String Id = String.valueOf(clients.get(position).getId());
@@ -73,6 +73,7 @@ public class AdapterClient extends RecyclerView.Adapter<AdapterClient.ViewHolder
                 bundle.putString("Address",Address);
                 bundle.putString("Email",Email);
                 bundle.putString("Id",Id);
+                bundle.putString("ns",String.valueOf(BirthOfDate));
 //                bundle.putString("BirthOfDate",date);
                 bundle.putString("PhoneNumber",PhoneNumber);
                 intent.putExtras(bundle);
