@@ -35,10 +35,9 @@ public class BookingStatusRepo {
         return statusDAO.getAllBooking();
     }
 
-    public List<BookingStatus> getBookingStatusById(int idBooking){
-        return statusDAO.getBookingStatusByIdBooking(idBooking);
+    public BookingStatus getBookingStatusById(int idBooking) {
+        return statusDAO.getBookingStatusByIdBooking(idBooking).get(0);
     }
-
 
 
     private static class InsertBookingStatusAsyncTask extends AsyncTask<BookingStatus, Void, Void> {

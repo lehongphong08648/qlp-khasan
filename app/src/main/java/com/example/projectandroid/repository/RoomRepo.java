@@ -51,7 +51,7 @@ public class RoomRepo {
         return roomDAO.getRoomByStatus("Online");
     }
 
-        //Lấy tất cả phòng đang có người đặt
+    //Lấy tất cả phòng đang có người đặt
     public List<Rooms> getAllBookingRoom() {
         return roomDAO.getRoomByStatus("Booking");
     }
@@ -59,24 +59,9 @@ public class RoomRepo {
     //Lấy tất cả các phòng trống
     public List<Rooms> getAllOfflineRoom() {
 
-        Set<Rooms> roomSet = new HashSet<>();
-        roomSet.addAll(roomDAO.getRoomByStatus("Busy"));
-        roomSet.addAll(roomDAO.getRoomByStatus("Online"));
-        roomSet.addAll(roomDAO.getRoomByStatus("Booking"));
-
         List<Rooms> roomList = new ArrayList<>();
-
-        for (Rooms room : roomDAO.getAllRoom()) {
-            int beforeSize = roomSet.size();
-
-            roomSet.add(room);
-
-            int afterSize = roomSet.size();
-
-            if (beforeSize != afterSize)
-                roomList.add(room);
-
-        }
+        roomList.addAll(roomDAO.getAllRoomNotBooking());
+        roomList.addAll(roomDAO.getAllRoomByBookingStatusOffline());
 
         return roomList;
     }
