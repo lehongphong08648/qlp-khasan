@@ -57,13 +57,37 @@ public class RoomRepo {
     }
 
     //Lấy tất cả các phòng trống
+//    public List<Rooms> getAllOfflineRoom() {
+//        List<Rooms> listRoom = roomDAO.getAllRoom();
+//
+//        Set<Rooms> roomSet = new HashSet<>();
+//
+//        roomSet.addAll(roomDAO.getRoomByStatus("Busy"));
+//        roomSet.addAll(roomDAO.getRoomByStatus("Online"));
+//        roomSet.addAll(roomDAO.getRoomByStatus("Booking"));
+//
+//        List<Rooms> roomList = new ArrayList<>();
+//
+//        for (Rooms r : roomDAO.getAllRoom()) {
+//
+//            int beforeSize = roomSet.size();
+//            roomSet.add(r);
+//            int afterSize = roomSet.size();
+//
+//            if (afterSize > beforeSize)
+//                roomList.add(r);
+//        }
+//
+//
+//        return roomList;
+//    }
+
     public List<Rooms> getAllOfflineRoom() {
+        List<Rooms> listRoom = new ArrayList<>();
+        listRoom.addAll(roomDAO.getAllRoomNotBooking());
+        listRoom.addAll(roomDAO.getAllRoomBookingOffline());
 
-        List<Rooms> roomList = new ArrayList<>();
-        roomList.addAll(roomDAO.getAllRoomNotBooking());
-        roomList.addAll(roomDAO.getAllRoomByBookingStatusOffline());
-
-        return roomList;
+        return listRoom;
     }
 
     public Rooms getRoomById(String idRoom) {
