@@ -36,13 +36,15 @@ public interface RoomDAO {
     @Query("SELECT ROOM.* FROM ROOM " +
             "INNER JOIN BOOKING " +
             "ON ROOM.idRoom = BOOKING.idRoom " +
-            "WHERE BOOKING.idRoom NOT IN (SELECT idBooking FROM BOOKINGSTATUS)")
+            "WHERE BOOKING.idBooking NOT IN (SELECT idBooking FROM BOOKINGSTATUS)")
     List<Rooms> getAllRoomNotBooking();
 
     @Query("SELECT ROOM.* FROM ROOM " +
             "INNER JOIN BOOKING " +
             "ON ROOM.idRoom = BOOKING.idRoom " +
-            "WHERE BOOKING.idRoom NOT IN (SELECT idBooking FROM BOOKINGSTATUS)")
+            "INNER JOIN BOOKINGSTATUS " +
+            "ON BOOKING.idBooking = BOOKINGSTATUS.idBooking " +
+            "WHERE BOOKINGSTATUS.idBookingStatus LIKE 'Offline'")
     List<Rooms> getAllRoomByBookingStatusOffline();
 
     @Query("SELECT * FROM ROOM WHERE idRoom LIKE :idRoom")
