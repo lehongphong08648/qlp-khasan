@@ -2,6 +2,7 @@ package com.example.projectandroid.ui.bookingRoom;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,7 +44,7 @@ public class FragmentBookingRoom extends Fragment {
         View view = inflater.inflate(R.layout.fragment_booking_rom,container,false);
 //TODO: anh tạo getBooking đặt phòng trước và chưa check in nhé;
         bookingRepo = new BookingRepo(getContext());
-        bookingList = bookingRepo.getAll();
+        bookingList = bookingRepo.getListBookingUnderDay();
         adapterBooking = new AdapterBooking(bookingList,getContext());
         btn_frm_add_booking = view.findViewById(R.id.btn_frm_add_booking);
         btn_frm_add_booking.setOnClickListener(new View.OnClickListener() {

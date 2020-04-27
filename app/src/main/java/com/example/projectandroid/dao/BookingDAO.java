@@ -8,6 +8,7 @@ import androidx.room.Update;
 
 import com.example.projectandroid.model.Booking;
 
+import java.util.Date;
 import java.util.List;
 
 @Dao
@@ -44,15 +45,14 @@ public interface BookingDAO {
     @Query("SELECT BOOKING.* FROM BOOKING " +
             "INNER JOIN BOOKINGSTATUS " +
             "ON BOOKING.idBooking = BOOKINGSTATUS.idBooking " +
-            "WHERE BOOKING.dayCome > (SELECT CURRENT_TIMESTAMP)")
-    List<Booking> getAllBookingUnderDay();
+            "WHERE BOOKING.dayCome > :dateNow")
+    List<Booking> getAllBookingUnderDay(Date dateNow);
 
-    @Query("SELECT ROOM.* FROM ROOM " +
-            "INNER JOIN BOOKING " +
-            "ON ROOM.idRoom = BOOKING.idRoom " +
+    @Query("SELECT BOOKING.* FROM BOOKING " +
             "INNER JOIN BOOKINGSTATUS " +
             "ON BOOKING.idBooking = BOOKINGSTATUS.idBooking " +
-            "WHERE status LIKE 'BOOKING' AND ROOM.idRoom LIKE :idRoom")
+            "WHERE status LIKE 'Booking' AND idRoom LIKE :idRoom")
     List<Booking> getAllBookingByIdRoom(String idRoom);
 
 }
+//k đc a

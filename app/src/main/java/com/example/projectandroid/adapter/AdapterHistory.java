@@ -44,12 +44,6 @@ public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tv_stt_history.setText(String.valueOf(position + 1));
-        holder.tv_ngayThue_history.setText(String.valueOf(invoices.get(position).getId()));
-        holder.tv_ngayTra_history.setText(String.valueOf(invoices.get(position).getIdBooking()));
-        holder.tv_tenPhong_history.setText(String.valueOf(invoices.get(position).getDiscount()));
-        holder.tv_tienPhong_history.setText(String.valueOf(invoices.get(position).getTotal()));
-
         bookingRepo = new BookingRepo(context);
 
         booking = bookingRepo.getBookingById(invoices.get(position).getIdBooking());
@@ -60,6 +54,12 @@ public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.ViewHold
         String ngayDen = String.valueOf(booking.getDayCome());
         String ngayDi = String.valueOf(booking.getDayGo());
         String tienCoc = String.valueOf(booking.getDeposit());
+
+        holder.tv_stt_history.setText(String.valueOf(position + 1));
+        holder.tv_ngayThue_history.setText(String.valueOf(booking.getDayCome()));
+        holder.tv_ngayTra_history.setText(String.valueOf(booking.getDayGo()));
+        holder.tv_tenPhong_history.setText(booking.getIdRoom());
+        holder.tv_tienPhong_history.setText(String.valueOf(invoices.get(position).getTotal()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

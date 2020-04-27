@@ -29,7 +29,9 @@
         <activity
             android:name=".ui.systemManager.FixRoomActivity"
             android:parentActivityName=".ui.systemManager.FragmentRoom" />
-        <activity android:name=".ui.SignIn" />
+        <activity android:name=".ui.SignIn"
+            android:parentActivityName=".ui.Login"
+            />
         <activity
             android:name=".ui.checkInOut.CheckOutActivity"
             android:parentActivityName=".ui.checkInOut.CheckInOutActivity" />

@@ -60,7 +60,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ngày Đến"
-                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textAppearance="?android:textAppearanceMedium"
                             android:textColor="#000000" />
 
                         <TextView

@@ -2,6 +2,7 @@ package com.example.projectandroid.repository;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.room.Room;
 
@@ -13,6 +14,10 @@ import com.example.projectandroid.model.Booking;
 import com.example.projectandroid.model.BookingStatus;
 import com.example.projectandroid.model.Rooms;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class BookingRepo {
@@ -47,7 +52,18 @@ public class BookingRepo {
         }
     }
 
-    public List<Booking> getAll() {
+    public List<Booking> getAll(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat getDateNow = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String strDateNow = getDateNow.format(calendar.getTime());
+        Date dateNow = null;
+        try {
+            dateNow = getDateNow.parse(strDateNow);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        for(Booking b : bookingDAO.getAllBookingUnderDay(dateNow))
+            Log.e("Booking", b.getDayCome().toString());
         return bookingDAO.getAllBooking();
     }
 
@@ -59,13 +75,28 @@ public class BookingRepo {
         return bookingDAO.getBookingByIdAndStatus(idRoom, status).get(0);
     }
 
+
+    //Lắp thử tét hàm này xem nào e ok a
     //Hàm lấy tất cả các Booking chưa đến ngày
-    public List<Booking> getListBookingUnderDay() {
-        return bookingDAO.getAllBookingUnderDay();
+    //được r đấy e
+    // van dang dun get all ma a
+    //ko cai a in ra log kia kia
+    // la cai booking chua den ngay day
+
+    public List<Booking> getListBookingUnderDay(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat getDateNow = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String strDateNow = getDateNow.format(calendar.getTime());
+        Date dateNow = null;
+        try {
+            dateNow = getDateNow.parse(strDateNow);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return bookingDAO.getAllBookingUnderDay(dateNow);
     }
 
-    //Lấy tất cả các Booking theo idRoom
-    //Đây là Các book thôi
+
     public List<Booking> getAllBookingByIdRoom(String idRoom) {
         return bookingDAO.getAllBookingByIdRoom(idRoom);
     }

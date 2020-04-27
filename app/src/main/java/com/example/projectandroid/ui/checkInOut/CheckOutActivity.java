@@ -39,6 +39,7 @@ InvoiceRepo invoiceRepo;
         setContentView(R.layout.activity_check_out);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         init();
+        edt_tenKh_CheckOut.setTypeface(null);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         edt_tenKh_CheckOut.setText(bundle.getString("hoTenKhacHang"));
@@ -92,8 +93,8 @@ InvoiceRepo invoiceRepo;
                 Intent intent1 = new Intent(CheckOutActivity.this,CheckInOutActivity.class);
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("idBookingB",String.valueOf(idBooking));
-                intent.putExtras(bundle);
-                startActivity(intent);
+                intent1.putExtras(bundle);
+                startActivity(intent1);
             }
         });
 btn_cancel_checkOut.setOnClickListener(new View.OnClickListener() {

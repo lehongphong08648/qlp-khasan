@@ -22,6 +22,7 @@ import com.example.projectandroid.repository.ClientRepo;
 import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.ui.bookingRoom.FixBookingActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -48,13 +49,17 @@ Context context;
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ClientRepo clientRepo = new ClientRepo(context);
         int idClient = bookings.get(position).getIdClient();
+        String idRoom = bookings.get(position).getIdRoom();
         Client client = clientRepo.getClientById(idClient);
         String clientName = client.getFullName();
 
-                holder.tv_ngayDenItem.setText(String.valueOf(bookings.get(position).getDayCome()));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String ngayDen = simpleDateFormat.format(bookings.get(position).getDayCome());
+        String ngayDi = simpleDateFormat.format(bookings.get(position).getDayGo());
+                holder.tv_ngayDenItem.setText(ngayDen);
                 holder.tv_nameClientItem.setText(clientName);
                 holder.tv_stt_booking.setText(String.valueOf(position +1));
-                holder.tv_ngayDiItem.setText(String.valueOf(bookings.get(position).getDayGo()));
+                holder.tv_ngayDiItem.setText(ngayDi);
                 holder.tv_tienConItem.setText(String.valueOf(bookings.get(position).getDeposit()));
                 holder.tv_nameRoomItem.setText(bookings.get(position).getIdRoom());
 
@@ -63,10 +68,13 @@ Context context;
                     public void onClick(View v) {
                         Intent intent = new Intent(context, FixBookingActivity.class);
                         Bundle bundle = new Bundle();
+                        bundle.putString("idClien",String.valueOf(idClient));
+                        bundle.putString("idRoom",idRoom);
                         bundle.putString("dayCome",String.valueOf(bookings.get(position).getDayCome()));
                         bundle.putString("dayGo",String.valueOf(bookings.get(position).getDayGo()));
                         bundle.putString("tienCoc",String.valueOf(bookings.get(position).getDeposit()));
                         bundle.putString("idBooking",String.valueOf(bookings.get(position).getIdBooking()));
+                        bundle.putString("idUser",bookings.get(position).getIdUser());
                         intent.putExtras(bundle);
                         context.startActivity(intent);
                     }
@@ -85,7 +93,7 @@ Context context;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_ngayDenItem = itemView.findViewById(R.id.tv_ngayDen_item);
-            tv_ngayDiItem = itemView.findViewById(R.id.tv_ngayDen_item);
+            tv_ngayDiItem = itemView.findViewById(R.id.tv_ngayDi_item);
             tv_nameClientItem = itemView.findViewById(R.id.tv_nameClientItem);
             tv_nameRoomItem = itemView.findViewById(R.id.tv_nameRoomItem);
             tv_tienConItem = itemView.findViewById(R.id.tv_tienConItem);

@@ -20,10 +20,12 @@ import android.widget.TimePicker;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.BookingStatus;
 import com.example.projectandroid.model.Client;
 import com.example.projectandroid.model.QuocTich;
 import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.repository.BookingRepo;
+import com.example.projectandroid.repository.BookingStatusRepo;
 import com.example.projectandroid.repository.ClientRepo;
 import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.ui.Login;
@@ -63,7 +65,7 @@ public class FragmentAddBooing extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tv_ngayDen = findViewById(R.id.tv_ngayDen);
-        tv_ngayDi = findViewById(R.id.tv_ngayDi_fixBooing);
+        tv_ngayDi = findViewById(R.id.tv_ngayDi);
         edt_datCoc = findViewById(R.id.edt_datCoc);
 
         img_ngayDen = findViewById(R.id.img_ngayDen);
@@ -141,17 +143,28 @@ public class FragmentAddBooing extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     BookingRepo bookingRepo = new BookingRepo(FragmentAddBooing.this);
-                    booking =new Booking(bookingRepo.autoGenerateIdBooking(),maPhong,idKhachHang, Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
+                    int idBooking = bookingRepo.autoGenerateIdBooking();
+
+                    Calendar calendar = Calendar.getInstance();
+                    SimpleDateFormat getDateNow = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                    String dateNow = getDateNow.format(calendar.getTime());
+
+                    booking =new Booking(idBooking,maPhong,idKhachHang, Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
+                    bookingRepo.insert(booking);
+                    BookingStatus bookingStatus = new BookingStatus(idBooking,"Booking");
+                    BookingStatusRepo statusRepo = new BookingStatusRepo(FragmentAddBooing.this);
+                    statusRepo.insert(bookingStatus);
                     tv_ngayDen.setText("");
                     tv_ngayDi.setText("");
                     edt_datCoc.setText("");
+
                 }
             }
         });
 
     }
 
-    private void showDateTimeDialog(final TextView tv_dateTime){
+    private void showDateTimeDialog(final EditText tv_dateTime){
         final Calendar calendar = Calendar.getInstance();
         DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -164,7 +177,7 @@ public class FragmentAddBooing extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                        calendar.set(Calendar.MINUTE,minute);
+                        calendar.set(Calendar.MINUTE, minute);
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
                         tv_dateTime.setText(simpleDateFormat.format(calendar.getTime()));
                     }

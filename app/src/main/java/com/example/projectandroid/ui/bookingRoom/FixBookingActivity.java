@@ -22,9 +22,11 @@ import android.widget.TimePicker;
 
 import com.example.projectandroid.R;
 import com.example.projectandroid.model.Booking;
+import com.example.projectandroid.model.BookingStatus;
 import com.example.projectandroid.model.Client;
 import com.example.projectandroid.model.Rooms;
 import com.example.projectandroid.repository.BookingRepo;
+import com.example.projectandroid.repository.BookingStatusRepo;
 import com.example.projectandroid.repository.ClientRepo;
 import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.ui.Login;
@@ -39,7 +41,7 @@ import java.util.List;
 public class FixBookingActivity extends AppCompatActivity {
 AppCompatSpinner sp_nameClient_booking, sp_nameRoom_booking;
 EditText edt_dayCome, edt_dayGO, edt_tienCoc_fixBooking;
-Button btn_chinhSua;
+Button btn_chinhSua, btn_fix;
 
 List<Rooms> rooms;
 RoomRepo roomRepo;
@@ -52,8 +54,8 @@ private Rooms mRooms;
 private Date mNgayDen;
 private Date mNgayDi;
 
- private String datCoc,ngayDen,ngayDi;
-    int idBooking;
+ private String datCoc,ngayDen,ngayDi, idRoom, idUser;
+    int idBooking, idClien;
 private ImageView img_ngayDen,img_ngayDi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,7 @@ private ImageView img_ngayDen,img_ngayDi;
         btn_chinhSua = findViewById(R.id.btn_fix_booking);
         img_ngayDen = findViewById(R.id.img_ngayDen_fixBooking);
         img_ngayDi = findViewById(R.id.img_ngayDi_fixBooking);
+        btn_fix = findViewById(R.id.btn_fix_fix);
 
         rooms = new ArrayList<>();
         roomRepo = new RoomRepo(FixBookingActivity.this);
@@ -87,10 +90,8 @@ private ImageView img_ngayDen,img_ngayDi;
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        edt_dayCome.setText(bundle.getString("dayCome"));
-        edt_dayGO.setText(bundle.getString("dayGo"));
-        edt_tienCoc_fixBooking.setText(bundle.getString("tienCoc"));
         idBooking = Integer.parseInt(bundle.getString("idBooking"));
+
 
         btn_chinhSua.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +129,16 @@ private ImageView img_ngayDen,img_ngayDi;
                     edt_dayGO.setText("");
                     edt_tienCoc_fixBooking.setText("");
                 }
+            }
+        });
+
+        btn_fix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BookingStatusRepo statusRepo = new BookingStatusRepo(FixBookingActivity.this);
+                BookingStatus bookingStatus =statusRepo.getBookingStatusById(idBooking);
+                bookingStatus.setStatus("Online");
+                statusRepo.update(bookingStatus);
             }
         });
 
@@ -182,9 +193,16 @@ private ImageView img_ngayDen,img_ngayDi;
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.delete){
-            Booking booking =new Booking(idBooking,mRooms.getId(),client.getId(), Login.user.getIdUser(),mNgayDen,mNgayDi,Float.parseFloat(datCoc));
+            BookingStatusRepo statusRepo = new BookingStatusRepo(FixBookingActivity.this);
             BookingRepo bookingRepo = new BookingRepo(FixBookingActivity.this);
-            bookingRepo.delete(booking);
+
+            BookingStatus bookingStatus = statusRepo.getBookingStatusById(idBooking);
+            statusRepo.delete(bookingStatus);
+
+
+            Booking bookingdelete = bookingRepo.getBookingById(idBooking);
+            bookingRepo.delete(bookingdelete);
+            startActivity(new Intent(FixBookingActivity.this,FragmentBookingRoom.class));
         }
         return super.onOptionsItemSelected(item);
     }

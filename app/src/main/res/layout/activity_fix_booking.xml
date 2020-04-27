@@ -193,7 +193,19 @@
                 android:background="@drawable/round_buttom"
                 android:backgroundTint="@color/colorAccent"
                 android:text="Chỉnh sửa"
+                android:layout_marginRight="@dimen/dp12"
                 android:textColor="@color/colorWhile" />
+
+            <Button
+                android:id="@+id/btn_fix_fix"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp12"
+                android:background="@drawable/round_buttom"
+                android:backgroundTint="@color/colorWhile"
+                android:text="Nhận phòng"
+                android:textColor="@color/colorAccent" />
         </LinearLayout>
 
     </LinearLayout>
