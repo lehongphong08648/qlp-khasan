@@ -41,4 +41,18 @@ public interface BookingDAO {
     @Query("SELECT MAX(idBooking) FROM booking")
     int[] maxIdBooking();
 
+    @Query("SELECT BOOKING.* FROM BOOKING " +
+            "INNER JOIN BOOKINGSTATUS " +
+            "ON BOOKING.idBooking = BOOKINGSTATUS.idBooking " +
+            "WHERE BOOKING.dayCome > (SELECT CURRENT_TIMESTAMP)")
+    List<Booking> getAllBookingUnderDay();
+
+    @Query("SELECT ROOM.* FROM ROOM " +
+            "INNER JOIN BOOKING " +
+            "ON ROOM.idRoom = BOOKING.idRoom " +
+            "INNER JOIN BOOKINGSTATUS " +
+            "ON BOOKING.idBooking = BOOKINGSTATUS.idBooking " +
+            "WHERE status LIKE 'BOOKING' AND ROOM.idRoom LIKE :idRoom")
+    List<Booking> getAllBookingByIdRoom(String idRoom);
+
 }

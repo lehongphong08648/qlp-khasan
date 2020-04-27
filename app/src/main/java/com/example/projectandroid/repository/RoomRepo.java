@@ -56,6 +56,11 @@ public class RoomRepo {
         return roomDAO.getRoomByStatus("Booking");
     }
 
+    //Tìm kiếm tất cả room trong booking
+    public List<Rooms> getAllRoomBookingByIdRoom(String idRoom) {
+        return roomDAO.getAllRoomBookingByIdRoom(idRoom);
+    }
+
     //Lấy tất cả các phòng trống
 
     public List<Rooms> getAllOfflineRoom() {

@@ -59,6 +59,17 @@ public class BookingRepo {
         return bookingDAO.getBookingByIdAndStatus(idRoom, status).get(0);
     }
 
+    //Hàm lấy tất cả các Booking chưa đến ngày
+    public List<Booking> getListBookingUnderDay() {
+        return bookingDAO.getAllBookingUnderDay();
+    }
+
+    //Lấy tất cả các Booking theo idRoom
+    //Đây là Các book thôi
+    public List<Booking> getAllBookingByIdRoom(String idRoom) {
+        return bookingDAO.getAllBookingByIdRoom(idRoom);
+    }
+
 
     private static class InsertBookingAsyncTask extends AsyncTask<Booking, Void, Void> {
 
