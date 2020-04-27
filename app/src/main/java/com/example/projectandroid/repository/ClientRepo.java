@@ -16,7 +16,7 @@ public class ClientRepo {
     private ClientDAO clientDAO;
 
     public ClientRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "vnkye1").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "nhom6").allowMainThreadQueries().build();
         clientDAO = database.clientDAO();
     }
 

@@ -20,7 +20,7 @@ public class RoomRepo {
     private RoomDAO roomDAO;
 
     public RoomRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "vnkye1").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "nhom6").allowMainThreadQueries().build();
         roomDAO = database.roomDAO();
     }
 
