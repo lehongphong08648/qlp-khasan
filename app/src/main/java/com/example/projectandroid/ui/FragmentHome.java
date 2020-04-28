@@ -76,55 +76,31 @@ int ngay,ngay1,ngay2,ngay3,ngay4,ngay5,ngay6;
         int slCleanRoom = slCleanRooms.size();
         tv_home_cleanRoom.setText(String.valueOf(slCleanRoom));
 
-        mLineChart =(LineChart) view.findViewById(R.id.lineChart);
-        mLineChart.setDragEnabled(true);
-        mLineChart.setScaleEnabled(false);
-
-
-         calendar = Calendar.getInstance();
-         getDay = new SimpleDateFormat("dd");
-         getMonth = new SimpleDateFormat("MM");
-
-
-
-
-
-        ArrayList<Entry> yValue = new ArrayList<>();
-        yValue.add(new Entry(0,10f));
-        yValue.add(new Entry(1,20f));
-        yValue.add(new Entry(2,50f));
-        yValue.add(new Entry(3,90f));
-        yValue.add(new Entry(4,10f));
-        yValue.add(new Entry(5,40f));
-        yValue.add(new Entry(6,30f));
-
-
-        LineDataSet set1 = new LineDataSet(yValue,"Doanh số phòng thuê phòng thuê");
-        set1.setFillAlpha(110);
-        set1.setColor(Color.RED);
-
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(set1);
-        LineData data = new LineData(dataSets);
-        mLineChart.setData(data);
+//        mLineChart =(LineChart) view.findViewById(R.id.lineChart);
+//        mLineChart.setDragEnabled(true);
+//        mLineChart.setScaleEnabled(false);
+//
+//         calendar = Calendar.getInstance();
+//         getDay = new SimpleDateFormat("dd");
+//         getMonth = new SimpleDateFormat("MM");
+//
+//        ArrayList<Entry> yValue = new ArrayList<>();
+//        yValue.add(new Entry(0,10f));
+//        yValue.add(new Entry(1,20f));
+//        yValue.add(new Entry(2,50f));
+//        yValue.add(new Entry(3,90f));
+//        yValue.add(new Entry(4,10f));
+//        yValue.add(new Entry(5,40f));
+//        yValue.add(new Entry(6,30f));
+//
+//        LineDataSet set1 = new LineDataSet(yValue,"Doanh số phòng thuê phòng thuê");
+//        set1.setFillAlpha(110);
+//        set1.setColor(Color.RED);
+//
+//        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+//        dataSets.add(set1);
+//        LineData data = new LineData(dataSets);
+//        mLineChart.setData(data);
         return view;
-    }
-    private void sevenDay(){
-        String day0 = getDay.format(calendar.getTime());
-        String month = getMonth.format(calendar.getTime());
-        int thang = Integer.parseInt(month);
-        ngay = Integer.parseInt(day0);
-        if (ngay == 06 ){
-            ngay1 = ngay -1;
-            ngay2 = ngay1 -1;
-            ngay3 = ngay2 -1;
-            ngay4 = ngay3 -1;
-            ngay5 = ngay4 -1;
-            ngay6 = 01;
-        }
-
-        if (ngay == 5){
-
-        }
     }
 }

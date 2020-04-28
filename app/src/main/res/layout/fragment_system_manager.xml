@@ -74,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp12"
-                        android:text="Kind Of \n Room"
+                        android:text="Loại phòng"
                         android:textColor="#6f6f6f"
                         android:textSize="@dimen/sp18" />
 
@@ -107,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp12"
-                        android:text="Room"
+                        android:text="Phòng"
                         android:textColor="#6f6f6f"
                         android:textSize="@dimen/sp18" />
 
@@ -141,7 +141,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp12"
-                        android:text="History"
+                        android:text="Lịch sử"
                         android:textColor="#6f6f6f"
                         android:textSize="@dimen/sp18" />
 
@@ -174,7 +174,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp12"
-                        android:text="Statistical"
+                        android:text="Thống kê"
                         android:textColor="#6f6f6f"
                         android:textSize="@dimen/sp18" />
 
@@ -207,7 +207,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp12"
-                        android:text="User"
+                        android:text="Tài khoản"
                         android:textColor="#6f6f6f"
                         android:textSize="@dimen/sp18" />
 

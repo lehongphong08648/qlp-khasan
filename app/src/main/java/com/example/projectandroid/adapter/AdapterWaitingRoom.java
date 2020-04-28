@@ -103,10 +103,6 @@ public class AdapterWaitingRoom extends BaseAdapter{
                         context.startActivity(intent);
 
                                 break;
-                            case R.id.clean_waitingRoom:
-                                //dọn phòng khi trả phòng
-                                Toast.makeText(context,"rọn phòng",Toast.LENGTH_SHORT).show();
-                                break;
                             default:
                                 break;
 

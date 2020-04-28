@@ -3,21 +3,21 @@
     <item
         android:id="@+id/home1"
         android:icon="@drawable/ic_account_balance_black_24dp"
-        android:title="Home" />
+        android:title="Trang chính" />
 
     <item
         android:id="@+id/checkinout"
         android:icon="@drawable/ic_airline_seat_individual_suite_black_24dp"
-        android:title="Check In - Out" />
+        android:title="Nhận trả phòng" />
 
     <item
         android:id="@+id/bookingroom"
         android:icon="@drawable/ic_alarm"
-        android:title="Booking Room" />
+        android:title="Đặt Phòng" />
 
     <item
         android:id="@+id/systemmanager"
         android:icon="@drawable/ic_settings_black_24dp"
-        android:title="System Manager" />
+        android:title="Trung tâm quản lý" />
 
 </menu>

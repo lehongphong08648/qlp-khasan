@@ -15,7 +15,7 @@ public class KorRepo {
     private KindOfRoomDAO korDAO;
 
     public KorRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "nhom6").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "databasevnkye2").allowMainThreadQueries().build();
         korDAO = database.korDAO();
     }
 

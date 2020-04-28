@@ -25,7 +25,7 @@ public class BookingRepo {
     private BookingStatusDAO bookingStatusDAO;
 
     public BookingRepo(Context context) {
-        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "nhom6").allowMainThreadQueries().build();
+        AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "databasevnkye2").allowMainThreadQueries().build();
         bookingDAO = database.bookingDAO();
         bookingStatusDAO = database.bookingStatusDAO();
     }

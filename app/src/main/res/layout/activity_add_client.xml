@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Địa Chỉ"
                     android:id="@+id/edt_location"
-                    android:inputType="number"
+                    android:inputType="text"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>

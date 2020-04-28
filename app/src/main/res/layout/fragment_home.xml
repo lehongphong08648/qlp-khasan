@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hire for the day"
+                    android:text="Đang phát triển"
                     android:textSize="12sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -112,7 +112,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Waiting Room"
+                    android:text="Phòng Chờ"
                     android:textSize="12sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -159,7 +159,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rectect Room"
+                    android:text="Phòng đang thuê"
                     android:textSize="12sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -206,27 +206,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clean Room"
+                    android:text="Phòng cần dọn dẹp"
                     android:textSize="12sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
     </GridLayout>
 
-    <TextView
-        android:layout_marginTop="@dimen/margin_22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buổi đồ thông kê sô phòng thuê trong tuần"
-        android:textAppearance="?android:textAppearanceSmall"
-        android:textColor="@color/colorAccent"
-        />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/lineChart"
-        android:layout_marginTop="@dimen/margin_bottom_edt"
-        />
 
 </LinearLayout>

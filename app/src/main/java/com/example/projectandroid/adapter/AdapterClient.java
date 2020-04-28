@@ -42,12 +42,12 @@ public class AdapterClient extends RecyclerView.Adapter<AdapterClient.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date BirthOfDate = clients.get(position).getBirthOfDate();
-//        String date = simpleDateFormat.format(BirthOfDate);
+        String date = simpleDateFormat.format(BirthOfDate);
 
             holder.tv_idCard.setText(clients.get(position).getIdentityCard());
         holder.tv_nameClient.setText(clients.get(position).getFullName());
         holder.tv_vip.setText(String.valueOf(clients.get(position).getVip()));
-        holder.tv_quocTich.setText(clients.get(position).getIdentityCard());
+        holder.tv_quocTich.setText(clients.get(position).getNation());
         holder.tv_stt_client.setText(String.valueOf(position+1));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,8 @@ public class AdapterClient extends RecyclerView.Adapter<AdapterClient.ViewHolder
                 bundle.putString("Address",Address);
                 bundle.putString("Email",Email);
                 bundle.putString("Id",Id);
-                bundle.putString("ns",String.valueOf(BirthOfDate));
+
+                bundle.putString("ns",date);
 //                bundle.putString("BirthOfDate",date);
                 bundle.putString("PhoneNumber",PhoneNumber);
                 intent.putExtras(bundle);

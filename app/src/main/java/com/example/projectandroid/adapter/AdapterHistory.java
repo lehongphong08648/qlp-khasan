@@ -18,6 +18,7 @@ import com.example.projectandroid.model.Invoice;
 import com.example.projectandroid.repository.BookingRepo;
 import com.example.projectandroid.ui.systemManager.FixInvoicesActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.ViewHolder> {
@@ -47,17 +48,18 @@ public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.ViewHold
         bookingRepo = new BookingRepo(context);
 
         booking = bookingRepo.getBookingById(invoices.get(position).getIdBooking());
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         String idBooking = String.valueOf(booking.getIdBooking());
         String idRoom = String.valueOf(booking.getIdRoom());
         String idClient = String.valueOf(booking.getIdClient());
         String idUser = String.valueOf(booking.getIdUser());
-        String ngayDen = String.valueOf(booking.getDayCome());
-        String ngayDi = String.valueOf(booking.getDayGo());
+        String ngayDen = format.format(booking.getDayCome());
+        String ngayDi = format.format(booking.getDayGo());
         String tienCoc = String.valueOf(booking.getDeposit());
 
         holder.tv_stt_history.setText(String.valueOf(position + 1));
-        holder.tv_ngayThue_history.setText(String.valueOf(booking.getDayCome()));
-        holder.tv_ngayTra_history.setText(String.valueOf(booking.getDayGo()));
+        holder.tv_ngayThue_history.setText(ngayDen);
+        holder.tv_ngayTra_history.setText(ngayDi);
         holder.tv_tenPhong_history.setText(booking.getIdRoom());
         holder.tv_tienPhong_history.setText(String.valueOf(invoices.get(position).getTotal()));
 

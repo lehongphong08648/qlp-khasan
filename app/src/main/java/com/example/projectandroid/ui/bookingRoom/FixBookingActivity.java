@@ -30,6 +30,7 @@ import com.example.projectandroid.repository.BookingStatusRepo;
 import com.example.projectandroid.repository.ClientRepo;
 import com.example.projectandroid.repository.RoomRepo;
 import com.example.projectandroid.ui.Login;
+import com.example.projectandroid.ui.checkInOut.CheckInOutActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -91,6 +92,9 @@ private ImageView img_ngayDen,img_ngayDi;
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         idBooking = Integer.parseInt(bundle.getString("idBooking"));
+        edt_dayCome.setText(bundle.getString("dayCome"));
+        edt_dayGO.setText(bundle.getString("dayGo"));
+        edt_tienCoc_fixBooking.setText(bundle.getString("tienCoc"));
 
 
         btn_chinhSua.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +143,7 @@ private ImageView img_ngayDen,img_ngayDi;
                 BookingStatus bookingStatus =statusRepo.getBookingStatusById(idBooking);
                 bookingStatus.setStatus("Online");
                 statusRepo.update(bookingStatus);
+                startActivity(new Intent(FixBookingActivity.this, CheckInOutActivity.class));
             }
         });
 
@@ -196,8 +201,8 @@ private ImageView img_ngayDen,img_ngayDi;
             BookingStatusRepo statusRepo = new BookingStatusRepo(FixBookingActivity.this);
             BookingRepo bookingRepo = new BookingRepo(FixBookingActivity.this);
 
-            BookingStatus bookingStatus = statusRepo.getBookingStatusById(idBooking);
-            statusRepo.delete(bookingStatus);
+//            BookingStatus bookingStatus = statusRepo.getBookingStatusById(idBooking);
+//            statusRepo.delete(bookingStatus);
 
 
             Booking bookingdelete = bookingRepo.getBookingById(idBooking);
