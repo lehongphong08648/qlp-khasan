@@ -45,7 +45,6 @@ public class FragmentRoom extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_room);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         lv_room =findViewById(R.id.lv_room);
         btn_frm_addRoom = findViewById(R.id.btn_frm_add_room);
 

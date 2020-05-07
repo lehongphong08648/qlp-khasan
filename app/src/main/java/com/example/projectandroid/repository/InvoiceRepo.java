@@ -2,6 +2,7 @@ package com.example.projectandroid.repository;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.room.Room;
 
@@ -9,6 +10,7 @@ import com.example.projectandroid.dao.InvoiceDAO;
 import com.example.projectandroid.database.AppDatabase;
 import com.example.projectandroid.model.Invoice;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -39,15 +41,27 @@ public class InvoiceRepo {
     }
 
     //Lấy tổng hóa đơn trong ngày
-    public float getInvoiceToday() {
-        return invoiceDAO.getInvoiceToday().get(0);
+    public float getInvoiceToday(Calendar calendar) {
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String strDate = sdf.format(calendar.getTime());
+        Date date = null;
+        try {
+            date = sdf.parse(strDate);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return invoiceDAO.getInvoiceByDay(date).get(0);
     }
 
-    public float getInvoiceByDay(int day){
+    public float getInvoiceByDay(int day) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), day);
 
         Date date = new Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+
 
         return invoiceDAO.getInvoiceByDay(date).get(0);
     }

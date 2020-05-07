@@ -37,7 +37,7 @@ public class FragmentAddKinOfRoom extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_add_kind_of_room);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         edt_maTlp = findViewById(R.id.edt_maTlp);
         edt_tentlp = findViewById(R.id.edt_tenTlp);

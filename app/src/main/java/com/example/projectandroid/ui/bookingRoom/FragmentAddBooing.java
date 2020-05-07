@@ -62,7 +62,7 @@ public class FragmentAddBooing extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_add_booing_fragment);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tv_ngayDen = findViewById(R.id.tv_ngayDen);
         tv_ngayDi = findViewById(R.id.tv_ngayDi);

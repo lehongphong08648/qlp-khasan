@@ -26,7 +26,7 @@ TextView tv_doanhSoNGay, tv_doanhSoThang,tv_doanhSoNam;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_statistical);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         invoiceRepo = new InvoiceRepo(this);
 
         Calendar calendar = Calendar.getInstance();
@@ -43,13 +43,12 @@ TextView tv_doanhSoNGay, tv_doanhSoThang,tv_doanhSoNam;
         tv_doanhSoNam = findViewById(R.id.tv_doangSoNam);
 
 int ngayI = Integer.parseInt(ngay);
-        Float doanhSoNgay = invoiceRepo.getInvoiceByDay(ngayI);
-        Float doanhSoThang = invoiceRepo.getInvoiceByMonth(Integer.parseInt(thang));
-        Float doanhSoNam = invoiceRepo.getInvoiceByYear(Integer.parseInt(nam));
+        float doanhSoNgay = invoiceRepo.getInvoiceToday(calendar);
+        float doanhSoThang = invoiceRepo.getInvoiceByMonth(Integer.parseInt(thang));
+        float doanhSoNam = invoiceRepo.getInvoiceByYear(Integer.parseInt(nam));
 
         tv_doanhSoNGay.setText(String.valueOf(doanhSoNgay));
         tv_doanhSoThang.setText(String.valueOf(doanhSoThang));
         tv_doanhSoNam.setText(String.valueOf(doanhSoNam));
 }
-
 }

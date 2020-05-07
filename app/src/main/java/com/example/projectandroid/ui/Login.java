@@ -6,8 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectandroid.MainActivity;
@@ -20,7 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Login extends AppCompatActivity {
-
+    ImageView imgLogologin;
+    TextView tvwellcome,tvcontinue;
     public static User user;
 
     EditText edt_tenNd_login, edt_makhau_login;
@@ -36,6 +41,19 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        imgLogologin = findViewById(R.id.imglogologin);
+        tvwellcome = findViewById(R.id.tvwwellcome);
+        tvcontinue = findViewById(R.id.tvcontinue);
+
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        Animation animation1 = AnimationUtils.loadAnimation(this,R.anim.fale_in_anim);
+        Animation animation2 = AnimationUtils.loadAnimation(this,R.anim.bot_animation);
+
+        imgLogologin.startAnimation(animation);
+        imgLogologin.startAnimation(animation1);
+        tvcontinue.startAnimation(animation2);
+        tvwellcome.startAnimation(animation2);
 
         edt_tenNd_login = findViewById(R.id.edt_tenND_login);
         edt_makhau_login = findViewById(R.id.edt_matKhau_login);

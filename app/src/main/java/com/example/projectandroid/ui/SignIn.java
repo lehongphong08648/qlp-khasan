@@ -22,7 +22,6 @@ UserRepo userRepo;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         edt_maND_signIn = findViewById(R.id.edt_maND_signIn);
         edt_matKhauND_signIn = findViewById(R.id.edt_matKhauND_signIn);
         edt_hoTenND_signIn = findViewById(R.id.edt_hoTenND_signIn);

@@ -29,7 +29,7 @@ List<Invoice> invoices;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_history);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         invoiceRepo = new InvoiceRepo(this);
         invoices = new ArrayList<>();

@@ -38,7 +38,7 @@ ClientRepo clientRepo;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_client);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         edt_nameClient = findViewById(R.id.edt_nameClient);
         edt_idCard = findViewById(R.id.edt_idCard);
@@ -73,7 +73,7 @@ ClientRepo clientRepo;
                 String email = edt_email.getText().toString();
                 QuocTich mQuocTich = (QuocTich) sp_quocTich_client.getSelectedItem();
                 String quocTich = mQuocTich.getQuocTich();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-YYYY");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 try {
                      date = simpleDateFormat.parse(ngaySinh);
                 } catch (ParseException e) {

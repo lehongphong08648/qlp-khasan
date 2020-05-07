@@ -36,7 +36,7 @@ List<User> users;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_staff);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         lv_user = findViewById(R.id.lv_nguoiDung);
         users = new ArrayList<>();

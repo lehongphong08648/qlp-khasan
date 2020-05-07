@@ -49,7 +49,6 @@ Button btn_add_room, btn_cancel_room;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_add_room);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         edt_maPhong = findViewById(R.id.edt_maPhong);
         edt_tang = findViewById(R.id.edt_tang);

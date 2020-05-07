@@ -27,12 +27,12 @@ public interface InvoiceDAO {
 
     @Query("SELECT SUM(total) FROM INVOICE INNER JOIN BOOKING " +
             "ON INVOICE.idBooking = BOOKING.idBooking " +
-            "WHERE strftime('%Y-%m-%d',dayGo) = strftime('%Y-%m-%d','now')")
+            "WHERE strftime('%Y-%m-%d',dayGo) =(select Date('now', 'localtime'))")
     List<Float> getInvoiceToday();
 
     @Query("SELECT SUM(total) FROM INVOICE INNER JOIN BOOKING " +
             "ON INVOICE.idBooking = BOOKING.idBooking " +
-            "WHERE strftime('%Y-%m-%d',dayGo) = strftime('%Y-%m-%d', :date)")
+            "WHERE strftime('%Y %m %d',dayGo) = strftime('%Y %m %d', :date)")
     List<Float> getInvoiceByDay(Date date);
 
     @Query("SELECT SUM(total) FROM INVOICE INNER JOIN BOOKING " +
@@ -47,5 +47,10 @@ public interface InvoiceDAO {
 
     @Query("SELECT * FROM INVOICE WHERE id = :idInvoice")
     List<Invoice> getInvoiceById(int idInvoice);
+
+    @Query("SELECT  strftime('%Y', Date(dayGo)) FROM INVOICE " +
+            "INNER JOIN BOOKING " +
+            "ON INVOICE.idBooking = BOOKING.idBooking")
+    List<Date> test();
 
 }

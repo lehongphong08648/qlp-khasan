@@ -37,7 +37,7 @@ InvoiceRepo invoiceRepo;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         init();
         edt_tenKh_CheckOut.setTypeface(null);
         Intent intent = getIntent();

@@ -32,7 +32,7 @@ ClientRepo clientRepo;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btn_frm_client = findViewById(R.id.btn_frm_client);
         lv_client = findViewById(R.id.lv_client);

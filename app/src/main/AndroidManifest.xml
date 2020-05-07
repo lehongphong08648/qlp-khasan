@@ -8,6 +8,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -59,6 +61,7 @@
         <activity
             android:name=".ui.systemManager.FragmentAddKinOfRoom"
             android:parentActivityName=".ui.systemManager.FragmentKindOfRoom" />
+        //Vượt ơi chạy đi t đang hơi ồn ko nói đc
         <activity
             android:name=".ui.systemManager.FragmentKindOfRoom"
             android:parentActivityName=".ui.systemManager.SystemManagerActivity" />
